@@ -34,4 +34,22 @@ struct PersistenceController {
             }
         })
     }
+    
+    func save(onComplete completion: @escaping (Error?) -> () = {_ in}) {
+        let context = container.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+                completion(nil)
+            } catch {
+                completion(error)
+            }
+        }
+    }
+    
+    func delete(_ object: NSManagedObject, onComplete completion: @escaping (Error?) -> () = {_ in}) {
+        let context = container.viewContext
+        context.delete(object)
+        save(onComplete: completion)
+    }
 }
