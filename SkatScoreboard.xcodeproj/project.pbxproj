@@ -106,11 +106,11 @@
 			children = (
 				C54181A926DADF4700E69BE5 /* SkatScoreboard.entitlements */,
 				C541817926DADEA500E69BE5 /* SkatScoreboardApp.swift */,
-				C541817B26DADEA500E69BE5 /* ContentView.swift */,
+				C54181AD26DAE47300E69BE5 /* Views */,
 				C541817D26DADEA700E69BE5 /* Assets.xcassets */,
 				C541818226DADEA700E69BE5 /* Persistence.swift */,
-				C541818726DADEA700E69BE5 /* Info.plist */,
 				C541818426DADEA700E69BE5 /* SkatScoreboard.xcdatamodeld */,
+				C541818726DADEA700E69BE5 /* Info.plist */,
 				C541817F26DADEA700E69BE5 /* Preview Content */,
 			);
 			path = SkatScoreboard;
@@ -148,6 +148,14 @@
 				C54181AB26DADF8500E69BE5 /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C54181AD26DAE47300E69BE5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C541817B26DADEA500E69BE5 /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
