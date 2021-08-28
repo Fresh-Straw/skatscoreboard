@@ -16,6 +16,7 @@
 		C541819126DADEA700E69BE5 /* SkatScoreboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C541819026DADEA700E69BE5 /* SkatScoreboardTests.swift */; };
 		C541819C26DADEA700E69BE5 /* SkatScoreboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C541819B26DADEA700E69BE5 /* SkatScoreboardUITests.swift */; };
 		C54181AC26DADF8500E69BE5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C54181AB26DADF8500E69BE5 /* CloudKit.framework */; };
+		C54181AF26DAEBB200E69BE5 /* PreviewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54181AE26DAEBB200E69BE5 /* PreviewContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		C541819D26DADEA700E69BE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C54181A926DADF4700E69BE5 /* SkatScoreboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SkatScoreboard.entitlements; sourceTree = "<group>"; };
 		C54181AB26DADF8500E69BE5 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		C54181AE26DAEBB200E69BE5 /* PreviewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		C541817F26DADEA700E69BE5 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				C54181AE26DAEBB200E69BE5 /* PreviewContent.swift */,
 				C541818026DADEA700E69BE5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -287,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C54181AF26DAEBB200E69BE5 /* PreviewContent.swift in Sources */,
 				C541818326DADEA700E69BE5 /* Persistence.swift in Sources */,
 				C541817C26DADEA500E69BE5 /* ContentView.swift in Sources */,
 				C541818626DADEA700E69BE5 /* SkatScoreboard.xcdatamodeld in Sources */,
