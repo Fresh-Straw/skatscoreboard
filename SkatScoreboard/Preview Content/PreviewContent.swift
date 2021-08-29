@@ -37,6 +37,23 @@ extension PersistenceController {
         }
     }
     
+    private func addGame(to scoreboard: Scoreboard, forOnOf players: [Player]) {
+        let game = Game(context: container.viewContext)
+        game.type = "Grand"
+        game.createdOn = Date()
+        game.partOf = scoreboard
+        game.playedBy = players[Int.random(in: 0..<players.count)]
+        game.bock = Bool.random()
+        game.contra = Bool.random()
+        game.hand = Bool.random()
+        game.re = Bool.random()
+        game.schneider = Bool.random()
+        game.schneiderAnnounced = Bool.random()
+        game.schwarz = Bool.random()
+        game.schwarzAnnounced = Bool.random()
+        game.won = Bool.random()
+    }
+    
     private func get<T>(a entityName: String) -> T {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         request.fetchLimit = 1
@@ -73,10 +90,20 @@ extension PersistenceController {
         let player6 = controller.createPlayer("Mogli")
         
         let scoreboard1 = controller.createScoreboard()
-        let scorebaord2 = controller.createScoreboard()
+        let scoreboard2 = controller.createScoreboard()
         
-        controller.add(players: [player1, player2, player3], to: scoreboard1)
-        controller.add(players: [player4, player5, player6], to: scorebaord2)
+        let players1 = [player1, player2, player3]
+        let players2 = [player4, player5, player6]
+        controller.add(players: players1, to: scoreboard1)
+        controller.add(players: players2, to: scoreboard2)
+        
+        (1...7).forEach { _ in
+            controller.addGame(to: scoreboard1, forOnOf: players1)
+        }
+        (1...2).forEach { _ in
+            controller.addGame(to: scoreboard2, forOnOf: players2)
+        }
+
 
         controller.save { error in
             if let error = error {

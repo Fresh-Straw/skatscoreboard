@@ -61,7 +61,10 @@ struct DEScoreboardDetailView: View {
                         }
                     }
                     ForEach(games) { game in
-                        DEGameRowView(game: game)
+                        NavigationLink(destination: DEGameDetailView(game: game)
+                                        .navigationTitle(game.type ?? "Game")) {
+                            DEGameRowView(game: game)
+                        }
                     }
                 }
             }
