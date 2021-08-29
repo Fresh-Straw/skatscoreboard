@@ -21,6 +21,7 @@
 		C54181B426DBA32300E69BE5 /* DEPlayersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54181B326DBA32300E69BE5 /* DEPlayersList.swift */; };
 		C54181B626DBA39300E69BE5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54181B526DBA39300E69BE5 /* ContentView.swift */; };
 		C5EBCF8226DBC61E003B2630 /* DEScoreboardsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EBCF8126DBC61E003B2630 /* DEScoreboardsList.swift */; };
+		C5EBCF8426DBD735003B2630 /* DEScoreboardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EBCF8326DBD735003B2630 /* DEScoreboardDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		C54181B326DBA32300E69BE5 /* DEPlayersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEPlayersList.swift; sourceTree = "<group>"; };
 		C54181B526DBA39300E69BE5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C5EBCF8126DBC61E003B2630 /* DEScoreboardsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEScoreboardsList.swift; sourceTree = "<group>"; };
+		C5EBCF8326DBD735003B2630 /* DEScoreboardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEScoreboardDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				C54181B126DBA26400E69BE5 /* DEOverView.swift */,
 				C54181B326DBA32300E69BE5 /* DEPlayersList.swift */,
 				C5EBCF8126DBC61E003B2630 /* DEScoreboardsList.swift */,
+				C5EBCF8326DBD735003B2630 /* DEScoreboardDetailView.swift */,
 			);
 			path = Explorer;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				C54181B426DBA32300E69BE5 /* DEPlayersList.swift in Sources */,
 				C54181AF26DAEBB200E69BE5 /* PreviewContent.swift in Sources */,
 				C54181B626DBA39300E69BE5 /* ContentView.swift in Sources */,
+				C5EBCF8426DBD735003B2630 /* DEScoreboardDetailView.swift in Sources */,
 				C541818326DADEA700E69BE5 /* Persistence.swift in Sources */,
 				C541817C26DADEA500E69BE5 /* SampleContentView.swift in Sources */,
 				C541818626DADEA700E69BE5 /* SkatScoreboard.xcdatamodeld in Sources */,
