@@ -10,8 +10,7 @@ import SwiftUI
 struct DEPlayersList: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    @State private var addPlayer = false
-    @State private var newPlayerName = ""
+    @State private var showAddPlayer = false
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Player.name, ascending: true)],
@@ -56,57 +55,17 @@ struct DEPlayersList: View {
                 #endif
 
                 Button(action: {
-                    newPlayerName = ""
-                    addPlayer = true
+                    showAddPlayer = true
                 }, label: {
                     Label("Add Item", systemImage: "plus")
                 })
             }
         }
-        .sheet(isPresented: $addPlayer, content: {
-            VStack {
-                VStack(alignment: .leading) {
-                    Text("New Player")
-                        .font(.caption)
-                    TextField("Player name", text: $newPlayerName)
-                        .autocapitalization(.words)
-                        .disableAutocorrection(true)
-                }
-                .padding(.bottom, 10)
-                
-                Button(action: {
-                    let player = Player(context: viewContext)
-                    player.createdOn = Date()
-                    player.name = newPlayerName
-                    PersistenceController.shared.save()
-                    addPlayer = false
-                }, label: {
-                    Text("Save")
-                })
-                
-                Spacer()
-            }
-            .padding()
+        .sheet(isPresented: $showAddPlayer, content: {
+            AddPlayerView(showAddPlayer: $showAddPlayer)
         })
-        
     }
     
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { players[$0] }.forEach(viewContext.delete)
@@ -123,9 +82,66 @@ struct DEPlayersList: View {
     }
 }
 
+private struct AddPlayerView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @State private var newPlayerName = ""
+    @State private var newPlayerIconName = ""
+    @Binding var showAddPlayer: Bool
+    
+    var body: some View {
+        Form {
+            Section {
+                VStack(alignment: .leading) {
+                    TextField("Player name", text: $newPlayerName)
+                        .autocapitalization(.words)
+                        .disableAutocorrection(true)
+                }
+                Picker(selection: $newPlayerIconName, label:
+                        Text("Player Icon")
+                       , content: {
+                        //Text("").tag("")
+                        Image(systemName: "suit.spade.fill")
+                            .tag("suit.spade.fill")
+                        Image(systemName: "hand.thumbsup.fill")
+                            .tag("hand.thumbsup.fill")
+                        Image(systemName: "figure.wave")
+                            .tag("figure.wave")
+                        Image(systemName: "square.circle.fill")
+                            .tag("square.circle.fill")
+                        Image(systemName: "bed.double.fill")
+                            .tag("bed.double.fill")
+                       })
+                    .pickerStyle(WheelPickerStyle())
+            }
+            
+            Section {
+                Button(action: {
+                    withAnimation {
+                        let player = Player(context: viewContext)
+                        player.createdOn = Date()
+                        player.name = newPlayerName
+                        if newPlayerIconName != "" {
+                            player.iconName = newPlayerIconName
+                        }
+                        PersistenceController.shared.save()
+                        showAddPlayer = false
+                    }
+                }, label: {
+                    Text("Save")
+                })
+            }
+        }
+        .navigationTitle("New Player")
+    }
+}
+
 struct DEPlayersList_Previews: PreviewProvider {
     static var previews: some View {
         DEPlayersList()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        
+        AddPlayerView(showAddPlayer: .constant(true))
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
