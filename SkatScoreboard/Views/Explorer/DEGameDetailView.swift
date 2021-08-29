@@ -11,7 +11,102 @@ struct DEGameDetailView: View {
     var game: Game
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form {
+            Section(header: Text("General")) {
+                if let type = game.type {
+                    Text(type)
+                        .font(.title3)
+                } else {
+                    Text("NO-TYPE")
+                        .foregroundColor(.red)
+                }
+                if let scoreboard = game.partOf {
+                    NavigationLink(destination: DEScoreboardDetailView(scoreboard: scoreboard)
+                                    .navigationTitle("Scoreboard")) {
+                        DEScoreboardRowView(scoreboard: scoreboard)
+                    }
+                } else {
+                    Text("NO-SCOREBOARD")
+                        .foregroundColor(.red)
+                }
+                if let player = game.playedBy {
+                    NavigationLink(destination: DEPlayerDetailView(player: player)
+                                    .navigationTitle(player.name ?? "Player")) {
+                        DEPlayerRowView(player: player)
+                    }
+                } else {
+                    Text("NO-PLAYER")
+                        .foregroundColor(.red)
+                }
+            }
+            
+            Section(header: Text("Settings")) {
+                HStack {
+                    Text("Won")
+                        .foregroundColor(.gray)
+                    Spacer()
+                    if let value = game.won {
+                        Text(value ? "yes" : "no")
+                    }
+                }
+                HStack {
+                    Text("Schneider")
+                        .foregroundColor(.gray)
+                    Spacer()
+                    if let value = game.schneider {
+                        Text(value ? "yes" : "no")
+                    }
+                }
+                HStack {
+                    Text("Schneider angesagt")
+                        .foregroundColor(.gray)
+                    Spacer()
+                    if let value = game.schneiderAnnounced {
+                        Text(value ? "yes" : "no")
+                    }
+                }
+                HStack {
+                    Text("Schwarz")
+                        .foregroundColor(.gray)
+                    Spacer()
+                    if let value = game.schwarz {
+                        Text(value ? "yes" : "no")
+                    }
+                }
+                HStack {
+                    Text("Schwarz angesagt")
+                        .foregroundColor(.gray)
+                    Spacer()
+                    if let value = game.schwarzAnnounced {
+                        Text(value ? "yes" : "no")
+                    }
+                }
+                HStack {
+                    Text("Contra")
+                        .foregroundColor(.gray)
+                    Spacer()
+                    if let value = game.contra {
+                        Text(value ? "yes" : "no")
+                    }
+                }
+                HStack {
+                    Text("Re")
+                        .foregroundColor(.gray)
+                    Spacer()
+                    if let value = game.re {
+                        Text(value ? "yes" : "no")
+                    }
+                }
+                HStack {
+                    Text("Bock")
+                        .foregroundColor(.gray)
+                    Spacer()
+                    if let value = game.bock {
+                        Text(value ? "yes" : "no")
+                    }
+                }
+            }
+        }
     }
 }
 
