@@ -61,24 +61,23 @@ struct PersistenceController {
 }
 
 extension Scoreboard {
-    func getPlayers(context: NSManagedObjectContext) -> [Player] {
+    func getPlayers() -> [Player] {
         let set = playersRaw as? Set<PlayerInScoreboard> ?? []
         return set.sorted {
             $0.order < $1.order
         }.map {
             $0.player!
         }
-        
-        
-//        let pFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Player")
-//        pFetch.predicate = NSPredicate(format: "tookPartIn.scoreboard = %@", self)
-//        // pFetch.sortDescriptors = [NSSortDescriptor(keyPath: \Player.tookPartIn, ascending: true)]
-//        do {
-//            let players = try context.fetch(pFetch) as! [Player]
-//            return players
-//        } catch {
-//            // TODO
-//            return []
-//        }
+    }
+}
+
+extension Player {
+    func getScoreboards() -> [Scoreboard] {
+        let boards = tookPartIn as? Set<PlayerInScoreboard> ?? []
+        return boards
+            .map { $0.scoreboard }
+            .filter { $0 != nil }
+            .map { $0! }
+            .sorted { $0.lastChangedOn ?? Date() < $1.lastChangedOn ?? Date() }
     }
 }

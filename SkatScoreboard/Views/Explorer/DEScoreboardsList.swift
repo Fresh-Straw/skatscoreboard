@@ -21,29 +21,10 @@ struct DEScoreboardsList: View {
     var body: some View {
         List {
             ForEach(scoreboards) { scoreboard in
-                let players = scoreboard.getPlayers(context: viewContext)
                 NavigationLink(
                     destination: DEScoreboardDetailView(scoreboard: scoreboard)
-                        .navigationTitle("Scoreboard (\(players.count))")) {
-                    VStack(alignment: .leading) {
-                        Text("Players: \(players.map({$0.name ?? "NO-NAME"}).joined(separator: ", "))")
-                        if let lastChangedOn = scoreboard.lastChangedOn {
-                            Text("Last changed on: \(lastChangedOn, formatter: itemFormatter)")
-                                .foregroundColor(.gray)
-                        } else {
-                            Text("No last changed date")
-                                .italic()
-                                .foregroundColor(.gray)
-                        }
-                        if let createdOn = scoreboard.createdOn {
-                            Text("Created on: \(createdOn, formatter: itemFormatter)")
-                                .foregroundColor(.purple)
-                        } else {
-                            Text("No creation date")
-                                .italic()
-                                .foregroundColor(.purple)
-                        }
-                    }
+                        .navigationTitle("Scoreboard")) {
+                    DEScoreboardRowView(scoreboard: scoreboard)
                 }
             }
             .onDelete(perform: { indexSet in

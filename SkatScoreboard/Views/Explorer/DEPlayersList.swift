@@ -20,28 +20,10 @@ struct DEPlayersList: View {
     var body: some View {
         List {
             ForEach(players) { player in
-                HStack(alignment: .center) {
-                    if let iconName = player.iconName {
-                        Image(systemName: iconName)
-                            .imageScale(.large)
-                    } else {
-                        Image(systemName: "person.fill.turn.down")
-                            .imageScale(.large)
-                            .foregroundColor(Color.red)
-                    }
-                    
-                    VStack(alignment: .leading) {
-                        if let name = player.name {
-                            Text(name)
-                        } else {
-                            Text("No name").italic()
-                        }
-                        if let createdOn = player.createdOn {
-                            Text(createdOn, formatter: itemFormatter)
-                        } else {
-                            Text("No date").italic()
-                        }
-                    }
+                NavigationLink(
+                    destination: DEPlayerDetailView(player: player)
+                        .navigationTitle(player.name ?? "Player")) {
+                    DEPlayerRowView(player: player)
                 }
             }
             .onDelete(perform: { indexSet in
