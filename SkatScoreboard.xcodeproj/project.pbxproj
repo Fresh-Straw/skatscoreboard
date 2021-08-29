@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C541817A26DADEA500E69BE5 /* SkatScoreboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C541817926DADEA500E69BE5 /* SkatScoreboardApp.swift */; };
-		C541817C26DADEA500E69BE5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C541817B26DADEA500E69BE5 /* ContentView.swift */; };
+		C541817C26DADEA500E69BE5 /* SampleContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C541817B26DADEA500E69BE5 /* SampleContentView.swift */; };
 		C541817E26DADEA700E69BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C541817D26DADEA700E69BE5 /* Assets.xcassets */; };
 		C541818126DADEA700E69BE5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C541818026DADEA700E69BE5 /* Preview Assets.xcassets */; };
 		C541818326DADEA700E69BE5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C541818226DADEA700E69BE5 /* Persistence.swift */; };
@@ -17,6 +17,9 @@
 		C541819C26DADEA700E69BE5 /* SkatScoreboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C541819B26DADEA700E69BE5 /* SkatScoreboardUITests.swift */; };
 		C54181AC26DADF8500E69BE5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C54181AB26DADF8500E69BE5 /* CloudKit.framework */; };
 		C54181AF26DAEBB200E69BE5 /* PreviewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54181AE26DAEBB200E69BE5 /* PreviewContent.swift */; };
+		C54181B226DBA26400E69BE5 /* DEOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54181B126DBA26400E69BE5 /* DEOverView.swift */; };
+		C54181B426DBA32300E69BE5 /* DEPlayersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54181B326DBA32300E69BE5 /* DEPlayersList.swift */; };
+		C54181B626DBA39300E69BE5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54181B526DBA39300E69BE5 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +42,7 @@
 /* Begin PBXFileReference section */
 		C541817626DADEA500E69BE5 /* SkatScoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkatScoreboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C541817926DADEA500E69BE5 /* SkatScoreboardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkatScoreboardApp.swift; sourceTree = "<group>"; };
-		C541817B26DADEA500E69BE5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C541817B26DADEA500E69BE5 /* SampleContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleContentView.swift; sourceTree = "<group>"; };
 		C541817D26DADEA700E69BE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C541818026DADEA700E69BE5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C541818226DADEA700E69BE5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -54,6 +57,9 @@
 		C54181A926DADF4700E69BE5 /* SkatScoreboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SkatScoreboard.entitlements; sourceTree = "<group>"; };
 		C54181AB26DADF8500E69BE5 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		C54181AE26DAEBB200E69BE5 /* PreviewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContent.swift; sourceTree = "<group>"; };
+		C54181B126DBA26400E69BE5 /* DEOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEOverView.swift; sourceTree = "<group>"; };
+		C54181B326DBA32300E69BE5 /* DEPlayersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEPlayersList.swift; sourceTree = "<group>"; };
+		C54181B526DBA39300E69BE5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,9 +162,20 @@
 		C54181AD26DAE47300E69BE5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C541817B26DADEA500E69BE5 /* ContentView.swift */,
+				C54181B526DBA39300E69BE5 /* ContentView.swift */,
+				C541817B26DADEA500E69BE5 /* SampleContentView.swift */,
+				C54181B026DBA24900E69BE5 /* Explorer */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C54181B026DBA24900E69BE5 /* Explorer */ = {
+			isa = PBXGroup;
+			children = (
+				C54181B126DBA26400E69BE5 /* DEOverView.swift */,
+				C54181B326DBA32300E69BE5 /* DEPlayersList.swift */,
+			);
+			path = Explorer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,10 +307,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C54181B426DBA32300E69BE5 /* DEPlayersList.swift in Sources */,
 				C54181AF26DAEBB200E69BE5 /* PreviewContent.swift in Sources */,
+				C54181B626DBA39300E69BE5 /* ContentView.swift in Sources */,
 				C541818326DADEA700E69BE5 /* Persistence.swift in Sources */,
-				C541817C26DADEA500E69BE5 /* ContentView.swift in Sources */,
+				C541817C26DADEA500E69BE5 /* SampleContentView.swift in Sources */,
 				C541818626DADEA700E69BE5 /* SkatScoreboard.xcdatamodeld in Sources */,
+				C54181B226DBA26400E69BE5 /* DEOverView.swift in Sources */,
 				C541817A26DADEA500E69BE5 /* SkatScoreboardApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,8 +11,8 @@
     </entity>
     <entity name="Player" representedClassName="Player" syncable="YES" codeGenerationType="class">
         <attribute name="createdOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="iconName" attributeType="String" defaultValueString=""/>
-        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="iconName" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="playedGames" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="playedBy" inverseEntity="Game"/>
         <relationship name="tookPartIn" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerInScoreboard" inverseName="player" inverseEntity="PlayerInScoreboard"/>
     </entity>
@@ -27,10 +27,10 @@
         <relationship name="playersRaw" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerInScoreboard" inverseName="scoreboard" inverseEntity="PlayerInScoreboard"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
         <element name="Game" positionX="-119.3508911132812" positionY="61.20948791503906" width="128" height="103"/>
+        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
         <element name="Player" positionX="-151.6709594726562" positionY="300.2659759521484" width="128" height="104"/>
-        <element name="Scoreboard" positionX="235.0746459960938" positionY="76.64984130859375" width="128" height="88"/>
         <element name="PlayerInScoreboard" positionX="197.8795166015625" positionY="417.0590515136719" width="128" height="74"/>
+        <element name="Scoreboard" positionX="235.0746459960938" positionY="76.64984130859375" width="128" height="88"/>
     </elements>
 </model>

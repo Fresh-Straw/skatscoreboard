@@ -14,7 +14,7 @@ extension PersistenceController {
         let player = Player(context: container.viewContext)
         player.createdOn = Date()
         player.name = name
-        player.iconName = "asd"
+        player.iconName = Int.random(in: 1...2) == 1 ? "person.circle.fill" : "person.circle"
         return player
     }
     
