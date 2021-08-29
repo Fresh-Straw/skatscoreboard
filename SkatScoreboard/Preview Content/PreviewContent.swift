@@ -6,23 +6,46 @@
 //
 
 import Foundation
+import CoreData
 
 extension PersistenceController {
+    
+    private func createPlayer(_ name: String) -> Player {
+        let player = Player(context: container.viewContext)
+        player.createdOn = Date()
+        player.name = name
+        player.iconName = "asd"
+        return player
+    }
+    
+    private func createScoreboard() -> Scoreboard {
+        let scoreboard = Scoreboard(context: container.viewContext)
+        return scoreboard
+    }
     
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
+        
+        // create items
         for _ in 0..<10 {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
         }
-        do {
-            try viewContext.save()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        
+        // create some players
+        let player1 = result.createPlayer("Olaf")
+        let player2 = result.createPlayer("Selina")
+        let player3 = result.createPlayer("Jasmin")
+        let player4 = result.createPlayer("Tarzan")
+        
+        let scoreboard = result.createScoreboard()
+
+        result.save { error in
+            if let error = error {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
         }
         return result
     }()

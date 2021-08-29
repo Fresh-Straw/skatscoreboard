@@ -15,6 +15,10 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Player.name, ascending: true)],
+        animation: .default)
+    private var players: FetchedResults<Player>
 
     var body: some View {
         List {
@@ -22,6 +26,10 @@ struct ContentView: View {
                 Text("Item at \(item.timestamp!, formatter: itemFormatter)")
             }
             .onDelete(perform: deleteItems)
+            
+            ForEach(players) { player in
+                Text("Player \(player.name!), added ad \(player.createdOn!, formatter: itemFormatter)")
+            }
         }
         .toolbar {
             #if os(iOS)
