@@ -35,7 +35,13 @@ struct PersistenceController {
         })
     }
     
-    func save(onComplete completion: @escaping (Error?) -> () = {_ in}) {
+    private static func defaultCompletionHandler(error: Error?) {
+        if let error = error {
+            print("PERSISTANCE ERROR: " + error.localizedDescription)
+        }
+    }
+    
+    func save(onComplete completion: @escaping (Error?) -> () = defaultCompletionHandler) {
         let context = container.viewContext
         if context.hasChanges {
             do {

@@ -23,6 +23,7 @@
     </entity>
     <entity name="Scoreboard" representedClassName="Scoreboard" syncable="YES" codeGenerationType="class">
         <attribute name="createdOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="lastChangedOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="games" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Game" inverseName="partOf" inverseEntity="Game"/>
         <relationship name="playersRaw" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerInScoreboard" inverseName="scoreboard" inverseEntity="PlayerInScoreboard"/>
     </entity>
@@ -31,6 +32,6 @@
         <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
         <element name="Player" positionX="-151.6709594726562" positionY="300.2659759521484" width="128" height="104"/>
         <element name="PlayerInScoreboard" positionX="197.8795166015625" positionY="417.0590515136719" width="128" height="74"/>
-        <element name="Scoreboard" positionX="235.0746459960938" positionY="76.64984130859375" width="128" height="88"/>
+        <element name="Scoreboard" positionX="235.0746459960938" positionY="76.64984130859375" width="128" height="89"/>
     </elements>
 </model>

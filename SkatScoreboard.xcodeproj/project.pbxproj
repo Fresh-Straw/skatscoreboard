@@ -20,6 +20,7 @@
 		C54181B226DBA26400E69BE5 /* DEOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54181B126DBA26400E69BE5 /* DEOverView.swift */; };
 		C54181B426DBA32300E69BE5 /* DEPlayersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54181B326DBA32300E69BE5 /* DEPlayersList.swift */; };
 		C54181B626DBA39300E69BE5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54181B526DBA39300E69BE5 /* ContentView.swift */; };
+		C5EBCF8226DBC61E003B2630 /* DEScoreboardsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EBCF8126DBC61E003B2630 /* DEScoreboardsList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		C54181B126DBA26400E69BE5 /* DEOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEOverView.swift; sourceTree = "<group>"; };
 		C54181B326DBA32300E69BE5 /* DEPlayersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEPlayersList.swift; sourceTree = "<group>"; };
 		C54181B526DBA39300E69BE5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C5EBCF8126DBC61E003B2630 /* DEScoreboardsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEScoreboardsList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 			children = (
 				C54181B126DBA26400E69BE5 /* DEOverView.swift */,
 				C54181B326DBA32300E69BE5 /* DEPlayersList.swift */,
+				C5EBCF8126DBC61E003B2630 /* DEScoreboardsList.swift */,
 			);
 			path = Explorer;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				C541818326DADEA700E69BE5 /* Persistence.swift in Sources */,
 				C541817C26DADEA500E69BE5 /* SampleContentView.swift in Sources */,
 				C541818626DADEA700E69BE5 /* SkatScoreboard.xcdatamodeld in Sources */,
+				C5EBCF8226DBC61E003B2630 /* DEScoreboardsList.swift in Sources */,
 				C54181B226DBA26400E69BE5 /* DEOverView.swift in Sources */,
 				C541817A26DADEA500E69BE5 /* SkatScoreboardApp.swift in Sources */,
 			);

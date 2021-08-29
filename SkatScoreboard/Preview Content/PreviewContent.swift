@@ -21,6 +21,8 @@ extension PersistenceController {
     
     private func createScoreboard() -> Scoreboard {
         let scoreboard = Scoreboard(context: container.viewContext)
+        scoreboard.createdOn = Date()
+        scoreboard.lastChangedOn = Date()
         return scoreboard
     }
     
@@ -42,7 +44,8 @@ extension PersistenceController {
         let player5 = result.createPlayer("Jane")
         let player6 = result.createPlayer("Mogli")
         
-        let scoreboard = result.createScoreboard()
+        let scoreboard1 = result.createScoreboard()
+        let scorebaord2 = result.createScoreboard()
 
         result.save { error in
             if let error = error {

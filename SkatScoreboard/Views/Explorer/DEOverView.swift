@@ -17,6 +17,11 @@ struct DEOverView: View {
                             .environment(\.managedObjectContext, viewContext)) {
                 Text("Players")
             }
+            NavigationLink(destination: DEScoreboardsList()
+                            .navigationTitle("Scoreboards")
+                            .environment(\.managedObjectContext, viewContext)) {
+                Text("Scoreboards")
+            }
         }
         .navigationTitle("Data Explorer")
     }

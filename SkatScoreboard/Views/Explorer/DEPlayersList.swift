@@ -57,7 +57,7 @@ struct DEPlayersList: View {
                 Button(action: {
                     showAddPlayer = true
                 }, label: {
-                    Label("Add Item", systemImage: "plus")
+                    Label("Add Player", systemImage: "plus")
                 })
             }
         }
@@ -69,15 +69,7 @@ struct DEPlayersList: View {
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { players[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            PersistenceController.shared.save()
         }
     }
 }
@@ -90,49 +82,51 @@ private struct AddPlayerView: View {
     @Binding var showAddPlayer: Bool
     
     var body: some View {
-        Form {
-            Section {
-                VStack(alignment: .leading) {
-                    TextField("Player name", text: $newPlayerName)
-                        .autocapitalization(.words)
-                        .disableAutocorrection(true)
-                }
-                Picker(selection: $newPlayerIconName, label:
-                        Text("Player Icon")
-                       , content: {
-                        //Text("").tag("")
-                        Image(systemName: "suit.spade.fill")
-                            .tag("suit.spade.fill")
-                        Image(systemName: "hand.thumbsup.fill")
-                            .tag("hand.thumbsup.fill")
-                        Image(systemName: "figure.wave")
-                            .tag("figure.wave")
-                        Image(systemName: "square.circle.fill")
-                            .tag("square.circle.fill")
-                        Image(systemName: "bed.double.fill")
-                            .tag("bed.double.fill")
-                       })
-                    .pickerStyle(WheelPickerStyle())
-            }
-            
-            Section {
-                Button(action: {
-                    withAnimation {
-                        let player = Player(context: viewContext)
-                        player.createdOn = Date()
-                        player.name = newPlayerName
-                        if newPlayerIconName != "" {
-                            player.iconName = newPlayerIconName
-                        }
-                        PersistenceController.shared.save()
-                        showAddPlayer = false
+        NavigationView {
+            Form {
+                Section {
+                    VStack(alignment: .leading) {
+                        TextField("Player name", text: $newPlayerName)
+                            .autocapitalization(.words)
+                            .disableAutocorrection(true)
                     }
-                }, label: {
-                    Text("Save")
-                })
+                    Picker(selection: $newPlayerIconName, label:
+                            Text("Player Icon")
+                           , content: {
+                            //Text("").tag("")
+                            Image(systemName: "suit.spade.fill")
+                                .tag("suit.spade.fill")
+                            Image(systemName: "hand.thumbsup.fill")
+                                .tag("hand.thumbsup.fill")
+                            Image(systemName: "figure.wave")
+                                .tag("figure.wave")
+                            Image(systemName: "square.circle.fill")
+                                .tag("square.circle.fill")
+                            Image(systemName: "bed.double.fill")
+                                .tag("bed.double.fill")
+                           })
+                        //.pickerStyle(WheelPickerStyle())
+                }
+                
+                Section {
+                    Button(action: {
+                        withAnimation {
+                            let player = Player(context: viewContext)
+                            player.createdOn = Date()
+                            player.name = newPlayerName
+                            if newPlayerIconName != "" {
+                                player.iconName = newPlayerIconName
+                            }
+                            PersistenceController.shared.save()
+                            showAddPlayer = false
+                        }
+                    }, label: {
+                        Text("Save")
+                    })
+                }
             }
+            .navigationTitle("New Player")
         }
-        .navigationTitle("New Player")
     }
 }
 
