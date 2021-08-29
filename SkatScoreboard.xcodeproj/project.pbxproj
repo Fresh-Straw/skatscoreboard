@@ -17,13 +17,15 @@
 		C54181AC26DADF8500E69BE5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C54181AB26DADF8500E69BE5 /* CloudKit.framework */; };
 		C54181AF26DAEBB200E69BE5 /* PreviewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54181AE26DAEBB200E69BE5 /* PreviewContent.swift */; };
 		C54181B226DBA26400E69BE5 /* DEOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54181B126DBA26400E69BE5 /* DEOverView.swift */; };
-		C54181B426DBA32300E69BE5 /* DEPlayersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54181B326DBA32300E69BE5 /* DEPlayersList.swift */; };
+		C54181B426DBA32300E69BE5 /* DEPlayersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54181B326DBA32300E69BE5 /* DEPlayersListView.swift */; };
 		C54181B626DBA39300E69BE5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54181B526DBA39300E69BE5 /* ContentView.swift */; };
 		C5A5D22B26DBE21F006D10B9 /* DEPlayerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D22A26DBE21F006D10B9 /* DEPlayerDetailView.swift */; };
 		C5A5D22D26DBE4F0006D10B9 /* DEScoreboardRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D22C26DBE4F0006D10B9 /* DEScoreboardRowView.swift */; };
 		C5A5D22F26DBE597006D10B9 /* DEPlayerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D22E26DBE597006D10B9 /* DEPlayerRowView.swift */; };
 		C5A5D23126DBE697006D10B9 /* DEGameRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D23026DBE697006D10B9 /* DEGameRowView.swift */; };
-		C5EBCF8226DBC61E003B2630 /* DEScoreboardsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EBCF8126DBC61E003B2630 /* DEScoreboardsList.swift */; };
+		C5A5D23326DBE7B9006D10B9 /* DEGamesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D23226DBE7B9006D10B9 /* DEGamesListView.swift */; };
+		C5A5D23526DBE8B2006D10B9 /* DEGameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D23426DBE8B2006D10B9 /* DEGameDetailView.swift */; };
+		C5EBCF8226DBC61E003B2630 /* DEScoreboardsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EBCF8126DBC61E003B2630 /* DEScoreboardsListView.swift */; };
 		C5EBCF8426DBD735003B2630 /* DEScoreboardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EBCF8326DBD735003B2630 /* DEScoreboardDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,13 +64,15 @@
 		C54181AB26DADF8500E69BE5 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		C54181AE26DAEBB200E69BE5 /* PreviewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContent.swift; sourceTree = "<group>"; };
 		C54181B126DBA26400E69BE5 /* DEOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEOverView.swift; sourceTree = "<group>"; };
-		C54181B326DBA32300E69BE5 /* DEPlayersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEPlayersList.swift; sourceTree = "<group>"; };
+		C54181B326DBA32300E69BE5 /* DEPlayersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEPlayersListView.swift; sourceTree = "<group>"; };
 		C54181B526DBA39300E69BE5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C5A5D22A26DBE21F006D10B9 /* DEPlayerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEPlayerDetailView.swift; sourceTree = "<group>"; };
 		C5A5D22C26DBE4F0006D10B9 /* DEScoreboardRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEScoreboardRowView.swift; sourceTree = "<group>"; };
 		C5A5D22E26DBE597006D10B9 /* DEPlayerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEPlayerRowView.swift; sourceTree = "<group>"; };
 		C5A5D23026DBE697006D10B9 /* DEGameRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEGameRowView.swift; sourceTree = "<group>"; };
-		C5EBCF8126DBC61E003B2630 /* DEScoreboardsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEScoreboardsList.swift; sourceTree = "<group>"; };
+		C5A5D23226DBE7B9006D10B9 /* DEGamesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEGamesListView.swift; sourceTree = "<group>"; };
+		C5A5D23426DBE8B2006D10B9 /* DEGameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEGameDetailView.swift; sourceTree = "<group>"; };
+		C5EBCF8126DBC61E003B2630 /* DEScoreboardsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEScoreboardsListView.swift; sourceTree = "<group>"; };
 		C5EBCF8326DBD735003B2630 /* DEScoreboardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEScoreboardDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,10 +186,12 @@
 			isa = PBXGroup;
 			children = (
 				C54181B126DBA26400E69BE5 /* DEOverView.swift */,
-				C54181B326DBA32300E69BE5 /* DEPlayersList.swift */,
-				C5EBCF8126DBC61E003B2630 /* DEScoreboardsList.swift */,
+				C54181B326DBA32300E69BE5 /* DEPlayersListView.swift */,
+				C5EBCF8126DBC61E003B2630 /* DEScoreboardsListView.swift */,
+				C5A5D23226DBE7B9006D10B9 /* DEGamesListView.swift */,
 				C5EBCF8326DBD735003B2630 /* DEScoreboardDetailView.swift */,
 				C5A5D22A26DBE21F006D10B9 /* DEPlayerDetailView.swift */,
+				C5A5D23426DBE8B2006D10B9 /* DEGameDetailView.swift */,
 				C5A5D22C26DBE4F0006D10B9 /* DEScoreboardRowView.swift */,
 				C5A5D22E26DBE597006D10B9 /* DEPlayerRowView.swift */,
 				C5A5D23026DBE697006D10B9 /* DEGameRowView.swift */,
@@ -322,15 +328,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C54181B426DBA32300E69BE5 /* DEPlayersList.swift in Sources */,
+				C54181B426DBA32300E69BE5 /* DEPlayersListView.swift in Sources */,
 				C54181AF26DAEBB200E69BE5 /* PreviewContent.swift in Sources */,
 				C54181B626DBA39300E69BE5 /* ContentView.swift in Sources */,
+				C5A5D23326DBE7B9006D10B9 /* DEGamesListView.swift in Sources */,
 				C5EBCF8426DBD735003B2630 /* DEScoreboardDetailView.swift in Sources */,
 				C5A5D23126DBE697006D10B9 /* DEGameRowView.swift in Sources */,
 				C5A5D22D26DBE4F0006D10B9 /* DEScoreboardRowView.swift in Sources */,
 				C541818326DADEA700E69BE5 /* Persistence.swift in Sources */,
 				C541818626DADEA700E69BE5 /* SkatScoreboard.xcdatamodeld in Sources */,
-				C5EBCF8226DBC61E003B2630 /* DEScoreboardsList.swift in Sources */,
+				C5EBCF8226DBC61E003B2630 /* DEScoreboardsListView.swift in Sources */,
+				C5A5D23526DBE8B2006D10B9 /* DEGameDetailView.swift in Sources */,
 				C5A5D22B26DBE21F006D10B9 /* DEPlayerDetailView.swift in Sources */,
 				C5A5D22F26DBE597006D10B9 /* DEPlayerRowView.swift in Sources */,
 				C54181B226DBA26400E69BE5 /* DEOverView.swift in Sources */,

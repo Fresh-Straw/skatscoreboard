@@ -14,6 +14,7 @@ struct DEScoreboardRowView: View {
         let players = scoreboard.getPlayers()
         VStack(alignment: .leading) {
             Text("Players: \(players.map({$0.name ?? "NO-NAME"}).joined(separator: ", "))")
+            Text("Games: \(scoreboard.games?.count ?? 0)")
             if let lastChangedOn = scoreboard.lastChangedOn {
                 Text("Last changed on: \(lastChangedOn, formatter: itemFormatter)")
                     .foregroundColor(.gray)

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DEPlayersList: View {
+struct DEPlayersListView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     @State private var showAddPlayer = false
@@ -112,9 +112,9 @@ private struct AddPlayerView: View {
     }
 }
 
-struct DEPlayersList_Previews: PreviewProvider {
+struct DEPlayersListView_Previews: PreviewProvider {
     static var previews: some View {
-        DEPlayersList()
+        DEPlayersListView()
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         
         AddPlayerView(showAddPlayer: .constant(true))

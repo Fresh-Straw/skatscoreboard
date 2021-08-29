@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct DEScoreboardsList: View {
+struct DEScoreboardsListView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     @State private var showAddScoreboard = false
@@ -88,58 +88,26 @@ private struct AddScoreboardView: View {
                 Section(header: Text("Players")) {
                     Picker(selection: $player1, label: Text("Player 1")) {
                         ForEach(players) { player in
-                            HStack {
-                                if let iconName = player.iconName {
-                                    Image(systemName: iconName)
-                                }
-                                if let name = player.name {
-                                    Text(name)
-                                } else {
-                                    Text("NO NAME")
-                                }
-                            }.tag(player as Player?)
+                            DEPlayerRowView(player: player)
+                                .tag(player as Player?)
                         }
                     }
                     Picker(selection: $player2, label: Text("Player 2")) {
                         ForEach(players) { player in
-                            HStack {
-                                if let iconName = player.iconName {
-                                    Image(systemName: iconName)
-                                }
-                                if let name = player.name {
-                                    Text(name)
-                                } else {
-                                    Text("NO NAME")
-                                }
-                            }.tag(player as Player?)
+                            DEPlayerRowView(player: player)
+                                .tag(player as Player?)
                         }
                     }
                     Picker(selection: $player3, label: Text("Player 3")) {
                         ForEach(players) { player in
-                            HStack {
-                                if let iconName = player.iconName {
-                                    Image(systemName: iconName)
-                                }
-                                if let name = player.name {
-                                    Text(name)
-                                } else {
-                                    Text("NO NAME")
-                                }
-                            }.tag(player as Player?)
+                            DEPlayerRowView(player: player)
+                                .tag(player as Player?)
                         }
                     }
                     Picker(selection: $player4, label: Text("Player 4")) {
                         ForEach(players) { player in
-                            HStack {
-                                if let iconName = player.iconName {
-                                    Image(systemName: iconName)
-                                }
-                                if let name = player.name {
-                                    Text(name)
-                                } else {
-                                    Text("NO NAME")
-                                }
-                            }.tag(player as Player?)
+                            DEPlayerRowView(player: player)
+                                .tag(player as Player?)
                         }
                     }
                 }
@@ -192,9 +160,9 @@ private struct AddScoreboardView: View {
     }
 }
 
-struct DEScoreboardsList_Previews: PreviewProvider {
+struct DEScoreboardsListView_Previews: PreviewProvider {
     static var previews: some View {
-        DEScoreboardsList()
+        DEScoreboardsListView()
         
         AddScoreboardView(showAddScoreboard: .constant(true))
     }

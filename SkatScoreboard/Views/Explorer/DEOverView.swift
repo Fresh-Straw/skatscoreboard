@@ -12,15 +12,20 @@ struct DEOverView: View {
     
     var body: some View {
         List {
-            NavigationLink(destination: DEPlayersList()
+            NavigationLink(destination: DEPlayersListView()
                             .navigationTitle("Players")
                             .environment(\.managedObjectContext, viewContext)) {
                 Text("Players")
             }
-            NavigationLink(destination: DEScoreboardsList()
+            NavigationLink(destination: DEScoreboardsListView()
                             .navigationTitle("Scoreboards")
                             .environment(\.managedObjectContext, viewContext)) {
                 Text("Scoreboards")
+            }
+            NavigationLink(destination: DEGamesListView()
+                            .navigationTitle("Games")
+                            .environment(\.managedObjectContext, viewContext)) {
+                Text("Games")
             }
         }
         .navigationTitle("Data Explorer")
