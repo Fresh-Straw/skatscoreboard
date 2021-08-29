@@ -40,7 +40,7 @@ struct DEPlayerRowView: View {
 
 struct DEPlayerRowView_Previews: PreviewProvider {
     static var previews: some View {
-        DEPlayerRowView(player: PersistenceController.preview.getAPlayer())
+        DEPlayerRowView(player: PersistenceController.preview.getAPlayer_preview())
     }
 }
 

@@ -23,7 +23,7 @@ struct DEGameRowView: View {
 
 struct DEGameRowView_Previews: PreviewProvider {
     static var previews: some View {
-        DEGameRowView(game: PersistenceController.preview.getAGame())
+        DEGameRowView(game: PersistenceController.preview.getAGame_preview())
     }
 }
 

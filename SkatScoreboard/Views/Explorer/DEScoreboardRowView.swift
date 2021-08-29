@@ -37,7 +37,7 @@ struct DEScoreboardRowView: View {
 
 struct DEScoreboardRowView_Previews: PreviewProvider {
     static var previews: some View {
-        DEScoreboardRowView(scoreboard: PersistenceController.preview.getAScoreboard())
+        DEScoreboardRowView(scoreboard: PersistenceController.preview.getAScoreboard_preview())
     }
 }
 

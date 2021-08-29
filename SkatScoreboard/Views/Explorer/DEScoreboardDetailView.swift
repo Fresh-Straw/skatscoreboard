@@ -71,7 +71,7 @@ struct DEScoreboardDetailView: View {
 
 struct DEScoreboardDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DEScoreboardDetailView(scoreboard: PersistenceController.preview.getAScoreboard())
+        DEScoreboardDetailView(scoreboard: PersistenceController.preview.getAScoreboard_preview())
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

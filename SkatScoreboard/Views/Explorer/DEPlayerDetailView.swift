@@ -38,7 +38,7 @@ struct DEPlayerDetailView: View {
 
 struct DEPlayerDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DEPlayerDetailView(player: PersistenceController.preview.getAPlayer())
+        DEPlayerDetailView(player: PersistenceController.preview.getAPlayer_preview())
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

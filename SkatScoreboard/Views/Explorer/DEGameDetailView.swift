@@ -17,6 +17,6 @@ struct DEGameDetailView: View {
 
 struct DEGameDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DEGameDetailView(game: PersistenceController.preview.getAGame())
+        DEGameDetailView(game: PersistenceController.preview.getAGame_preview())
     }
 }

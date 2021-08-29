@@ -37,37 +37,27 @@ extension PersistenceController {
         }
     }
     
-    func getAScoreboard() -> Scoreboard {
-        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Scoreboard")
-        fetch.fetchLimit = 1
+    private func get<T>(a entityName: String) -> T {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        request.fetchLimit = 1
         do {
-            let scoreboards = try container.viewContext.fetch(fetch) as! [Scoreboard]
-            return scoreboards[0]
+            let items = try container.viewContext.fetch(request) as! [T]
+            return items[0]
         } catch {
-            fatalError("No scoreboard available.")
+            fatalError("No \(entityName) available.")
         }
     }
     
-    func getAPlayer() -> Player {
-        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Player")
-        fetch.fetchLimit = 1
-        do {
-            let players = try container.viewContext.fetch(fetch) as! [Player]
-            return players[0]
-        } catch {
-            fatalError("No player available.")
-        }
+    func getAScoreboard_preview() -> Scoreboard {
+        get(a: "Scoreboard")
     }
     
-    func getAGame() -> Game {
-        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Game")
-        fetch.fetchLimit = 1
-        do {
-            let games = try container.viewContext.fetch(fetch) as! [Game]
-            return games[0]
-        } catch {
-            fatalError("No player available.")
-        }
+    func getAPlayer_preview() -> Player {
+        get(a: "Player")
+    }
+    
+    func getAGame_preview() -> Game {
+        get(a: "Game")
     }
     
     static var preview: PersistenceController = {
