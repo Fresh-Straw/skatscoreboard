@@ -39,6 +39,7 @@ extension PersistenceController {
         let player3 = result.createPlayer("Jasmin")
         let player4 = result.createPlayer("Tarzan")
         let player5 = result.createPlayer("Jane")
+        let player6 = result.createPlayer("Mogli")
         
         let scoreboard = result.createScoreboard()
 
