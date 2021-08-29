@@ -23,6 +23,7 @@ extension PersistenceController {
         let scoreboard = Scoreboard(context: container.viewContext)
         scoreboard.createdOn = Date()
         scoreboard.lastChangedOn = Date()
+        scoreboard.pointModel = "leipziger"
         return scoreboard
     }
     

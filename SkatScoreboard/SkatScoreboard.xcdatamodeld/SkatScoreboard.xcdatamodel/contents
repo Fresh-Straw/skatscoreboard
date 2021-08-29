@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Game" representedClassName="Game" syncable="YES" codeGenerationType="class">
+        <attribute name="bock" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="contra" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="createdOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="hand" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="re" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="schneider" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="schneiderAnnounced" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="schwarz" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="schwarzAnnounced" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="won" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="partOf" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Scoreboard" inverseName="games" inverseEntity="Scoreboard"/>
         <relationship name="playedBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="playedGames" inverseEntity="Player"/>
     </entity>
@@ -21,13 +30,14 @@
     <entity name="Scoreboard" representedClassName="Scoreboard" syncable="YES" codeGenerationType="class">
         <attribute name="createdOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="lastChangedOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="pointModel" optional="YES" attributeType="String"/>
         <relationship name="games" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Game" inverseName="partOf" inverseEntity="Game"/>
         <relationship name="playersRaw" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerInScoreboard" inverseName="scoreboard" inverseEntity="PlayerInScoreboard"/>
     </entity>
     <elements>
-        <element name="Game" positionX="-119.3508911132812" positionY="61.20948791503906" width="128" height="103"/>
+        <element name="Game" positionX="-119.3508911132812" positionY="61.20948791503906" width="128" height="224"/>
         <element name="Player" positionX="-151.6709594726562" positionY="300.2659759521484" width="128" height="104"/>
         <element name="PlayerInScoreboard" positionX="197.8795166015625" positionY="417.0590515136719" width="128" height="74"/>
-        <element name="Scoreboard" positionX="235.0746459960938" positionY="76.64984130859375" width="128" height="89"/>
+        <element name="Scoreboard" positionX="235.0746459960938" positionY="76.64984130859375" width="128" height="104"/>
     </elements>
 </model>
