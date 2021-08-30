@@ -7,12 +7,17 @@
 
 import SwiftUI
 
-struct SwitchedCombination: View {
-    @State private var applicationState: ApplicationState = .MainMenu
+struct SwitchedCombinationView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @State var applicationState: ApplicationState
     
     var body: some View {
         ZStack {
             switch applicationState {
+            case .DataExplorer:
+                DEOverView(applicationState: $applicationState)
+                    .environment(\.managedObjectContext, viewContext)
             case .MainMenu:
                 MainMenuView(applicationState: $applicationState)
                     .transition(.scale.animation(.easeInOut))
@@ -35,8 +40,9 @@ struct SwitchedCombination: View {
     }
 }
 
-struct SwitchedCombination_Previews: PreviewProvider {
+struct SwitchedCombinationView_Previews: PreviewProvider {
     static var previews: some View {
-        SwitchedCombination()
+        SwitchedCombinationView(applicationState: .MainMenu)
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

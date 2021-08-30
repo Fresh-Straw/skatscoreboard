@@ -1,4 +1,4 @@
-// from https://github.com/joogps/ExitButton/blob/main/Sources/ExitButton/ExitButton.swift
+// from https://github.com/joogps/ExitButton
 //
 //  ExitButton.swift
 //

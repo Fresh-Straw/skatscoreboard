@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MainMenuView: View {
     @Binding var applicationState: ApplicationState
-    @State private var isShowingRed = false
     
     var body: some View {
         VStack {
@@ -17,15 +16,25 @@ struct MainMenuView: View {
             menu
             Spacer()
             HStack {
-                Text("Version: 1.0")
+                Text("Version \(Bundle.main.releaseVersionNumber) (build \(Bundle.main.buildVersionNumber))")
+                Spacer()
+                Button(action: {
+                    withAnimation {
+                        applicationState = .DataExplorer
+                    }
+                }) {
+                    Image(systemName: "doc.badge.gearshape")
+                        .imageScale(.medium)
+                }
                 Spacer()
                 Button(action: {
                     withAnimation {
                         applicationState = .Settings
                     }
-                }, label: {
+                }) {
                     Image(systemName: "gear")
-                })
+                        .imageScale(.large)
+                }
             }
         }
         .padding()
@@ -77,6 +86,15 @@ struct MainMenuView: View {
                 .skatButtonStyle()
             }
         }
+    }
+}
+
+private extension Bundle {
+    var releaseVersionNumber: String {
+        return infoDictionary?["CFBundleShortVersionString"] as? String ?? "Preview"
+    }
+    var buildVersionNumber: String {
+        return infoDictionary?["CFBundleVersion"] as? String ?? "X"
     }
 }
 
