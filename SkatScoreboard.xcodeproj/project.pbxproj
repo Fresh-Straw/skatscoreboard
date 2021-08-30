@@ -20,6 +20,11 @@
 		C54181B426DBA32300E69BE5 /* DEPlayersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54181B326DBA32300E69BE5 /* DEPlayersListView.swift */; };
 		C54181B626DBA39300E69BE5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54181B526DBA39300E69BE5 /* ContentView.swift */; };
 		C547B64126DCB25A00BCE904 /* SkatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B64026DCB25A00BCE904 /* SkatModel.swift */; };
+		C547B64326DD65CC00BCE904 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B64226DD65CC00BCE904 /* MainMenuView.swift */; };
+		C547B64526DD6FD600BCE904 /* ApplicationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B64426DD6FD600BCE904 /* ApplicationModel.swift */; };
+		C547B64726DD703400BCE904 /* SwitchedCombination.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B64626DD703400BCE904 /* SwitchedCombination.swift */; };
+		C547B64A26DD791B00BCE904 /* SkatButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B64926DD791B00BCE904 /* SkatButtonStyle.swift */; };
+		C547B64C26DD7CD700BCE904 /* ExitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B64B26DD7CD700BCE904 /* ExitButtonView.swift */; };
 		C5A5D22B26DBE21F006D10B9 /* DEPlayerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D22A26DBE21F006D10B9 /* DEPlayerDetailView.swift */; };
 		C5A5D22D26DBE4F0006D10B9 /* DEScoreboardRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D22C26DBE4F0006D10B9 /* DEScoreboardRowView.swift */; };
 		C5A5D22F26DBE597006D10B9 /* DEPlayerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D22E26DBE597006D10B9 /* DEPlayerRowView.swift */; };
@@ -68,6 +73,11 @@
 		C54181B326DBA32300E69BE5 /* DEPlayersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEPlayersListView.swift; sourceTree = "<group>"; };
 		C54181B526DBA39300E69BE5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C547B64026DCB25A00BCE904 /* SkatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkatModel.swift; sourceTree = "<group>"; };
+		C547B64226DD65CC00BCE904 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+		C547B64426DD6FD600BCE904 /* ApplicationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApplicationModel.swift; path = ../../../../../../../../Applications/ApplicationModel.swift; sourceTree = "<group>"; };
+		C547B64626DD703400BCE904 /* SwitchedCombination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchedCombination.swift; sourceTree = "<group>"; };
+		C547B64926DD791B00BCE904 /* SkatButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkatButtonStyle.swift; sourceTree = "<group>"; };
+		C547B64B26DD7CD700BCE904 /* ExitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButtonView.swift; sourceTree = "<group>"; };
 		C5A5D22A26DBE21F006D10B9 /* DEPlayerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEPlayerDetailView.swift; sourceTree = "<group>"; };
 		C5A5D22C26DBE4F0006D10B9 /* DEScoreboardRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEScoreboardRowView.swift; sourceTree = "<group>"; };
 		C5A5D22E26DBE597006D10B9 /* DEPlayerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEPlayerRowView.swift; sourceTree = "<group>"; };
@@ -180,6 +190,9 @@
 			isa = PBXGroup;
 			children = (
 				C54181B526DBA39300E69BE5 /* ContentView.swift */,
+				C547B64626DD703400BCE904 /* SwitchedCombination.swift */,
+				C547B64226DD65CC00BCE904 /* MainMenuView.swift */,
+				C547B64826DD778A00BCE904 /* Controls */,
 				C54181B026DBA24900E69BE5 /* Explorer */,
 			);
 			path = Views;
@@ -205,9 +218,19 @@
 		C547B63F26DCB22B00BCE904 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C547B64426DD6FD600BCE904 /* ApplicationModel.swift */,
 				C547B64026DCB25A00BCE904 /* SkatModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C547B64826DD778A00BCE904 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				C547B64926DD791B00BCE904 /* SkatButtonStyle.swift */,
+				C547B64B26DD7CD700BCE904 /* ExitButtonView.swift */,
+			);
+			path = Controls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,17 +366,22 @@
 				C54181AF26DAEBB200E69BE5 /* PreviewContent.swift in Sources */,
 				C54181B626DBA39300E69BE5 /* ContentView.swift in Sources */,
 				C5A5D23326DBE7B9006D10B9 /* DEGamesListView.swift in Sources */,
+				C547B64726DD703400BCE904 /* SwitchedCombination.swift in Sources */,
 				C5EBCF8426DBD735003B2630 /* DEScoreboardDetailView.swift in Sources */,
 				C5A5D23126DBE697006D10B9 /* DEGameRowView.swift in Sources */,
 				C5A5D22D26DBE4F0006D10B9 /* DEScoreboardRowView.swift in Sources */,
 				C541818326DADEA700E69BE5 /* Persistence.swift in Sources */,
 				C541818626DADEA700E69BE5 /* SkatScoreboard.xcdatamodeld in Sources */,
 				C5EBCF8226DBC61E003B2630 /* DEScoreboardsListView.swift in Sources */,
+				C547B64A26DD791B00BCE904 /* SkatButtonStyle.swift in Sources */,
 				C5A5D23526DBE8B2006D10B9 /* DEGameDetailView.swift in Sources */,
+				C547B64326DD65CC00BCE904 /* MainMenuView.swift in Sources */,
+				C547B64526DD6FD600BCE904 /* ApplicationModel.swift in Sources */,
 				C5A5D22B26DBE21F006D10B9 /* DEPlayerDetailView.swift in Sources */,
 				C5A5D22F26DBE597006D10B9 /* DEPlayerRowView.swift in Sources */,
 				C54181B226DBA26400E69BE5 /* DEOverView.swift in Sources */,
 				C547B64126DCB25A00BCE904 /* SkatModel.swift in Sources */,
+				C547B64C26DD7CD700BCE904 /* ExitButtonView.swift in Sources */,
 				C541817A26DADEA500E69BE5 /* SkatScoreboardApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

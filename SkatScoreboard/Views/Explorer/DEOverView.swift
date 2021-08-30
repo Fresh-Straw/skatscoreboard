@@ -11,24 +11,27 @@ struct DEOverView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     var body: some View {
-        List {
-            NavigationLink(destination: DEPlayersListView()
-                            .navigationTitle("Players")
-                            .environment(\.managedObjectContext, viewContext)) {
-                Text("Players")
+        NavigationView {
+            List {
+                NavigationLink(destination: DEPlayersListView()
+                                .navigationTitle("Players")
+                                .environment(\.managedObjectContext, viewContext)) {
+                    Text("Players")
+                }
+                NavigationLink(destination: DEScoreboardsListView()
+                                .navigationTitle("Scoreboards")
+                                .environment(\.managedObjectContext, viewContext)) {
+                    Text("Scoreboards")
+                }
+                NavigationLink(destination: DEGamesListView()
+                                .navigationTitle("Games")
+                                .environment(\.managedObjectContext, viewContext)) {
+                    Text("Games")
+                }
             }
-            NavigationLink(destination: DEScoreboardsListView()
-                            .navigationTitle("Scoreboards")
-                            .environment(\.managedObjectContext, viewContext)) {
-                Text("Scoreboards")
-            }
-            NavigationLink(destination: DEGamesListView()
-                            .navigationTitle("Games")
-                            .environment(\.managedObjectContext, viewContext)) {
-                Text("Games")
-            }
+            .navigationTitle("Data Explorer")
         }
-        .navigationTitle("Data Explorer")
+        .listStyle(SidebarListStyle())
     }
 }
 
