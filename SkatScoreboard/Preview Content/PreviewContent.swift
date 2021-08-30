@@ -13,7 +13,6 @@ extension PersistenceController {
     private func createPlayer(_ name: String) -> Player {
         let player = Player(context: container.viewContext)
         player.createdOn = Date()
-        // player.id = UUID()
         player.name = name
         player.iconName = Int.random(in: 1...2) == 1 ? "person.circle.fill" : "person.circle"
         return player
@@ -42,10 +41,13 @@ extension PersistenceController {
         game.type = "Grand"
         game.createdOn = Date()
         game.partOf = scoreboard
+        let jacks = Int.random(in: -5...4)
+        game.jacks = jacks != 0 ? Int16(jacks) : 0
         game.playedBy = players[Int.random(in: 0..<players.count)]
         game.bock = Bool.random()
         game.contra = Bool.random()
         game.hand = Bool.random()
+        game.ouvert = Bool.random()
         game.re = Bool.random()
         game.schneider = Bool.random()
         game.schneiderAnnounced = Bool.random()

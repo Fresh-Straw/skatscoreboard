@@ -42,6 +42,17 @@ struct DEGameDetailView: View {
             
             Section(header: Text("Settings")) {
                 HStack {
+                    if let jacks = game.jacks {
+                        if jacks > 0 {
+                            Text("Mit \(jacks)")
+                        } else if jacks < 0 {
+                            Text("Ohne \(-jacks)")
+                        } else {
+                            Text("Jacks-is-0").italic().foregroundColor(.red)
+                        }
+                    }
+                }
+                HStack {
                     Text("Won")
                         .foregroundColor(.gray)
                     Spacer()
@@ -49,6 +60,24 @@ struct DEGameDetailView: View {
                         Text(value ? "yes" : "no")
                     }
                 }
+                HStack {
+                    Text("Hand")
+                        .foregroundColor(.gray)
+                    Spacer()
+                    if let value = game.hand {
+                        Text(value ? "yes" : "no")
+                    }
+                }
+                HStack {
+                    Text("Ouvert")
+                        .foregroundColor(.gray)
+                    Spacer()
+                    if let value = game.ouvert {
+                        Text(value ? "yes" : "no")
+                    }
+                }
+            }
+            Section(header: Text("Ansagen")) {
                 HStack {
                     Text("Schneider")
                         .foregroundColor(.gray)

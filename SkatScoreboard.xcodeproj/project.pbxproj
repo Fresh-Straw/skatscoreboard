@@ -19,6 +19,7 @@
 		C54181B226DBA26400E69BE5 /* DEOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54181B126DBA26400E69BE5 /* DEOverView.swift */; };
 		C54181B426DBA32300E69BE5 /* DEPlayersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54181B326DBA32300E69BE5 /* DEPlayersListView.swift */; };
 		C54181B626DBA39300E69BE5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54181B526DBA39300E69BE5 /* ContentView.swift */; };
+		C547B64126DCB25A00BCE904 /* SkatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B64026DCB25A00BCE904 /* SkatModel.swift */; };
 		C5A5D22B26DBE21F006D10B9 /* DEPlayerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D22A26DBE21F006D10B9 /* DEPlayerDetailView.swift */; };
 		C5A5D22D26DBE4F0006D10B9 /* DEScoreboardRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D22C26DBE4F0006D10B9 /* DEScoreboardRowView.swift */; };
 		C5A5D22F26DBE597006D10B9 /* DEPlayerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D22E26DBE597006D10B9 /* DEPlayerRowView.swift */; };
@@ -66,6 +67,7 @@
 		C54181B126DBA26400E69BE5 /* DEOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEOverView.swift; sourceTree = "<group>"; };
 		C54181B326DBA32300E69BE5 /* DEPlayersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEPlayersListView.swift; sourceTree = "<group>"; };
 		C54181B526DBA39300E69BE5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C547B64026DCB25A00BCE904 /* SkatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkatModel.swift; sourceTree = "<group>"; };
 		C5A5D22A26DBE21F006D10B9 /* DEPlayerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEPlayerDetailView.swift; sourceTree = "<group>"; };
 		C5A5D22C26DBE4F0006D10B9 /* DEScoreboardRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEScoreboardRowView.swift; sourceTree = "<group>"; };
 		C5A5D22E26DBE597006D10B9 /* DEPlayerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEPlayerRowView.swift; sourceTree = "<group>"; };
@@ -126,13 +128,14 @@
 		C541817826DADEA500E69BE5 /* SkatScoreboard */ = {
 			isa = PBXGroup;
 			children = (
-				C54181A926DADF4700E69BE5 /* SkatScoreboard.entitlements */,
 				C541817926DADEA500E69BE5 /* SkatScoreboardApp.swift */,
 				C54181AD26DAE47300E69BE5 /* Views */,
+				C547B63F26DCB22B00BCE904 /* Model */,
 				C541817D26DADEA700E69BE5 /* Assets.xcassets */,
 				C541818226DADEA700E69BE5 /* Persistence.swift */,
-				C541818426DADEA700E69BE5 /* SkatScoreboard.xcdatamodeld */,
 				C541818726DADEA700E69BE5 /* Info.plist */,
+				C541818426DADEA700E69BE5 /* SkatScoreboard.xcdatamodeld */,
+				C54181A926DADF4700E69BE5 /* SkatScoreboard.entitlements */,
 				C541817F26DADEA700E69BE5 /* Preview Content */,
 			);
 			path = SkatScoreboard;
@@ -197,6 +200,14 @@
 				C5A5D23026DBE697006D10B9 /* DEGameRowView.swift */,
 			);
 			path = Explorer;
+			sourceTree = "<group>";
+		};
+		C547B63F26DCB22B00BCE904 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C547B64026DCB25A00BCE904 /* SkatModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +353,7 @@
 				C5A5D22B26DBE21F006D10B9 /* DEPlayerDetailView.swift in Sources */,
 				C5A5D22F26DBE597006D10B9 /* DEPlayerRowView.swift in Sources */,
 				C54181B226DBA26400E69BE5 /* DEOverView.swift in Sources */,
+				C547B64126DCB25A00BCE904 /* SkatModel.swift in Sources */,
 				C541817A26DADEA500E69BE5 /* SkatScoreboardApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
