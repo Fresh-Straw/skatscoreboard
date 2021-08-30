@@ -25,6 +25,8 @@
 		C547B64726DD703400BCE904 /* SwitchedCombinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B64626DD703400BCE904 /* SwitchedCombinationView.swift */; };
 		C547B64A26DD791B00BCE904 /* SkatButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B64926DD791B00BCE904 /* SkatButtonStyle.swift */; };
 		C547B64C26DD7CD700BCE904 /* ExitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B64B26DD7CD700BCE904 /* ExitButtonView.swift */; };
+		C547B64F26DD88B400BCE904 /* NSWSelectGameTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B64E26DD88B400BCE904 /* NSWSelectGameTypeView.swift */; };
+		C547B65126DD8B2800BCE904 /* NSWSelectPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B65026DD8B2800BCE904 /* NSWSelectPlayersView.swift */; };
 		C5A5D22B26DBE21F006D10B9 /* DEPlayerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D22A26DBE21F006D10B9 /* DEPlayerDetailView.swift */; };
 		C5A5D22D26DBE4F0006D10B9 /* DEScoreboardRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D22C26DBE4F0006D10B9 /* DEScoreboardRowView.swift */; };
 		C5A5D22F26DBE597006D10B9 /* DEPlayerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D22E26DBE597006D10B9 /* DEPlayerRowView.swift */; };
@@ -78,6 +80,8 @@
 		C547B64626DD703400BCE904 /* SwitchedCombinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchedCombinationView.swift; sourceTree = "<group>"; };
 		C547B64926DD791B00BCE904 /* SkatButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkatButtonStyle.swift; sourceTree = "<group>"; };
 		C547B64B26DD7CD700BCE904 /* ExitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButtonView.swift; sourceTree = "<group>"; };
+		C547B64E26DD88B400BCE904 /* NSWSelectGameTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWSelectGameTypeView.swift; sourceTree = "<group>"; };
+		C547B65026DD8B2800BCE904 /* NSWSelectPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWSelectPlayersView.swift; sourceTree = "<group>"; };
 		C5A5D22A26DBE21F006D10B9 /* DEPlayerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEPlayerDetailView.swift; sourceTree = "<group>"; };
 		C5A5D22C26DBE4F0006D10B9 /* DEScoreboardRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEScoreboardRowView.swift; sourceTree = "<group>"; };
 		C5A5D22E26DBE597006D10B9 /* DEPlayerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEPlayerRowView.swift; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 				C54181B526DBA39300E69BE5 /* ContentView.swift */,
 				C547B64626DD703400BCE904 /* SwitchedCombinationView.swift */,
 				C547B64226DD65CC00BCE904 /* MainMenuView.swift */,
+				C547B64D26DD888D00BCE904 /* NewScoreboardWizard */,
+				C547B65226DD8BBB00BCE904 /* Player */,
 				C547B64826DD778A00BCE904 /* Controls */,
 				C54181B026DBA24900E69BE5 /* Explorer */,
 			);
@@ -231,6 +237,22 @@
 				C547B64B26DD7CD700BCE904 /* ExitButtonView.swift */,
 			);
 			path = Controls;
+			sourceTree = "<group>";
+		};
+		C547B64D26DD888D00BCE904 /* NewScoreboardWizard */ = {
+			isa = PBXGroup;
+			children = (
+				C547B64E26DD88B400BCE904 /* NSWSelectGameTypeView.swift */,
+				C547B65026DD8B2800BCE904 /* NSWSelectPlayersView.swift */,
+			);
+			path = NewScoreboardWizard;
+			sourceTree = "<group>";
+		};
+		C547B65226DD8BBB00BCE904 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,8 +386,10 @@
 			files = (
 				C54181B426DBA32300E69BE5 /* DEPlayersListView.swift in Sources */,
 				C54181AF26DAEBB200E69BE5 /* PreviewContent.swift in Sources */,
+				C547B64F26DD88B400BCE904 /* NSWSelectGameTypeView.swift in Sources */,
 				C54181B626DBA39300E69BE5 /* ContentView.swift in Sources */,
 				C5A5D23326DBE7B9006D10B9 /* DEGamesListView.swift in Sources */,
+				C547B65126DD8B2800BCE904 /* NSWSelectPlayersView.swift in Sources */,
 				C547B64726DD703400BCE904 /* SwitchedCombinationView.swift in Sources */,
 				C5EBCF8426DBD735003B2630 /* DEScoreboardDetailView.swift in Sources */,
 				C5A5D23126DBE697006D10B9 /* DEGameRowView.swift in Sources */,

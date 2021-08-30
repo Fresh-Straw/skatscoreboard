@@ -12,4 +12,8 @@ enum PlayerRole: String {
     case dealer, listener, bidder, nextBidder
 }
 
+enum PointModel: String {
+    case leipzigerSkat, seegerFabian, bierlachs
+}
+
 
