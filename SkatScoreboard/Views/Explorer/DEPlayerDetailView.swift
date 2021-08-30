@@ -12,6 +12,13 @@ struct DEPlayerDetailView: View {
     
     var player: Player
     
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Game.createdOn, ascending: false)],
+        // predicate: NSPredicate(format: "playedBy = %@", [player]),
+        animation: .default)
+    private var games: FetchedResults<Game>
+
+    
     var body: some View {
         Form {
             Section(header: Text("Name")) {
@@ -29,6 +36,18 @@ struct DEPlayerDetailView: View {
                     NavigationLink(destination: DEScoreboardDetailView(scoreboard: board)
                                     .navigationTitle("Scoreboard")) {
                         DEScoreboardRowView(scoreboard: board)
+                    }
+                }
+            }
+            
+            Section(header: Text("Games")) {
+                ForEach(games) { game in
+                    if player == game.playedBy {
+                        // TODO filter another way
+                        NavigationLink(destination: DEGameDetailView(game: game)
+                                        .navigationTitle(game.type ?? "Game")) {
+                            DEGameRowView(game: game)
+                        }
                     }
                 }
             }
