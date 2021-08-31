@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct PlayerIcon: View {
+    private static let DEFAULT_COLOR = Color.gray
     var player: Player?
     
     private var image: some View {
         Image(systemName: player?.iconName ?? "person.fill")
             .padding(20)
             .background(backgroundColor)
+            .foregroundColor(backgroundColor.textColor)
             .imageScale(.large)
     }
     
     private var backgroundColor: Color {
-        Color.yellow
+        player?.iconColor ?? PlayerIcon.DEFAULT_COLOR
     }
     
     var body: some View {

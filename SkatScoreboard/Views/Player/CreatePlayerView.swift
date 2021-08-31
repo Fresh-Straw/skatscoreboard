@@ -13,19 +13,35 @@ struct CreatePlayerView: View {
     @State private var iconColor: Color = Color.orange
     
     var body: some View {
-        Form {
-            Section(header: Text("Spieler")) {
-                TextField("Name", text: $name)
+        NavigationView {
+            Form {
+                Section(header: Text("Spieler")) {
+                    TextField("Name", text: $name)
+                }
+                Section(header: Text("Bild")) {
+                    Picker(selection: $iconName, label: Text("Piktogram"), content: {
+                        ForEach(ICON_NAMES, id: \.self) { iconName in
+                            Image(systemName: iconName)
+                                .imageScale(.large)
+                                .tag(iconName)
+                        }
+                    })
+                    ColorPicker("Farbe", selection: $iconColor)
+                }
             }
-            Section(header: Text("Bild")) {
-                Picker(selection: $iconName, label: Text("Piktogram"), content: {
-                    ForEach(ICON_NAMES, id: \.self) { iconName in
-                        Image(systemName: iconName)
-                            .tag(iconName)
-                    }
+            .toolbar(content: {
+                ToolbarItem(placement: .cancellationAction, content: {
+                    Button(action: {}, label: {
+                        Text("Abbrechen")
+                    })
                 })
-                ColorPicker("Farbe", selection: $iconColor)
-            }
+                ToolbarItem(placement: .confirmationAction, content: {
+                    Button(action: {}, label: {
+                        Text("Speichern")
+                    })
+                })
+            })
+            .navigationTitle("Neuer Spieler")
         }
     }
 }

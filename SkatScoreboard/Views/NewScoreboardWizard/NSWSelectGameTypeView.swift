@@ -16,11 +16,7 @@ struct NSWSelectGameTypeView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            VStack(alignment: .leading, spacing: 5) {
-                Text("Punktezählung")
-                    .font(.title)
-                Text("Nach welchem Modell sollen die Punkte im Spiel gezählt werden?")
-            }
+            Text("Nach welchem Modell sollen die Punkte im Spiel gezählt werden?")
             
             HStack(alignment: .center, spacing: 20) {
                 Button {

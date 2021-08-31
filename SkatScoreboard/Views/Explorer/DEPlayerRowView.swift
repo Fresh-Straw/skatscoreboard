@@ -14,6 +14,7 @@ struct DEPlayerRowView: View {
         HStack(alignment: .center) {
             if let iconName = player.iconName {
                 Image(systemName: iconName)
+                    .foregroundColor(player.iconColor)
                     .imageScale(.large)
             } else {
                 Image(systemName: "person.fill.turn.down")

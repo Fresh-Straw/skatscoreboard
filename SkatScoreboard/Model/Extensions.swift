@@ -61,7 +61,7 @@ extension Color {
         self.init(.sRGB, red: r, green: g, blue: b, opacity: a)
     }
     
-    var components: (red: CGFloat, green: CGFloat, blue: CGFloat, opacity: CGFloat)? {
+    var components: (red: CGFloat, green: CGFloat, blue: CGFloat, opacity: CGFloat) {
             #if canImport(UIKit)
             typealias NativeColor = UIColor
             #elseif canImport(AppKit)
@@ -74,14 +74,27 @@ extension Color {
             var o: CGFloat = 0
 
             guard NativeColor(self).getRed(&r, green: &g, blue: &b, alpha: &o) else {
-                return nil
+                return (red: 0.0, green: 0.0, blue: 0.0, opacity: 1.0)
             }
 
             return (r, g, b, o)
         }
     
     var toHex: String {
-        let components = self.components ?? (red: 0.0, green: 0.0, blue: 0.0, opacity: 1.0)
+        let components = self.components
         return String(format: "%02lX%02lX%02lX%02lX", lroundf(Float(components.red) * 255), lroundf(Float(components.green) * 255), lroundf(Float(components.blue) * 255), lroundf(Float(components.opacity) * 255))
+    }
+    
+    var textColor: Color {
+        let components = self.components
+        
+        // algorithm from: http://www.w3.org/WAI/ER/WD-AERT/#color-contrast
+        let brightness = ((components.red * 299) + (components.green * 587) + (components.blue * 114)) / 1000;
+        if (brightness < 0.5) {
+            return Color.white
+        }
+        else {
+            return Color.black
+        }
     }
 }

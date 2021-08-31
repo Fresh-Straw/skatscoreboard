@@ -61,6 +61,7 @@ private struct AddPlayerView: View {
     
     @State private var newPlayerName = ""
     @State private var newPlayerIconName = ""
+    @State private var newPlayerIconColor = Color.blue
     @Binding var showAddPlayer: Bool
     
     var body: some View {
@@ -87,7 +88,7 @@ private struct AddPlayerView: View {
                             Image(systemName: "bed.double.fill")
                                 .tag("bed.double.fill")
                            })
-                        //.pickerStyle(WheelPickerStyle())
+                    ColorPicker("Player Icon Color", selection: $newPlayerIconColor)
                 }
                 
                 Section {
@@ -99,6 +100,7 @@ private struct AddPlayerView: View {
                             if newPlayerIconName != "" {
                                 player.iconName = newPlayerIconName
                             }
+                            player.iconColor = newPlayerIconColor
                             PersistenceController.shared.save()
                             showAddPlayer = false
                         }

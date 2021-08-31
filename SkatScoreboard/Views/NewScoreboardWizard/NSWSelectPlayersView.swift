@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct NSWSelectPlayersView: View {
+    private static let MIN_PLAYER_COUNT = 3
+    private static let MAX_PLAYER_COUNT = 4
+    
     @Environment(\.managedObjectContext) private var viewContext
     
     @FetchRequest(
@@ -15,31 +18,48 @@ struct NSWSelectPlayersView: View {
         animation: .default)
     private var allPlayers: FetchedResults<Player>
     
-    @State private var selectedPlayers: [Player] = []
+    @State private var selectedPlayers: [Player?] = [nil, nil, nil]
+    
+    private var numberOfPlayers: Int {
+        selectedPlayers.filter({$0 != nil}).count
+    }
+    
+    private func add(player: Player) {
+        if numberOfPlayers < NSWSelectPlayersView.MAX_PLAYER_COUNT {
+            if let index = selectedPlayers.firstIndex(of: nil) {
+                selectedPlayers.insert(player, at: index)
+            } else {
+                selectedPlayers.append(player)
+            }
+        }
+        remove(player: nil)
+    }
+    
+    private func remove(player: Player?) {
+        if let index = selectedPlayers.firstIndex(of: player) {
+            selectedPlayers.remove(at: index)
+        }
+        if selectedPlayers.count < NSWSelectPlayersView.MIN_PLAYER_COUNT {
+            selectedPlayers.append(nil)
+        }
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            Text("Mitspieler")
-                .font(.title)
-            
             HStack(alignment: .center, spacing: 20) {
-                Spacer()
-                ForEach(selectedPlayers) { player in
+                LinesList(selectedPlayers, itemWidth: 80, itemHeight: 120, spacing: 4, alignment: .leading, view: { player in
                     PlayerDisplay(player: player)
-                }
-                if selectedPlayers.count < 1 {
-                    PlayerDisplay(playerName: "Spieler 1")
-                }
-                if selectedPlayers.count < 2 {
-                    PlayerDisplay(playerName: "Spieler 2")
-                }
-                if selectedPlayers.count < 3 {
-                    PlayerDisplay(playerName: "Spieler 3")
-                }
-                Spacer()
+                        .transition(.opacity.animation(.easeInOut))
+                        .onTapGesture(perform: {
+                            withAnimation(.easeInOut, {
+                                remove(player: player)
+                            })
+                        })
+                })
+                .frame(maxWidth: .infinity, maxHeight: 120)
             }
 
-            if selectedPlayers.count < 3 {
+            if numberOfPlayers < 3 {
                 Text("Wähle mindestens drei Spieler aus, die an dieser Runde teilnehmen.")
                     .transition(.opacity.animation(.easeInOut))
             } else {
@@ -47,10 +67,13 @@ struct NSWSelectPlayersView: View {
                     .transition(.opacity.animation(.easeInOut))
             }
             ScrollView {
-                LinesList(allPlayers.filter({!selectedPlayers.contains($0)}), itemWidth: 80, itemHeight: 120, spacing: 6, alignment: .leading, view: { p in PlayerDisplay(player: p)
-                    .onTapGesture(perform: {
-                        withAnimation(.easeInOut, { selectedPlayers.append(p) })
-                    })
+                LinesList(allPlayers.filter({!selectedPlayers.contains($0)}), itemWidth: 80, itemHeight: 120, spacing: 4, alignment: .leading, view: { p in PlayerDisplay(player: p)
+                        .transition(.opacity.animation(.easeInOut))
+                        .onTapGesture(perform: {
+                            withAnimation(.easeInOut, {
+                                add(player: p)
+                            })
+                        })
                 })
             }
         }

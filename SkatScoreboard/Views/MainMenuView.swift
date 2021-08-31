@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct MainMenuView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    
     @Binding var applicationState: ApplicationState
+    
+    @State private var showNewScoreboardSheet = false
     
     var body: some View {
         VStack {
@@ -38,12 +42,18 @@ struct MainMenuView: View {
             }
         }
         .padding()
+        .sheet(isPresented: $showNewScoreboardSheet, content: {
+            NewScoreboardView()
+                .environment(\.managedObjectContext, viewContext)
+        })
     }
     
     private var menu: some View {
         VStack(spacing: 20) {
             HStack(spacing: 20) {
-                Button { } label: {
+                Button {
+                    showNewScoreboardSheet = true
+                } label: {
                     Text("New Scoreboard")
                         .multilineTextAlignment(.center)
                         .font(.body.bold())
@@ -101,5 +111,6 @@ private extension Bundle {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainMenuView(applicationState: .constant(.MainMenu))
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
