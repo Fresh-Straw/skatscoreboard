@@ -9,11 +9,12 @@ import SwiftUI
 
 struct PlayerDisplay: View {
     var player: Player?
+    var playerName: String?
     
     var body: some View {
         VStack(alignment: .center, spacing: 15) {
             PlayerIcon(player: player)
-            Text(player?.name ?? "Player")
+            Text(player?.name ?? playerName ?? "Player")
                 .lineLimit(1)
         }
         .background(Color.white)
@@ -25,7 +26,7 @@ struct PlayerDisplay_Previews: PreviewProvider {
     static var previews: some View {
         PlayerDisplay(player: PersistenceController.preview.getAPlayer_preview())
             .previewLayout(.fixed(width: 200, height: 200))
-        PlayerDisplay()
+        PlayerDisplay(playerName: "Spieler 2")
             .previewLayout(.fixed(width: 200, height: 200))
     }
 }

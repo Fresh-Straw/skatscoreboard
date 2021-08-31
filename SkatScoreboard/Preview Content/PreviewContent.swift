@@ -67,6 +67,16 @@ extension PersistenceController {
         }
     }
     
+    private func list<T>(items entityName: String) -> [T] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        do {
+            let items = try container.viewContext.fetch(request) as! [T]
+            return items
+        } catch {
+            fatalError("No \(entityName) available.")
+        }
+    }
+    
     func getAScoreboard_preview() -> Scoreboard {
         get(a: "Scoreboard")
     }
@@ -77,6 +87,10 @@ extension PersistenceController {
     
     func getAGame_preview() -> Game {
         get(a: "Game")
+    }
+    
+    func listPlayers_preview() -> [Player] {
+        list(items: "Player")
     }
     
     static var preview: PersistenceController = {

@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C510E34B26DE4A4B004D4A53 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C510E34A26DE4A4B004D4A53 /* Extensions.swift */; };
+		C510E34E26DE57B3004D4A53 /* SlideOverCard in Frameworks */ = {isa = PBXBuildFile; productRef = C510E34D26DE57B3004D4A53 /* SlideOverCard */; };
 		C541817A26DADEA500E69BE5 /* SkatScoreboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C541817926DADEA500E69BE5 /* SkatScoreboardApp.swift */; };
 		C541817E26DADEA700E69BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C541817D26DADEA700E69BE5 /* Assets.xcassets */; };
 		C541818126DADEA700E69BE5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C541818026DADEA700E69BE5 /* Preview Assets.xcassets */; };
@@ -29,6 +31,8 @@
 		C547B65126DD8B2800BCE904 /* NSWSelectPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B65026DD8B2800BCE904 /* NSWSelectPlayersView.swift */; };
 		C547B65426DD8BF300BCE904 /* PlayerIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B65326DD8BF300BCE904 /* PlayerIcon.swift */; };
 		C547B65626DD8C3400BCE904 /* PlayerDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B65526DD8C3400BCE904 /* PlayerDisplay.swift */; };
+		C547B65826DD8D4900BCE904 /* LinesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B65726DD8D4900BCE904 /* LinesList.swift */; };
+		C547B65A26DE255600BCE904 /* CreatePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B65926DE255600BCE904 /* CreatePlayerView.swift */; };
 		C5A5D22B26DBE21F006D10B9 /* DEPlayerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D22A26DBE21F006D10B9 /* DEPlayerDetailView.swift */; };
 		C5A5D22D26DBE4F0006D10B9 /* DEScoreboardRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D22C26DBE4F0006D10B9 /* DEScoreboardRowView.swift */; };
 		C5A5D22F26DBE597006D10B9 /* DEPlayerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D22E26DBE597006D10B9 /* DEPlayerRowView.swift */; };
@@ -57,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C510E34A26DE4A4B004D4A53 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C541817626DADEA500E69BE5 /* SkatScoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkatScoreboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C541817926DADEA500E69BE5 /* SkatScoreboardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkatScoreboardApp.swift; sourceTree = "<group>"; };
 		C541817D26DADEA700E69BE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,6 +91,8 @@
 		C547B65026DD8B2800BCE904 /* NSWSelectPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWSelectPlayersView.swift; sourceTree = "<group>"; };
 		C547B65326DD8BF300BCE904 /* PlayerIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerIcon.swift; sourceTree = "<group>"; };
 		C547B65526DD8C3400BCE904 /* PlayerDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerDisplay.swift; sourceTree = "<group>"; };
+		C547B65726DD8D4900BCE904 /* LinesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesList.swift; sourceTree = "<group>"; };
+		C547B65926DE255600BCE904 /* CreatePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlayerView.swift; sourceTree = "<group>"; };
 		C5A5D22A26DBE21F006D10B9 /* DEPlayerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEPlayerDetailView.swift; sourceTree = "<group>"; };
 		C5A5D22C26DBE4F0006D10B9 /* DEScoreboardRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEScoreboardRowView.swift; sourceTree = "<group>"; };
 		C5A5D22E26DBE597006D10B9 /* DEPlayerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEPlayerRowView.swift; sourceTree = "<group>"; };
@@ -101,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C510E34E26DE57B3004D4A53 /* SlideOverCard in Frameworks */,
 				C54181AC26DADF8500E69BE5 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,14 +220,14 @@
 			isa = PBXGroup;
 			children = (
 				C54181B126DBA26400E69BE5 /* DEOverView.swift */,
-				C54181B326DBA32300E69BE5 /* DEPlayersListView.swift */,
 				C5EBCF8126DBC61E003B2630 /* DEScoreboardsListView.swift */,
-				C5A5D23226DBE7B9006D10B9 /* DEGamesListView.swift */,
 				C5EBCF8326DBD735003B2630 /* DEScoreboardDetailView.swift */,
-				C5A5D22A26DBE21F006D10B9 /* DEPlayerDetailView.swift */,
-				C5A5D23426DBE8B2006D10B9 /* DEGameDetailView.swift */,
 				C5A5D22C26DBE4F0006D10B9 /* DEScoreboardRowView.swift */,
+				C54181B326DBA32300E69BE5 /* DEPlayersListView.swift */,
+				C5A5D22A26DBE21F006D10B9 /* DEPlayerDetailView.swift */,
 				C5A5D22E26DBE597006D10B9 /* DEPlayerRowView.swift */,
+				C5A5D23226DBE7B9006D10B9 /* DEGamesListView.swift */,
+				C5A5D23426DBE8B2006D10B9 /* DEGameDetailView.swift */,
 				C5A5D23026DBE697006D10B9 /* DEGameRowView.swift */,
 			);
 			path = Explorer;
@@ -230,6 +238,7 @@
 			children = (
 				C547B64426DD6FD600BCE904 /* ApplicationModel.swift */,
 				C547B64026DCB25A00BCE904 /* SkatModel.swift */,
+				C510E34A26DE4A4B004D4A53 /* Extensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -239,6 +248,7 @@
 			children = (
 				C547B64926DD791B00BCE904 /* SkatButtonStyle.swift */,
 				C547B64B26DD7CD700BCE904 /* ExitButtonView.swift */,
+				C547B65726DD8D4900BCE904 /* LinesList.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -255,6 +265,7 @@
 		C547B65226DD8BBB00BCE904 /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				C547B65926DE255600BCE904 /* CreatePlayerView.swift */,
 				C547B65326DD8BF300BCE904 /* PlayerIcon.swift */,
 				C547B65526DD8C3400BCE904 /* PlayerDisplay.swift */,
 			);
@@ -277,6 +288,9 @@
 			dependencies = (
 			);
 			name = SkatScoreboard;
+			packageProductDependencies = (
+				C510E34D26DE57B3004D4A53 /* SlideOverCard */,
+			);
 			productName = SkatScoreboard;
 			productReference = C541817626DADEA500E69BE5 /* SkatScoreboard.app */;
 			productType = "com.apple.product-type.application";
@@ -348,6 +362,9 @@
 				Base,
 			);
 			mainGroup = C541816D26DADEA500E69BE5;
+			packageReferences = (
+				C510E34C26DE57B3004D4A53 /* XCRemoteSwiftPackageReference "SlideOverCard" */,
+			);
 			productRefGroup = C541817726DADEA500E69BE5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -393,6 +410,8 @@
 				C54181B426DBA32300E69BE5 /* DEPlayersListView.swift in Sources */,
 				C54181AF26DAEBB200E69BE5 /* PreviewContent.swift in Sources */,
 				C547B64F26DD88B400BCE904 /* NSWSelectGameTypeView.swift in Sources */,
+				C547B65826DD8D4900BCE904 /* LinesList.swift in Sources */,
+				C547B65A26DE255600BCE904 /* CreatePlayerView.swift in Sources */,
 				C54181B626DBA39300E69BE5 /* ContentView.swift in Sources */,
 				C5A5D23326DBE7B9006D10B9 /* DEGamesListView.swift in Sources */,
 				C547B65126DD8B2800BCE904 /* NSWSelectPlayersView.swift in Sources */,
@@ -415,6 +434,7 @@
 				C547B64126DCB25A00BCE904 /* SkatModel.swift in Sources */,
 				C547B64C26DD7CD700BCE904 /* ExitButtonView.swift in Sources */,
 				C541817A26DADEA500E69BE5 /* SkatScoreboardApp.swift in Sources */,
+				C510E34B26DE4A4B004D4A53 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,6 +758,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C510E34C26DE57B3004D4A53 /* XCRemoteSwiftPackageReference "SlideOverCard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/joogps/SlideOverCard.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C510E34D26DE57B3004D4A53 /* SlideOverCard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C510E34C26DE57B3004D4A53 /* XCRemoteSwiftPackageReference "SlideOverCard" */;
+			productName = SlideOverCard;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C541818426DADEA700E69BE5 /* SkatScoreboard.xcdatamodeld */ = {
