@@ -24,6 +24,10 @@ struct NSWSelectPlayersView: View {
         selectedPlayers.filter({$0 != nil}).count
     }
     
+    private var canAddMorePlayers: Bool {
+        numberOfPlayers < 4
+    }
+    
     private func add(player: Player) {
         if numberOfPlayers < NSWSelectPlayersView.MAX_PLAYER_COUNT {
             if let index = selectedPlayers.firstIndex(of: nil) {
@@ -44,38 +48,102 @@ struct NSWSelectPlayersView: View {
         }
     }
     
+    private var selectedPlayersToShow: [DisplayItemType] {
+        return (0..<selectedPlayers.count)
+            .map { index -> DisplayItemType in
+                let item = selectedPlayers[index]
+                if item != nil {
+                    return DisplayItemType.player(player: item!)
+                } else {
+                    return DisplayItemType.emptyPlayers[index]
+                }
+            }
+    }
+    
+    private var selectablePlayers: [DisplayItemType] {
+        return [DisplayItemType.addButton]
+            + allPlayers
+            .filter { !selectedPlayers.contains($0) }
+            .map { DisplayItemType.player(player: $0) }
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            HStack(alignment: .center, spacing: 20) {
-                LinesList(selectedPlayers, itemWidth: 80, itemHeight: 120, spacing: 4, alignment: .leading, view: { player in
-                    PlayerDisplay(player: player)
-                        .transition(.opacity.animation(.easeInOut))
-                        .onTapGesture(perform: {
-                            withAnimation(.easeInOut, {
-                                remove(player: player)
+            HStack {
+                Spacer()
+                ForEach(selectedPlayersToShow) { dit in
+                    switch dit {
+                    case .player(let player):
+                        PlayerDisplay(player: player)
+                            .transition(.opacity.animation(.easeInOut))
+                            .onTapGesture(perform: {
+                                withAnimation(.easeInOut, {
+                                    remove(player: player)
+                                })
                             })
-                        })
-                })
-                .frame(maxWidth: .infinity, maxHeight: 120)
+                    case .emptyPlayer:
+                        PlayerDisplay()
+                            .transition(.opacity.animation(.easeInOut))
+                    default:
+                        Text("nothing")
+                    }
+                }
+                Spacer()
             }
 
             if numberOfPlayers < 3 {
                 Text("Wähle mindestens drei Spieler aus, die an dieser Runde teilnehmen.")
                     .transition(.opacity.animation(.easeInOut))
+            } else if numberOfPlayers == 3 {
+                Text("Du kannst noch einen weiteren Spieler zu dieser Skatrunde hinzufügen.")
+                    .transition(.opacity.animation(.easeInOut))
             } else {
-                Text("Du kannst noch weitere Spieler zu dieser Skatrunde hinzufügen.")
+                Text("Mehr als vier Spieler können nicht zu einer Skatrunde hinzugefügt werden.")
                     .transition(.opacity.animation(.easeInOut))
             }
             ScrollView {
-                LinesList(allPlayers.filter({!selectedPlayers.contains($0)}), itemWidth: 80, itemHeight: 120, spacing: 4, alignment: .leading, view: { p in PlayerDisplay(player: p)
-                        .transition(.opacity.animation(.easeInOut))
-                        .onTapGesture(perform: {
-                            withAnimation(.easeInOut, {
-                                add(player: p)
+                LinesList(selectablePlayers, itemWidth: 80, itemHeight: 120, spacing: 4, alignment: .leading) { dit in
+                    switch dit {
+                    case .addButton:
+                        VStack(alignment: .center) {
+                            Image(systemName: "plus.circle")
+                                .imageScale(.large)
+                            Text("Neu")
+                        }
+                    case .player(let player):
+                        PlayerDisplay(player: player)
+                            .opacity(canAddMorePlayers ? 1 : 0.4)
+                            .transition(.opacity.animation(.easeInOut))
+                            .onTapGesture(perform: {
+                                withAnimation(.easeInOut, {
+                                    add(player: player)
+                                })
                             })
-                        })
-                })
+                    case .emptyPlayer:
+                        PlayerDisplay()
+                            .transition(.opacity.animation(.easeInOut))
+                    }
+                }
             }
+        }
+    }
+}
+
+private enum DisplayItemType : Identifiable {
+    case addButton, player(player: Player), emptyPlayer(id: ObjectIdentifier)
+    
+    private static let addButtonId = ObjectIdentifier(NSString(string: UUID().uuidString))
+    private static let emptyPlayerIds = [ObjectIdentifier(NSString(string: UUID().uuidString)), ObjectIdentifier(NSString(string: UUID().uuidString)), ObjectIdentifier(NSString(string: UUID().uuidString))]
+    static let emptyPlayers = emptyPlayerIds.map({ DisplayItemType.emptyPlayer(id: $0) })
+    
+    var id: ObjectIdentifier {
+        switch self {
+        case .addButton:
+            return DisplayItemType.addButtonId
+        case .emptyPlayer(let id):
+            return id
+        case .player(let player):
+            return player.id
         }
     }
 }
