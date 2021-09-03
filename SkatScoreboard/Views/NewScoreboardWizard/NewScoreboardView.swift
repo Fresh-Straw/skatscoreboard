@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import Combine
 
 struct NewScoreboardView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     @State private var active1 = false
+    
+    private let playerSelection = PassthroughSubject<[Player]?, Never>()
     
     var body: some View {
         NavigationView {
@@ -22,19 +25,8 @@ struct NewScoreboardView: View {
                     label: {
                         EmptyView()
                     })
-                NSWSelectPlayersView()
+                NSWSelectPlayersView(playerSelection: playerSelection)
                 
-                Button {
-                    active1 = true
-                } label: {
-                    Text("Weiter")
-                        .bold()
-                        .multilineTextAlignment(.center)
-                        .frame(height: 50)
-                        .frame(maxWidth: .infinity)
-                        .foregroundColor(Color.white)
-                }
-                .skatButtonStyle()
             }
             .padding()
             .navigationTitle("Mitspieler")

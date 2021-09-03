@@ -61,7 +61,7 @@ private struct AddPlayerView: View {
     
     @State private var newPlayerName = ""
     @State private var newPlayerIconName = ""
-    @State private var newPlayerIconColor = Color.blue
+    @State private var newPlayerIconColor = Color.random()
     @Binding var showAddPlayer: Bool
     
     var body: some View {

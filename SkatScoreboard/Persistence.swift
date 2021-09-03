@@ -35,17 +35,26 @@ struct PersistenceController {
         })
     }
     
-    private static func defaultCompletionHandler(error: Error?) {
+    func save(onComplete completion: @escaping (Error?) -> () = NSManagedObjectContext.defaultCompletionHandler) {
+        container.viewContext.save(onComplete: completion)
+    }
+    
+    func delete(_ object: NSManagedObject, onComplete completion: @escaping (Error?) -> () = NSManagedObjectContext.defaultCompletionHandler) {
+        container.viewContext.delete(object, onComplete: completion)
+    }
+}
+
+extension NSManagedObjectContext {
+    static func defaultCompletionHandler(error: Error?) {
         if let error = error {
             print("PERSISTANCE ERROR: " + error.localizedDescription)
         }
     }
-    
+
     func save(onComplete completion: @escaping (Error?) -> () = defaultCompletionHandler) {
-        let context = container.viewContext
-        if context.hasChanges {
+        if self.hasChanges {
             do {
-                try context.save()
+                try self.save()
                 completion(nil)
             } catch {
                 completion(error)
@@ -54,8 +63,7 @@ struct PersistenceController {
     }
     
     func delete(_ object: NSManagedObject, onComplete completion: @escaping (Error?) -> () = {_ in}) {
-        let context = container.viewContext
-        context.delete(object)
+        self.delete(object)
         save(onComplete: completion)
     }
 }

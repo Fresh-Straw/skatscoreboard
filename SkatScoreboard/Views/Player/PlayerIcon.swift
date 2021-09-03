@@ -38,5 +38,8 @@ struct PlayerIcon_Previews: PreviewProvider {
             .previewLayout(.fixed(width: 100, height: 100))
         PlayerIcon(player: nil)
             .previewLayout(.fixed(width: 100, height: 100))
+        PlayerIcon(player: PersistenceController.preview.getAPlayer_preview())
+            .environment(\.colorScheme, .dark)
+            .previewLayout(.fixed(width: 100, height: 100))
     }
 }

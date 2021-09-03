@@ -51,7 +51,6 @@ struct NSWSelectGameTypeView: View {
                         .foregroundColor(Color.white)
                 }
                 .skatButtonStyle()
-                
             }
         }
     }

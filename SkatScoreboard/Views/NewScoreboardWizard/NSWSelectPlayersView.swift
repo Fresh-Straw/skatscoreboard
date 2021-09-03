@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct NSWSelectPlayersView: View {
     private static let MIN_PLAYER_COUNT = 3
@@ -13,12 +14,17 @@ struct NSWSelectPlayersView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     
+    private let playerCreation = PassthroughSubject<Player?, Never>()
+    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Player.name, ascending: true)],
         animation: .default)
     private var allPlayers: FetchedResults<Player>
     
+    let playerSelection: PassthroughSubject<[Player]?, Never>
+    
     @State private var selectedPlayers: [Player?] = [nil, nil, nil]
+    @State private var showAddPlayer = false
     
     private var numberOfPlayers: Int {
         selectedPlayers.filter({$0 != nil}).count
@@ -90,7 +96,7 @@ struct NSWSelectPlayersView: View {
                 }
                 Spacer()
             }
-
+            
             if numberOfPlayers < 3 {
                 Text("Wähle mindestens drei Spieler aus, die an dieser Runde teilnehmen.")
                     .transition(.opacity.animation(.easeInOut))
@@ -110,6 +116,9 @@ struct NSWSelectPlayersView: View {
                                 .imageScale(.large)
                             Text("Neu")
                         }
+                        .onTapGesture {
+                            showAddPlayer = true
+                        }
                     case .player(let player):
                         PlayerDisplay(player: player)
                             .opacity(canAddMorePlayers ? 1 : 0.4)
@@ -125,6 +134,28 @@ struct NSWSelectPlayersView: View {
                     }
                 }
             }
+            
+            Button {
+                let players = selectedPlayers
+                    .filter { $0 != nil }
+                    .map { $0! }
+                playerSelection.send(players)
+            } label: {
+                Text("Weiter")
+                    .bold()
+                    .multilineTextAlignment(.center)
+                    .frame(height: 50)
+                    .frame(maxWidth: .infinity)
+                    .foregroundColor(Color.white)
+            }
+            .skatButtonStyle()
+            .disabled(numberOfPlayers < 3)
+        }
+        .onReceive(playerCreation, perform: { player in
+            showAddPlayer = false
+        })
+        .sheet(isPresented: $showAddPlayer) {
+            PlayerCreationView(playerCreation: playerCreation)
         }
     }
 }
@@ -150,7 +181,7 @@ private enum DisplayItemType : Identifiable {
 
 struct NSWSelectPlayersView_Previews: PreviewProvider {
     static var previews: some View {
-        NSWSelectPlayersView()
+        NSWSelectPlayersView(playerSelection: PassthroughSubject<[Player]?, Never>())
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

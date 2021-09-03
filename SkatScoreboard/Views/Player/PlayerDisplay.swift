@@ -26,6 +26,9 @@ struct PlayerDisplay_Previews: PreviewProvider {
     static var previews: some View {
         PlayerDisplay(player: PersistenceController.preview.getAPlayer_preview())
             .previewLayout(.fixed(width: 200, height: 200))
+        PlayerDisplay(player: PersistenceController.preview.getAPlayer_preview())
+            .environment(\.colorScheme, .dark)
+            .previewLayout(.fixed(width: 200, height: 200))
         PlayerDisplay(playerName: "Spieler 2")
             .previewLayout(.fixed(width: 200, height: 200))
     }
