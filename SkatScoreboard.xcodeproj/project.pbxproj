@@ -3,12 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		C510E34B26DE4A4B004D4A53 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C510E34A26DE4A4B004D4A53 /* Extensions.swift */; };
-		C510E34E26DE57B3004D4A53 /* SlideOverCard in Frameworks */ = {isa = PBXBuildFile; productRef = C510E34D26DE57B3004D4A53 /* SlideOverCard */; };
 		C541817A26DADEA500E69BE5 /* SkatScoreboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C541817926DADEA500E69BE5 /* SkatScoreboardApp.swift */; };
 		C541817E26DADEA700E69BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C541817D26DADEA700E69BE5 /* Assets.xcassets */; };
 		C541818126DADEA700E69BE5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C541818026DADEA700E69BE5 /* Preview Assets.xcassets */; };
@@ -24,7 +23,6 @@
 		C543F74526DE7EA100CBCCA8 /* NewScoreboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C543F74426DE7EA100CBCCA8 /* NewScoreboardView.swift */; };
 		C547B64126DCB25A00BCE904 /* SkatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B64026DCB25A00BCE904 /* SkatModel.swift */; };
 		C547B64326DD65CC00BCE904 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B64226DD65CC00BCE904 /* MainMenuView.swift */; };
-		C547B64526DD6FD600BCE904 /* ApplicationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B64426DD6FD600BCE904 /* ApplicationModel.swift */; };
 		C547B64726DD703400BCE904 /* SwitchedCombinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B64626DD703400BCE904 /* SwitchedCombinationView.swift */; };
 		C547B64A26DD791B00BCE904 /* SkatButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B64926DD791B00BCE904 /* SkatButtonStyle.swift */; };
 		C547B64C26DD7CD700BCE904 /* ExitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B64B26DD7CD700BCE904 /* ExitButtonView.swift */; };
@@ -40,6 +38,7 @@
 		C5A5D23126DBE697006D10B9 /* DEGameRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D23026DBE697006D10B9 /* DEGameRowView.swift */; };
 		C5A5D23326DBE7B9006D10B9 /* DEGamesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D23226DBE7B9006D10B9 /* DEGamesListView.swift */; };
 		C5A5D23526DBE8B2006D10B9 /* DEGameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D23426DBE8B2006D10B9 /* DEGameDetailView.swift */; };
+		C5A9FED226E25221006BBB69 /* ApplicationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A9FED126E25221006BBB69 /* ApplicationModel.swift */; };
 		C5EBCF8226DBC61E003B2630 /* DEScoreboardsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EBCF8126DBC61E003B2630 /* DEScoreboardsListView.swift */; };
 		C5EBCF8426DBD735003B2630 /* DEScoreboardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EBCF8326DBD735003B2630 /* DEScoreboardDetailView.swift */; };
 /* End PBXBuildFile section */
@@ -85,7 +84,6 @@
 		C543F74426DE7EA100CBCCA8 /* NewScoreboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewScoreboardView.swift; sourceTree = "<group>"; };
 		C547B64026DCB25A00BCE904 /* SkatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkatModel.swift; sourceTree = "<group>"; };
 		C547B64226DD65CC00BCE904 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
-		C547B64426DD6FD600BCE904 /* ApplicationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApplicationModel.swift; path = ../../../../../../../../Applications/ApplicationModel.swift; sourceTree = "<group>"; };
 		C547B64626DD703400BCE904 /* SwitchedCombinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchedCombinationView.swift; sourceTree = "<group>"; };
 		C547B64926DD791B00BCE904 /* SkatButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkatButtonStyle.swift; sourceTree = "<group>"; };
 		C547B64B26DD7CD700BCE904 /* ExitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButtonView.swift; sourceTree = "<group>"; };
@@ -101,6 +99,7 @@
 		C5A5D23026DBE697006D10B9 /* DEGameRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEGameRowView.swift; sourceTree = "<group>"; };
 		C5A5D23226DBE7B9006D10B9 /* DEGamesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEGamesListView.swift; sourceTree = "<group>"; };
 		C5A5D23426DBE8B2006D10B9 /* DEGameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEGameDetailView.swift; sourceTree = "<group>"; };
+		C5A9FED126E25221006BBB69 /* ApplicationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModel.swift; sourceTree = "<group>"; };
 		C5EBCF8126DBC61E003B2630 /* DEScoreboardsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEScoreboardsListView.swift; sourceTree = "<group>"; };
 		C5EBCF8326DBD735003B2630 /* DEScoreboardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEScoreboardDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,7 +109,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C510E34E26DE57B3004D4A53 /* SlideOverCard in Frameworks */,
 				C54181AC26DADF8500E69BE5 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,7 +236,7 @@
 		C547B63F26DCB22B00BCE904 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C547B64426DD6FD600BCE904 /* ApplicationModel.swift */,
+				C5A9FED126E25221006BBB69 /* ApplicationModel.swift */,
 				C547B64026DCB25A00BCE904 /* SkatModel.swift */,
 				C510E34A26DE4A4B004D4A53 /* Extensions.swift */,
 			);
@@ -292,7 +290,6 @@
 			);
 			name = SkatScoreboard;
 			packageProductDependencies = (
-				C510E34D26DE57B3004D4A53 /* SlideOverCard */,
 			);
 			productName = SkatScoreboard;
 			productReference = C541817626DADEA500E69BE5 /* SkatScoreboard.app */;
@@ -366,7 +363,6 @@
 			);
 			mainGroup = C541816D26DADEA500E69BE5;
 			packageReferences = (
-				C510E34C26DE57B3004D4A53 /* XCRemoteSwiftPackageReference "SlideOverCard" */,
 			);
 			productRefGroup = C541817726DADEA500E69BE5 /* Products */;
 			projectDirPath = "";
@@ -429,7 +425,7 @@
 				C547B64A26DD791B00BCE904 /* SkatButtonStyle.swift in Sources */,
 				C5A5D23526DBE8B2006D10B9 /* DEGameDetailView.swift in Sources */,
 				C547B64326DD65CC00BCE904 /* MainMenuView.swift in Sources */,
-				C547B64526DD6FD600BCE904 /* ApplicationModel.swift in Sources */,
+				C5A9FED226E25221006BBB69 /* ApplicationModel.swift in Sources */,
 				C547B65426DD8BF300BCE904 /* PlayerIcon.swift in Sources */,
 				C5A5D22B26DBE21F006D10B9 /* DEPlayerDetailView.swift in Sources */,
 				C5A5D22F26DBE597006D10B9 /* DEPlayerRowView.swift in Sources */,
@@ -762,25 +758,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		C510E34C26DE57B3004D4A53 /* XCRemoteSwiftPackageReference "SlideOverCard" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/joogps/SlideOverCard.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		C510E34D26DE57B3004D4A53 /* SlideOverCard */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C510E34C26DE57B3004D4A53 /* XCRemoteSwiftPackageReference "SlideOverCard" */;
-			productName = SlideOverCard;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C541818426DADEA700E69BE5 /* SkatScoreboard.xcdatamodeld */ = {
