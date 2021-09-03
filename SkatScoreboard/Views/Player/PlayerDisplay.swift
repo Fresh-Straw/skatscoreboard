@@ -17,7 +17,6 @@ struct PlayerDisplay: View {
             Text(player?.name ?? playerName ?? "Player")
                 .lineLimit(1)
         }
-        .background(Color.white)
         .opacity(player != nil ? 1.0 : 0.4)
     }
 }
@@ -25,11 +24,21 @@ struct PlayerDisplay: View {
 struct PlayerDisplay_Previews: PreviewProvider {
     static var previews: some View {
         PlayerDisplay(player: PersistenceController.preview.getAPlayer_preview())
-            .previewLayout(.fixed(width: 200, height: 200))
+            .previewLayout(.fixed(width: 150, height: 150))
+            .previewDisplayName("Light Mode")
+
         PlayerDisplay(player: PersistenceController.preview.getAPlayer_preview())
-            .environment(\.colorScheme, .dark)
-            .previewLayout(.fixed(width: 200, height: 200))
+            .preferredColorScheme(.dark)
+            .previewDisplayName("Dark Mode")
+            .previewLayout(.fixed(width: 150, height: 150))
+
         PlayerDisplay(playerName: "Spieler 2")
-            .previewLayout(.fixed(width: 200, height: 200))
+            .previewLayout(.fixed(width: 150, height: 150))
+            .previewDisplayName("Disable Light")
+        
+        PlayerDisplay(playerName: "Spieler 2")
+            .preferredColorScheme(.dark)
+            .previewLayout(.fixed(width: 150, height: 150))
+            .previewDisplayName("Disable Dark")
     }
 }

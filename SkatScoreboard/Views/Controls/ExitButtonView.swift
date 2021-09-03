@@ -33,7 +33,7 @@ struct ExitButton_Previews: PreviewProvider {
             ExitButtonView()
                 .previewLayout(.fixed(width: 100.0, height: 100.0))
                 .previewDisplayName("Dark Mode")
-                .environment(\.colorScheme, .dark)
+                .preferredColorScheme(.dark)
         }
     }
 }

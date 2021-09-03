@@ -39,6 +39,8 @@
 		C5A5D23326DBE7B9006D10B9 /* DEGamesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D23226DBE7B9006D10B9 /* DEGamesListView.swift */; };
 		C5A5D23526DBE8B2006D10B9 /* DEGameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D23426DBE8B2006D10B9 /* DEGameDetailView.swift */; };
 		C5A9FED226E25221006BBB69 /* ApplicationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A9FED126E25221006BBB69 /* ApplicationModel.swift */; };
+		C5A9FED526E26F29006BBB69 /* ExistingScoreboardWizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A9FED426E26F29006BBB69 /* ExistingScoreboardWizard.swift */; };
+		C5A9FED726E26F37006BBB69 /* ScoreboardRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A9FED626E26F37006BBB69 /* ScoreboardRowView.swift */; };
 		C5EBCF8226DBC61E003B2630 /* DEScoreboardsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EBCF8126DBC61E003B2630 /* DEScoreboardsListView.swift */; };
 		C5EBCF8426DBD735003B2630 /* DEScoreboardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EBCF8326DBD735003B2630 /* DEScoreboardDetailView.swift */; };
 /* End PBXBuildFile section */
@@ -100,6 +102,8 @@
 		C5A5D23226DBE7B9006D10B9 /* DEGamesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEGamesListView.swift; sourceTree = "<group>"; };
 		C5A5D23426DBE8B2006D10B9 /* DEGameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEGameDetailView.swift; sourceTree = "<group>"; };
 		C5A9FED126E25221006BBB69 /* ApplicationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModel.swift; sourceTree = "<group>"; };
+		C5A9FED426E26F29006BBB69 /* ExistingScoreboardWizard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistingScoreboardWizard.swift; sourceTree = "<group>"; };
+		C5A9FED626E26F37006BBB69 /* ScoreboardRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardRowView.swift; sourceTree = "<group>"; };
 		C5EBCF8126DBC61E003B2630 /* DEScoreboardsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEScoreboardsListView.swift; sourceTree = "<group>"; };
 		C5EBCF8326DBD735003B2630 /* DEScoreboardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEScoreboardDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,6 +213,7 @@
 				C547B64626DD703400BCE904 /* SwitchedCombinationView.swift */,
 				C547B64226DD65CC00BCE904 /* MainMenuView.swift */,
 				C547B64D26DD888D00BCE904 /* NewScoreboardWizard */,
+				C5A9FED326E26EFE006BBB69 /* ExistingScoreboardWizard */,
 				C547B65226DD8BBB00BCE904 /* Player */,
 				C547B64826DD778A00BCE904 /* Controls */,
 				C54181B026DBA24900E69BE5 /* Explorer */,
@@ -271,6 +276,15 @@
 				C547B65526DD8C3400BCE904 /* PlayerDisplay.swift */,
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		C5A9FED326E26EFE006BBB69 /* ExistingScoreboardWizard */ = {
+			isa = PBXGroup;
+			children = (
+				C5A9FED426E26F29006BBB69 /* ExistingScoreboardWizard.swift */,
+				C5A9FED626E26F37006BBB69 /* ScoreboardRowView.swift */,
+			);
+			path = ExistingScoreboardWizard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,6 +423,7 @@
 				C54181B426DBA32300E69BE5 /* DEPlayersListView.swift in Sources */,
 				C54181AF26DAEBB200E69BE5 /* PreviewContent.swift in Sources */,
 				C547B64F26DD88B400BCE904 /* NewScoreboardPointModelSelectionView.swift in Sources */,
+				C5A9FED726E26F37006BBB69 /* ScoreboardRowView.swift in Sources */,
 				C547B65826DD8D4900BCE904 /* LinesList.swift in Sources */,
 				C547B65A26DE255600BCE904 /* PlayerCreationView.swift in Sources */,
 				C54181B626DBA39300E69BE5 /* ContentView.swift in Sources */,
@@ -419,6 +434,7 @@
 				C5EBCF8426DBD735003B2630 /* DEScoreboardDetailView.swift in Sources */,
 				C5A5D23126DBE697006D10B9 /* DEGameRowView.swift in Sources */,
 				C5A5D22D26DBE4F0006D10B9 /* DEScoreboardRowView.swift in Sources */,
+				C5A9FED526E26F29006BBB69 /* ExistingScoreboardWizard.swift in Sources */,
 				C541818326DADEA700E69BE5 /* Persistence.swift in Sources */,
 				C541818626DADEA700E69BE5 /* SkatScoreboard.xcdatamodeld in Sources */,
 				C5EBCF8226DBC61E003B2630 /* DEScoreboardsListView.swift in Sources */,
