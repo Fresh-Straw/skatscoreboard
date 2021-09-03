@@ -6,13 +6,10 @@
 //
 
 import SwiftUI
+import Combine
 
-struct NSWSelectGameTypeView: View {
-    private let setter: (PointModel) -> ()
-    
-    init(setter: @escaping (PointModel) -> ()) {
-        self.setter = setter
-    }
+struct NSWSelectPointModelView: View {
+    let pointModelSelection: PassthroughSubject<PointModel, Never>
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -20,7 +17,7 @@ struct NSWSelectGameTypeView: View {
             
             HStack(alignment: .center, spacing: 20) {
                 Button {
-                    setter(.leipzigerSkat)
+                    pointModelSelection.send(.leipzigerSkat)
                 } label: {
                     Text("Leipziger Skat")
                         .bold()
@@ -31,7 +28,7 @@ struct NSWSelectGameTypeView: View {
                 .skatButtonStyle()
                 
                 Button {
-                    setter(.seegerFabian)
+                    pointModelSelection.send(.seegerFabian)
                 } label: {
                     Text("Seeger/ Fabian")
                         .bold()
@@ -42,7 +39,7 @@ struct NSWSelectGameTypeView: View {
                 .skatButtonStyle()
                 
                 Button {
-                    setter(.bierlachs)
+                    pointModelSelection.send(.bierlachs)
                 } label: {
                     Text("Bierlachs")
                         .bold()
@@ -56,8 +53,8 @@ struct NSWSelectGameTypeView: View {
     }
 }
 
-struct NSWSelectGameTypeView_Previews: PreviewProvider {
+struct NSWSelectPointModelView_Previews: PreviewProvider {
     static var previews: some View {
-        NSWSelectGameTypeView(setter: {_ in})
+        NSWSelectPointModelView(pointModelSelection: PassthroughSubject<PointModel, Never>())
     }
 }

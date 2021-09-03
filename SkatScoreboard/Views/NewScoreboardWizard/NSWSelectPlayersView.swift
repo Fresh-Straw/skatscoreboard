@@ -157,6 +157,15 @@ struct NSWSelectPlayersView: View {
         .sheet(isPresented: $showAddPlayer) {
             PlayerCreationView(playerCreation: playerCreation)
         }
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button(action: {
+                    playerSelection.send(nil)
+                }, label: {
+                    Text("Abbrechen")
+                })
+            }
+        }
     }
 }
 

@@ -19,6 +19,17 @@ extension Player {
     }
 }
 
+extension Scoreboard {
+    var pointModel: PointModel {
+        get {
+            return PointModel(rawValue: self.pointModelString ?? PointModel.leipzigerSkat.rawValue)!
+        }
+        set(newValue) {
+            self.pointModelString = newValue.rawValue
+        }
+    }
+}
+
 func ??<T>(lhs: Binding<Optional<T>>, rhs: T) -> Binding<T> {
     Binding(
         get: { lhs.wrappedValue ?? rhs },

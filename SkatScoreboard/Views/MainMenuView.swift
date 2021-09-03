@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct MainMenuView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -13,6 +14,8 @@ struct MainMenuView: View {
     @Binding var applicationState: ApplicationState
     
     @State private var showNewScoreboardSheet = false
+    
+    let scoreboardCreation = PassthroughSubject<Scoreboard?, Never>()
     
     var body: some View {
         VStack {
@@ -43,8 +46,17 @@ struct MainMenuView: View {
         }
         .padding()
         .sheet(isPresented: $showNewScoreboardSheet, content: {
-            NewScoreboardView()
+            NewScoreboardView(scoreboardCreation: scoreboardCreation)
                 .environment(\.managedObjectContext, viewContext)
+        })
+        .onReceive(scoreboardCreation, perform: { scoreboard in
+            if let scoreboard = scoreboard {
+                // TODO do something
+                print(scoreboard)
+                showNewScoreboardSheet = false
+            } else {
+                showNewScoreboardSheet = false
+            }
         })
     }
     

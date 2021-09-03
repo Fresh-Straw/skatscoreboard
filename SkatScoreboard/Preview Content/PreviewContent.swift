@@ -16,11 +16,7 @@ extension PersistenceController {
     }
     
     private func createScoreboard() -> Scoreboard {
-        let scoreboard = Scoreboard(context: container.viewContext)
-        scoreboard.createdOn = Date()
-        scoreboard.lastChangedOn = Date()
-        scoreboard.pointModel = "leipziger"
-        return scoreboard
+        return SkatScoreboard.createScoreboard(container.viewContext, pointModel: .leipzigerSkat)
     }
     
     private func add(players: [Player], to scoreboard: Scoreboard) {

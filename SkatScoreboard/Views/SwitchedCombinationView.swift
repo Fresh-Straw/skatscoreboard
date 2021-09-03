@@ -10,7 +10,7 @@ import SwiftUI
 struct SwitchedCombinationView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    @State var applicationState: ApplicationState
+    @State private var applicationState = ApplicationState.MainMenu
     
     var body: some View {
         ZStack {
@@ -42,7 +42,7 @@ struct SwitchedCombinationView: View {
 
 struct SwitchedCombinationView_Previews: PreviewProvider {
     static var previews: some View {
-        SwitchedCombinationView(applicationState: .MainMenu)
+        SwitchedCombinationView()
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

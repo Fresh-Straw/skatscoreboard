@@ -11,7 +11,7 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     var body: some View {
-        SwitchedCombinationView(applicationState: .MainMenu)
+        SwitchedCombinationView()
             .environment(\.managedObjectContext, viewContext)
     }
 }

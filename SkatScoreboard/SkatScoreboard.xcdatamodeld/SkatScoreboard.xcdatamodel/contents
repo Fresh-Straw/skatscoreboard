@@ -33,7 +33,7 @@
     <entity name="Scoreboard" representedClassName="Scoreboard" syncable="YES" codeGenerationType="class">
         <attribute name="createdOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="lastChangedOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="pointModel" optional="YES" attributeType="String"/>
+        <attribute name="pointModelString" optional="YES" attributeType="String"/>
         <relationship name="games" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Game" inverseName="partOf" inverseEntity="Game"/>
         <relationship name="playersRaw" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerInScoreboard" inverseName="scoreboard" inverseEntity="PlayerInScoreboard"/>
     </entity>

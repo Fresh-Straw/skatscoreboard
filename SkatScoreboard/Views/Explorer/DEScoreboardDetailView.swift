@@ -16,12 +16,7 @@ struct DEScoreboardDetailView: View {
         VStack(alignment: .leading) {
             Form {
                 Section(header: Text("Scoreboard")) {
-                    if let pointModel = scoreboard.pointModel {
-                        Text(pointModel)
-                    } else {
-                        Text("NO-POINTMODEL")
-                            .italic()
-                    }
+                    Text(scoreboard.pointModel.rawValue)
                 
                     if let createdOn = scoreboard.createdOn {
                         HStack {
