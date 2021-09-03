@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 import Combine
 
-struct NewScoreboardView: View {
+struct NewScoreboardWizardView: View {
     @Environment(\.managedObjectContext) private var viewContext
         
     @State private var step2Active = false
@@ -24,13 +24,13 @@ struct NewScoreboardView: View {
         NavigationView {
             VStack {
                 NavigationLink(
-                    destination: NSWSelectPointModelView(pointModelSelection: pointModelSelection)
+                    destination: NewScoreboardPointModelSelectionView(pointModelSelection: pointModelSelection)
                         .navigationTitle("Punktezählung"),
                     isActive: $step2Active,
                     label: {
                         EmptyView()
                     })
-                NSWSelectPlayersView(playerSelection: playerSelection)
+                NewScoreboardPlayerSelectionView(playerSelection: playerSelection)
                 
             }
             .padding()
@@ -52,9 +52,9 @@ struct NewScoreboardView: View {
     }
 }
 
-struct NewScoreboardView_Previews: PreviewProvider {
+struct NewScoreboardWizardView_Previews: PreviewProvider {
     static var previews: some View {
-        NewScoreboardView(scoreboardCreation: PassthroughSubject<Scoreboard?, Never>())
+        NewScoreboardWizardView(scoreboardCreation: PassthroughSubject<Scoreboard?, Never>())
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

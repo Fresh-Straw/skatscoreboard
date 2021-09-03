@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-struct NSWSelectPointModelView: View {
+struct NewScoreboardPointModelSelectionView: View {
     let pointModelSelection: PassthroughSubject<PointModel, Never>
     
     var body: some View {
@@ -53,8 +53,8 @@ struct NSWSelectPointModelView: View {
     }
 }
 
-struct NSWSelectPointModelView_Previews: PreviewProvider {
+struct NewScoreboardPointModelSelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        NSWSelectPointModelView(pointModelSelection: PassthroughSubject<PointModel, Never>())
+        NewScoreboardPointModelSelectionView(pointModelSelection: PassthroughSubject<PointModel, Never>())
     }
 }

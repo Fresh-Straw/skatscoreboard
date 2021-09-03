@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-struct NSWSelectPlayersView: View {
+struct NewScoreboardPlayerSelectionView: View {
     private static let MIN_PLAYER_COUNT = 3
     private static let MAX_PLAYER_COUNT = 4
     
@@ -35,7 +35,7 @@ struct NSWSelectPlayersView: View {
     }
     
     private func add(player: Player) {
-        if numberOfPlayers < NSWSelectPlayersView.MAX_PLAYER_COUNT {
+        if numberOfPlayers < NewScoreboardPlayerSelectionView.MAX_PLAYER_COUNT {
             if let index = selectedPlayers.firstIndex(of: nil) {
                 selectedPlayers.insert(player, at: index)
             } else {
@@ -49,7 +49,7 @@ struct NSWSelectPlayersView: View {
         if let index = selectedPlayers.firstIndex(of: player) {
             selectedPlayers.remove(at: index)
         }
-        if selectedPlayers.count < NSWSelectPlayersView.MIN_PLAYER_COUNT {
+        if selectedPlayers.count < NewScoreboardPlayerSelectionView.MIN_PLAYER_COUNT {
             selectedPlayers.append(nil)
         }
     }
@@ -188,9 +188,9 @@ private enum DisplayItemType : Identifiable {
     }
 }
 
-struct NSWSelectPlayersView_Previews: PreviewProvider {
+struct NewScoreboardPlayerSelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        NSWSelectPlayersView(playerSelection: PassthroughSubject<[Player]?, Never>())
+        NewScoreboardPlayerSelectionView(playerSelection: PassthroughSubject<[Player]?, Never>())
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

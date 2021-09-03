@@ -46,7 +46,7 @@ struct MainMenuView: View {
         }
         .padding()
         .sheet(isPresented: $showNewScoreboardSheet, content: {
-            NewScoreboardView(scoreboardCreation: scoreboardCreation)
+            NewScoreboardWizardView(scoreboardCreation: scoreboardCreation)
                 .environment(\.managedObjectContext, viewContext)
         })
         .onReceive(scoreboardCreation, perform: { scoreboard in
