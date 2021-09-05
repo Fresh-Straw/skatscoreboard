@@ -22,6 +22,7 @@ struct ScoreboardRowView: View {
                 .filter { $0 != nil }
                 .map { $0! }
                 .joined(separator: ", ")
+            
             Text(title)
                 .font(.title)
                 .lineLimit(1)
@@ -51,43 +52,53 @@ struct ScoreboardRowView: View {
                     .truncationMode(.tail)
             }
         }
-        .padding(18)
+        .padding(20)
     }
     
     private var background: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 20)
-                .foregroundColor(backgroundColor)
-                //.shadow(color: backgroundColor.opacity(0.7), radius: 7)
-                .padding(5)
-            RoundedRectangle(cornerRadius: 20)
-                .colorInvert()
-                .shadow(color: shadowColor, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                .shadow(color: shadowColor, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                .shadow(color: shadowColor, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                .padding()
+            ZStack {
+                Color.listItemForeground
+                
+                Capsule()
+                    .frame(width: 300, height: 150)
+                    .foregroundColor(.blue.opacity(0.2))
+                    .offset(x: 100, y: 30)
+                    .blur(radius: 14)
+                
+                Capsule()
+                    .frame(width: 200, height: 150)
+                    .foregroundColor(.yellow.opacity(0.2))
+                    .offset(x: -120, y: -40)
+                    .blur(radius: 8)
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
+            .padding(5)
+            .shadow(radius: 5)
+
+            
+            GeometryReader { geo in
+                Path { path in
+                    path.move(to: CGPoint(x: 10, y: 58))
+                    path.addLine(to: CGPoint(x: geo.size.width-10, y: 58))
+                }
+                .stroke(Color.listBackground, lineWidth: 1)
+            }
         }
+    }
+    
+    private var line: some View {
+        VStack {
+            Divider()
+                .background(Color.yellow)
+        }
+        .padding()
     }
     
     var body: some View {
         ZStack(alignment:.topLeading) {
             background
             foreground
-        }
-    }
-    
-    private var shadowColor: Color {
-        return darkMode ? Color.black : Color.white
-    }
-    
-    private var backgroundColor: Color {
-        // TODO make colors configurable via assets
-        if darkMode {
-            let clr = 0.25
-            return Color(.sRGB, red: clr, green: clr, blue: clr, opacity: 1.0)
-        } else {
-            let clr = 0.9
-            return Color(.sRGB, red: clr, green: clr, blue: clr, opacity: 1.0)
         }
     }
 }
@@ -103,7 +114,7 @@ struct ScoreboardRowView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ScoreboardRowView(scoreboard: PersistenceController.preview.getAScoreboard_preview())
-                .previewLayout(.fixed(width: 400, height: 150))
+                .previewLayout(.fixed(width: 350, height: 150))
                 .previewDisplayName("Light mode")
                 .preferredColorScheme(.light)
 
@@ -117,6 +128,6 @@ struct ScoreboardRowView_Previews: PreviewProvider {
                 .previewDisplayName("Narrow")
                 .preferredColorScheme(.light)
         }
-        .background(Color(.sRGB, red: 0.9, green: 0.9, blue: 0.9, opacity: 1.0))
+        .background(Color.listBackground)
     }
 }
