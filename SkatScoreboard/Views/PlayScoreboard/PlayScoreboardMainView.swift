@@ -16,25 +16,32 @@ struct PlayScoreboardMainView: View {
     @State private var showCloseScoreAlert = false
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Text("Hello, World!")
+        VStack {
+            HStack {
+                Button {
+                    showCloseScoreAlert = true
+                } label: { Text("Beenden") }
+                
+                Spacer()
+
+                Button {
+                    
+                } label: { Text("Statistiken") }
             }
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button {
-                        showCloseScoreAlert = true
-                    } label: { Text("Beenden") }
-                }
-            }
-            .alert(isPresented: $showCloseScoreAlert, content: {
-                Alert.init(
-                    title: Text("Spiel beenden?"),
-                    primaryButton: Alert.Button.default(Text("Beenden"), action: { applicationState.send(.MainMenu) }),
-                    secondaryButton: Alert.Button.cancel()
-                )
-            })
+            Text("Hello, World!")
         }
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                
+            }
+        }
+        .alert(isPresented: $showCloseScoreAlert, content: {
+            Alert.init(
+                title: Text("Spiel beenden?"),
+                primaryButton: Alert.Button.default(Text("Beenden"), action: { applicationState.send(.MainMenu) }),
+                secondaryButton: Alert.Button.cancel()
+            )
+        })
     }
 }
 

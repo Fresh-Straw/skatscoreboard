@@ -101,19 +101,22 @@ private let itemFormatter: DateFormatter = {
 
 struct ScoreboardRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ScoreboardRowView(scoreboard: PersistenceController.preview.getAScoreboard_preview())
-            .previewLayout(.fixed(width: 400, height: 150))
-            .previewDisplayName("Light mode")
-            .preferredColorScheme(.light)
+        Group {
+            ScoreboardRowView(scoreboard: PersistenceController.preview.getAScoreboard_preview())
+                .previewLayout(.fixed(width: 400, height: 150))
+                .previewDisplayName("Light mode")
+                .preferredColorScheme(.light)
 
-        ScoreboardRowView(scoreboard: PersistenceController.preview.getAScoreboard_preview())
-            .previewLayout(.fixed(width: 400, height: 150))
-            .previewDisplayName("Dark mode")
-            .preferredColorScheme(.dark)
+            ScoreboardRowView(scoreboard: PersistenceController.preview.getAScoreboard_preview())
+                .previewLayout(.fixed(width: 400, height: 150))
+                .previewDisplayName("Dark mode")
+                .preferredColorScheme(.dark)
 
-        ScoreboardRowView(scoreboard: PersistenceController.preview.getAScoreboard_preview())
-            .previewLayout(.fixed(width: 150, height: 150))
-            .previewDisplayName("Narrow")
-            .preferredColorScheme(.light)
+            ScoreboardRowView(scoreboard: PersistenceController.preview.getAScoreboard_preview())
+                .previewLayout(.fixed(width: 150, height: 150))
+                .previewDisplayName("Narrow")
+                .preferredColorScheme(.light)
+        }
+        .background(Color(.sRGB, red: 0.9, green: 0.9, blue: 0.9, opacity: 1.0))
     }
 }
