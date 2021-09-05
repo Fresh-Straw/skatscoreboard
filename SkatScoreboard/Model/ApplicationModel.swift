@@ -51,3 +51,10 @@ private func add(_ context: NSManagedObjectContext, players: [Player], to scoreb
         pis.scoreboard = scoreboard
     }
 }
+
+let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .short
+    formatter.timeStyle = .medium
+    return formatter
+}()

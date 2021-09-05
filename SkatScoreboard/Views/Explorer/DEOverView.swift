@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import Combine
 
 struct DEOverView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    @Binding var applicationState: ApplicationState
+    var applicationState: CurrentValueSubject<ApplicationState, Never>
     
     var body: some View {
         NavigationView {
@@ -34,7 +35,9 @@ struct DEOverView: View {
             .navigationTitle("Data Explorer")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button { applicationState = .MainMenu } label: {
+                    Button {
+                        applicationState.send(.MainMenu)
+                    } label: {
                         ExitButtonView()
                     }
                     .frame(width: 24, height: 24)
@@ -47,7 +50,7 @@ struct DEOverView: View {
 
 struct DEOverView_Previews: PreviewProvider {
     static var previews: some View {
-        DEOverView(applicationState: .constant(.DataExplorer))
+        DEOverView(applicationState: CurrentValueSubject<ApplicationState, Never>(.DataExplorer))
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

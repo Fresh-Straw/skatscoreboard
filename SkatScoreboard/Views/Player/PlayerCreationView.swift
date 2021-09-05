@@ -24,6 +24,8 @@ struct PlayerCreationView: View {
                 Section(header: Text("Spieler")) {
                     TextField("Name", text: $name)
                         .autocapitalization(.words)
+                        .disableAutocorrection(true)
+                        .textContentType(/*@START_MENU_TOKEN@*/.name/*@END_MENU_TOKEN@*/)
                 }
                 Section(header: Text("Bild")) {
                     Picker(selection: $iconName, label: Text("Piktogram"), content: {
@@ -62,7 +64,15 @@ struct PlayerCreationView: View {
 
 struct PlayerCreationView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerCreationView(playerCreation: PassthroughSubject())
-            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        Group {
+            PlayerCreationView(playerCreation: PassthroughSubject())
+                .previewDisplayName("Light Mode")
+            
+            PlayerCreationView(playerCreation: PassthroughSubject())
+                .preferredColorScheme(.dark)
+                .previewDisplayName("Dark Mode")
+        }
+        .previewLayout(.fixed(width: 400, height: 350))
+        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

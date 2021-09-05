@@ -16,6 +16,7 @@ struct PlayerDisplay: View {
             PlayerIcon(player: player)
             Text(player?.name ?? playerName ?? "Player")
                 .lineLimit(1)
+                .truncationMode(/*@START_MENU_TOKEN@*/.tail/*@END_MENU_TOKEN@*/)
         }
         .opacity(player != nil ? 1.0 : 0.4)
     }

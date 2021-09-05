@@ -31,3 +31,32 @@ extension Button {
     }
 }
 
+struct SkatButton_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            Button {} label: {
+                Text("New Scoreboard")
+                    .multilineTextAlignment(.center)
+                    .font(.body.bold())
+                    .padding(5)
+                    .frame(width: 300, height: 100)
+                    .foregroundColor(Color.white)
+            }
+            .skatButtonStyle()
+                .previewLayout(.fixed(width: 330, height: 130))
+                .previewDisplayName("Light Mode")
+            
+            Button {} label: {
+                Text("Preview Content")
+                    .multilineTextAlignment(.center)
+                    .padding(5)
+                    .frame(width: 300, height: 100)
+                    .foregroundColor(Color.white)
+            }
+            .skatButtonStyle()
+                .previewLayout(.fixed(width: 330, height: 130))
+                .previewDisplayName("Dark Mode")
+                .preferredColorScheme(.dark)
+        }
+    }
+}

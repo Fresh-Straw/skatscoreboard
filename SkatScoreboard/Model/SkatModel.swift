@@ -16,4 +16,12 @@ enum PointModel: String {
     case leipzigerSkat, seegerFabian, bierlachs
 }
 
+extension Scoreboard {
+    func computePoints() -> [Player:Int] {
+        // TODO compute points
+        return getPlayers().reduce(into: [Player:Int]()) {
+            $0[$1] = Int.random(in: -32..<128)
+        }
+    }
+}
 

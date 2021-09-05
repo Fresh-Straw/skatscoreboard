@@ -57,13 +57,14 @@ struct LinesList_Previews: PreviewProvider {
         Group {
             LinesList(PersistenceController.preview.listPlayers_preview(), itemWidth: 80, itemHeight: 120, spacing: 6, alignment: .leading, view: { PlayerDisplay(player: $0)
             })
-            .previewLayout(.fixed(width: 400, height: 200))
+            .previewLayout(.fixed(width: 400, height: 250))
             LinesList(PersistenceController.preview.listPlayers_preview(), itemWidth: 80, itemHeight: 120, spacing: 6, alignment: .leading, view: { PlayerDisplay(player: $0)
             })
-            .previewLayout(.fixed(width: 300, height: 200))
+            .preferredColorScheme(.dark)
+            .previewLayout(.fixed(width: 300, height: 250))
             LinesList(PersistenceController.preview.listPlayers_preview(), itemWidth: 80, itemHeight: 120, spacing: 6, alignment: .leading, view: { PlayerDisplay(player: $0)
             })
-            .previewLayout(.fixed(width: 200, height: 200))
+            .previewLayout(.fixed(width: 200, height: 250))
         }
     }
 }

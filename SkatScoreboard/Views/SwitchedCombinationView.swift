@@ -6,26 +6,29 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SwitchedCombinationView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     @State private var applicationState = ApplicationState.MainMenu
+    private var applicationStateSubject = CurrentValueSubject<ApplicationState, Never>(ApplicationState.MainMenu)
     
     var body: some View {
         ZStack {
             switch applicationState {
             case .DataExplorer:
-                DEOverView(applicationState: $applicationState)
+                DEOverView(applicationState: applicationStateSubject)
+                    .transition(.opacity.animation(.easeInOut))
                     .environment(\.managedObjectContext, viewContext)
             case .MainMenu:
-                MainMenuView(applicationState: $applicationState)
+                MainMenuView(applicationState: applicationStateSubject)
                     .transition(.scale.animation(.easeInOut))
             case .Settings:
                 VStack {
                     Button(action: {
                         withAnimation {
-                            applicationState = .MainMenu
+                            applicationStateSubject.send(.MainMenu)
                         }
                     }, label: {
                         Text("Back")
@@ -37,6 +40,9 @@ struct SwitchedCombinationView: View {
 //                Text("Unknown application state")
             }
         }
+        .onReceive(applicationStateSubject, perform: { state in
+            applicationState = state
+        })
     }
 }
 

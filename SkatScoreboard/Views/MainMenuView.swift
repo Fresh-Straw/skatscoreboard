@@ -11,11 +11,14 @@ import Combine
 struct MainMenuView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    @Binding var applicationState: ApplicationState
+    // @Binding var applicationState: ApplicationState
+    var applicationState: CurrentValueSubject<ApplicationState, Never>
     
     @State private var showNewScoreboardSheet = false
+    @State private var showContinueScoreboardSheet = false
     
     let scoreboardCreation = PassthroughSubject<Scoreboard?, Never>()
+    let scoreboardSelection = PassthroughSubject<Scoreboard?, Never>()
     
     var body: some View {
         VStack {
@@ -27,7 +30,7 @@ struct MainMenuView: View {
                 Spacer()
                 Button(action: {
                     withAnimation {
-                        applicationState = .DataExplorer
+                        applicationState.send(.DataExplorer)
                     }
                 }) {
                     Image(systemName: "doc.badge.gearshape")
@@ -36,7 +39,7 @@ struct MainMenuView: View {
                 Spacer()
                 Button(action: {
                     withAnimation {
-                        applicationState = .Settings
+                        applicationState.send(.Settings)
                     }
                 }) {
                     Image(systemName: "gear")
@@ -49,14 +52,23 @@ struct MainMenuView: View {
             NewScoreboardWizardView(scoreboardCreation: scoreboardCreation)
                 .environment(\.managedObjectContext, viewContext)
         })
+        .sheet(isPresented: $showContinueScoreboardSheet, content: {
+            ExistingScoreboardWizard(scoreboardSelection: scoreboardSelection)
+                .environment(\.managedObjectContext, viewContext)
+        })
         .onReceive(scoreboardCreation, perform: { scoreboard in
             if let scoreboard = scoreboard {
                 // TODO do something
                 print(scoreboard)
-                showNewScoreboardSheet = false
-            } else {
-                showNewScoreboardSheet = false
             }
+            showNewScoreboardSheet = false
+        })
+        .onReceive(scoreboardSelection, perform: { scoreboard in
+            if let scoreboard = scoreboard {
+                // TODO restart scoreboard
+                print(scoreboard)
+            }
+            showContinueScoreboardSheet = false
         })
     }
     
@@ -74,7 +86,9 @@ struct MainMenuView: View {
                         .foregroundColor(Color.white)
                 }
                 .skatButtonStyle()
-                Button { } label: {
+                Button {
+                    showContinueScoreboardSheet = true
+                } label: {
                     Text("Continue Scoreboard")
                         .multilineTextAlignment(.center)
                         .font(.body.bold())
@@ -122,7 +136,7 @@ private extension Bundle {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainMenuView(applicationState: .constant(.MainMenu))
+        MainMenuView(applicationState: CurrentValueSubject<ApplicationState, Never>(.MainMenu))
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
