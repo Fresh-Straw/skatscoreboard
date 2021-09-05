@@ -11,7 +11,7 @@ import Combine
 struct DEOverView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    var applicationState: CurrentValueSubject<ApplicationState, Never>
+    let applicationState: CurrentValueSubject<ApplicationState, Never>
     
     var body: some View {
         NavigationView {

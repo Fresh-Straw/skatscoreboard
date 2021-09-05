@@ -12,7 +12,7 @@ struct SwitchedCombinationView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     @State private var applicationState = ApplicationState.MainMenu
-    private var applicationStateSubject = CurrentValueSubject<ApplicationState, Never>(ApplicationState.MainMenu)
+    private let applicationStateSubject = CurrentValueSubject<ApplicationState, Never>(ApplicationState.MainMenu)
     
     var body: some View {
         ZStack {
@@ -24,6 +24,9 @@ struct SwitchedCombinationView: View {
             case .MainMenu:
                 MainMenuView(applicationState: applicationStateSubject)
                     .transition(.scale.animation(.easeInOut))
+            case .PlayScoreboard(let scoreboard):
+                PlayScoreboardMainView(applicationState: applicationStateSubject, scoreboard: scoreboard)
+                    .transition(.slide.animation(.easeInOut))
             case .Settings:
                 VStack {
                     Button(action: {

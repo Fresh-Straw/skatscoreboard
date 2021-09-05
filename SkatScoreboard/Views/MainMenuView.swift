@@ -12,7 +12,7 @@ struct MainMenuView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     // @Binding var applicationState: ApplicationState
-    var applicationState: CurrentValueSubject<ApplicationState, Never>
+    let applicationState: CurrentValueSubject<ApplicationState, Never>
     
     @State private var showNewScoreboardSheet = false
     @State private var showContinueScoreboardSheet = false
@@ -58,15 +58,13 @@ struct MainMenuView: View {
         })
         .onReceive(scoreboardCreation, perform: { scoreboard in
             if let scoreboard = scoreboard {
-                // TODO do something
-                print(scoreboard)
+                applicationState.send(.PlayScoreboard(scoreboard: scoreboard))
             }
             showNewScoreboardSheet = false
         })
         .onReceive(scoreboardSelection, perform: { scoreboard in
             if let scoreboard = scoreboard {
-                // TODO restart scoreboard
-                print(scoreboard)
+                applicationState.send(.PlayScoreboard(scoreboard: scoreboard))
             }
             showContinueScoreboardSheet = false
         })

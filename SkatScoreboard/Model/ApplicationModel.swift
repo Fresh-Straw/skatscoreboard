@@ -10,7 +10,9 @@ import CoreData
 import SwiftUI
 
 enum ApplicationState {
-    case MainMenu, Settings,
+    case MainMenu,
+         PlayScoreboard(scoreboard: Scoreboard),
+         Settings,
          DataExplorer
 }
 
