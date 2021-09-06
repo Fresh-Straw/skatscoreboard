@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 enum PlayerRole: String {
     case dealer, listener, bidder, nextBidder
@@ -53,20 +52,12 @@ enum GameType: String, Identifiable, CaseIterable {
         }
     }
     
-    var color: Color {
+    var hasJacks: Bool {
         switch self {
-        case .suitsClubs:
-            return Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1))
-        case .suitsSpades:
-            return Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))
-        case .suitsHearts:
-            return Color(#colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1))
-        case .suitsDiamonds:
-            return Color(#colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1))
-        case .grand:
-            return Color(#colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1))
-        case .null:
-            return Color(#colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1))
+        case .suitsClubs, .suitsSpades, .suitsHearts, .suitsDiamonds, .grand:
+            return true
+        default:
+            return false
         }
     }
     

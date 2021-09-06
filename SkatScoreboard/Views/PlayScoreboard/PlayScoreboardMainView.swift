@@ -82,8 +82,10 @@ struct PlayScoreboardMainView: View {
     
     private func nextGameInput(width: CGFloat) -> some View {
         VStack {
-            let size4 = width / 4.0
-            let size2 = width / 2.0
+            let width2 = width / 2.0
+            let width4 = width / 4.0
+            let width5 = width / 5.0
+            let height = width / 4.5
             let buttons4 = [GameType.suitsClubs, GameType.suitsSpades, GameType.suitsHearts, GameType.suitsDiamonds]
             let buttons2 = [GameType.grand, GameType.null]
 
@@ -97,9 +99,9 @@ struct PlayScoreboardMainView: View {
                                 .font(.title2)
                         }
                     }
-                    .frame(width: size4, height: size4)
-                    .background(gameType.color)
-                    .foregroundColor(gameType.color.textColor)
+                    .frame(width: width4, height: height)
+                    .background(color(for: gameType))
+                    .foregroundColor(color(for: gameType).textColor)
                 }
             }
             HStack(spacing: 0) {
@@ -112,10 +114,91 @@ struct PlayScoreboardMainView: View {
                                 .font(.title2)
                         }
                     }
-                    .frame(width: size2, height: size4)
-                    .background(gameType.color)
-                    .foregroundColor(gameType.color.textColor)
+                    .frame(width: width2, height: height)
+                    .background(color(for: gameType))
+                    .foregroundColor(color(for: gameType).textColor)
                 }
+            }
+            HStack(spacing: 0) {
+                let handOuvertColor = Color(#colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1))
+                GameSelectionButton {} label: {
+                    VStack {
+                        Text("Hand")
+                            .font(.title2)
+                    }
+                }
+                .frame(width: width2, height: height)
+                .background(handOuvertColor)
+                .foregroundColor(handOuvertColor.textColor)
+                
+                GameSelectionButton {} label: {
+                    VStack {
+                        Text("Ouvert")
+                            .padding()
+                            .font(.title2)
+                    }
+                }
+                .frame(width: width2, height: height)
+                .background(handOuvertColor.opacity(0.8))
+                .foregroundColor(handOuvertColor.textColor)
+            }
+            HStack(spacing: 0) {
+                let jackColor = Color(#colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1))
+                GameSelectionButton {} label: {
+                    VStack(spacing: 4) {
+                        Text("Mit/ ohne")
+                            .font(.caption)
+                        Text("1")
+                            .font(.title)
+                    }
+                }
+                .frame(width: width5, height: height)
+                .background(jackColor)
+                .foregroundColor(jackColor.textColor)
+                GameSelectionButton {} label: {
+                    VStack(spacing: 4) {
+                        Text("Mit/ ohne")
+                            .font(.caption)
+                        Text("2")
+                            .font(.title)
+                    }
+                }
+                .frame(width: width5, height: height)
+                .background(jackColor.opacity(0.92))
+                .foregroundColor(jackColor.textColor)
+                GameSelectionButton {} label: {
+                    VStack(spacing: 4) {
+                        Text("Mit/ ohne")
+                            .font(.caption)
+                        Text("3")
+                            .font(.title)
+                    }
+                }
+                .frame(width: width5, height: height)
+                .background(jackColor.opacity(0.84))
+                .foregroundColor(jackColor.textColor)
+                GameSelectionButton {} label: {
+                    VStack(spacing: 4) {
+                        Text("Mit/ ohne")
+                            .font(.caption)
+                        Text("4")
+                            .font(.title)
+                    }
+                }
+                .frame(width: width5, height: height)
+                .background(jackColor.opacity(0.76))
+                .foregroundColor(jackColor.textColor)
+                GameSelectionButton {} label: {
+                    VStack(spacing: 14) {
+                        Text("Mit/ ohne")
+                            .font(.caption)
+                        Image(systemName: "ellipsis")
+                            .imageScale(.large)
+                    }
+                }
+                .frame(width: width5, height: height)
+                .background(jackColor.opacity(0.68))
+                .foregroundColor(jackColor.textColor)
             }
             HStack(spacing: 0) {
                 let schneiderColor = Color(#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1))
@@ -125,7 +208,7 @@ struct PlayScoreboardMainView: View {
                             .font(.title2)
                     }
                 }
-                .frame(width: size2, height: size4)
+                .frame(width: width2, height: height)
                 .background(schneiderColor)
                 .foregroundColor(schneiderColor.textColor)
                 
@@ -136,7 +219,7 @@ struct PlayScoreboardMainView: View {
                             .font(.title2)
                     }
                 }
-                .frame(width: size2, height: size4)
+                .frame(width: width2, height: height)
                 .background(schneiderColor.opacity(0.8))
                 .foregroundColor(schneiderColor.textColor)
             }
@@ -148,7 +231,7 @@ struct PlayScoreboardMainView: View {
                             .font(.title2)
                     }
                 }
-                .frame(width: size2, height: size4)
+                .frame(width: width2, height: height)
                 .background(schneiderColor)
                 .foregroundColor(schneiderColor.textColor)
                 
@@ -159,10 +242,27 @@ struct PlayScoreboardMainView: View {
                             .font(.title2)
                     }
                 }
-                .frame(width: size2, height: size4)
+                .frame(width: width2, height: height)
                 .background(schneiderColor.opacity(0.8))
                 .foregroundColor(schneiderColor.textColor)
             }
+        }
+    }
+    
+    private func color(for game: GameType) -> Color {
+        switch game {
+        case .suitsClubs:
+            return Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1))
+        case .suitsSpades:
+            return Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))
+        case .suitsHearts:
+            return Color(#colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1))
+        case .suitsDiamonds:
+            return Color(#colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1))
+        case .grand:
+            return Color(#colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1))
+        case .null:
+            return Color(#colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1))
         }
     }
 }
@@ -194,10 +294,10 @@ private struct PlayerPointView : View {
                 .opacity(0.25)
             
             if giver {
-                Image(systemName: "diamond.fill")
+                Image(systemName: "seal.fill")
                     .imageScale(.medium)
                     .offset(x: -35, y: -40)
-                    .opacity(0.8)
+                    .opacity(0.7)
             }
             
             VStack {
@@ -208,6 +308,7 @@ private struct PlayerPointView : View {
                 
                 Text(player.name ?? "")
                     .allowsTightening(true)
+                    .lineLimit(2)
                     .textCase(.uppercase)
             }
         }
