@@ -11,7 +11,7 @@ struct DEScoreboardRowView: View {
     var scoreboard: Scoreboard
     
     var body: some View {
-        let players = scoreboard.getPlayers()
+        let players = scoreboard.playersSorted
         VStack(alignment: .leading) {
             Text("Players: \(players.map({$0.name ?? "NO-NAME"}).joined(separator: ", "))")
             Text("Games: \(scoreboard.games?.count ?? 0)")

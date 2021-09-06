@@ -17,7 +17,7 @@ struct ScoreboardRowView: View {
     private var foreground: some View {
         VStack(alignment: .leading, spacing: 10) {
             let title = scoreboard
-                .getPlayers()
+                .playersSorted
                 .map { $0.name }
                 .filter { $0 != nil }
                 .map { $0! }
@@ -60,6 +60,9 @@ struct ScoreboardRowView: View {
             ZStack {
                 Color.listItemForeground
                 
+                // TODO for each player, create a blurred player-colored shape and set it
+                // randomly on the card. So each card looks different, but always the same
+                // when you reopen the list
                 Capsule()
                     .frame(width: 300, height: 150)
                     .foregroundColor(.blue.opacity(0.2))

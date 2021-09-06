@@ -31,7 +31,7 @@ struct DEPlayerDetailView: View {
             }
             
             Section(header: Text("Scoreboards")) {
-                let boards = player.getScoreboards()
+                let boards = player.scoreboards
                 ForEach(boards) { board in
                     NavigationLink(destination: DEScoreboardDetailView(scoreboard: board)
                                     .navigationTitle("Scoreboard")) {

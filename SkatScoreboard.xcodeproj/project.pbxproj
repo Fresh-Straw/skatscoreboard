@@ -34,6 +34,7 @@
 		C547B65A26DE255600BCE904 /* PlayerCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B65926DE255600BCE904 /* PlayerCreationView.swift */; };
 		C5887E6D26E4F26100AD13F9 /* PlayScoreboardMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5887E6C26E4F26100AD13F9 /* PlayScoreboardMainView.swift */; };
 		C5887E6F26E529A300AD13F9 /* ApplicationDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5887E6E26E529A300AD13F9 /* ApplicationDesign.swift */; };
+		C5887E7126E6B23500AD13F9 /* InnerShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5887E7026E6B23400AD13F9 /* InnerShadow.swift */; };
 		C5A5D22B26DBE21F006D10B9 /* DEPlayerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D22A26DBE21F006D10B9 /* DEPlayerDetailView.swift */; };
 		C5A5D22D26DBE4F0006D10B9 /* DEScoreboardRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D22C26DBE4F0006D10B9 /* DEScoreboardRowView.swift */; };
 		C5A5D22F26DBE597006D10B9 /* DEPlayerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5D22E26DBE597006D10B9 /* DEPlayerRowView.swift */; };
@@ -99,6 +100,7 @@
 		C547B65926DE255600BCE904 /* PlayerCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCreationView.swift; sourceTree = "<group>"; };
 		C5887E6C26E4F26100AD13F9 /* PlayScoreboardMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayScoreboardMainView.swift; sourceTree = "<group>"; };
 		C5887E6E26E529A300AD13F9 /* ApplicationDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDesign.swift; sourceTree = "<group>"; };
+		C5887E7026E6B23400AD13F9 /* InnerShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerShadow.swift; sourceTree = "<group>"; };
 		C5A5D22A26DBE21F006D10B9 /* DEPlayerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEPlayerDetailView.swift; sourceTree = "<group>"; };
 		C5A5D22C26DBE4F0006D10B9 /* DEScoreboardRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEScoreboardRowView.swift; sourceTree = "<group>"; };
 		C5A5D22E26DBE597006D10B9 /* DEPlayerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEPlayerRowView.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				C547B64926DD791B00BCE904 /* SkatButtonStyle.swift */,
 				C547B64B26DD7CD700BCE904 /* ExitButtonView.swift */,
 				C547B65726DD8D4900BCE904 /* LinesList.swift */,
+				C5887E7026E6B23400AD13F9 /* InnerShadow.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				C5A5D23326DBE7B9006D10B9 /* DEGamesListView.swift in Sources */,
 				C547B65126DD8B2800BCE904 /* NewScoreboardPlayerSelectionView.swift in Sources */,
 				C547B64726DD703400BCE904 /* SwitchedCombinationView.swift in Sources */,
+				C5887E7126E6B23500AD13F9 /* InnerShadow.swift in Sources */,
 				C5EBCF8426DBD735003B2630 /* DEScoreboardDetailView.swift in Sources */,
 				C5887E6F26E529A300AD13F9 /* ApplicationDesign.swift in Sources */,
 				C5A5D23126DBE697006D10B9 /* DEGameRowView.swift in Sources */,

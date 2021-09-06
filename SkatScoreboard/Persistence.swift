@@ -69,7 +69,7 @@ extension NSManagedObjectContext {
 }
 
 extension Scoreboard {
-    func getPlayers() -> [Player] {
+    var playersSorted: [Player] {
         let set = playersRaw as? Set<PlayerInScoreboard> ?? []
         return set.sorted {
             $0.order < $1.order
@@ -80,7 +80,7 @@ extension Scoreboard {
 }
 
 extension Player {
-    func getScoreboards() -> [Scoreboard] {
+    var scoreboards: [Scoreboard] {
         let boards = tookPartIn as? Set<PlayerInScoreboard> ?? []
         return boards
             .map { $0.scoreboard }

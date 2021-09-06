@@ -35,7 +35,7 @@ struct DEScoreboardDetailView: View {
                 }
                 
                 Section(header: Text("Players")) {
-                    let players = scoreboard.getPlayers()
+                    let players = scoreboard.playersSorted
                     ForEach(players) { player in
                         NavigationLink(destination: DEPlayerDetailView(player: player)
                                         .navigationTitle(player.name ?? "Player")) {

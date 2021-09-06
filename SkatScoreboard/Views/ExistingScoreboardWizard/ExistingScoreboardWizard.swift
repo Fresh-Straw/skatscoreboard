@@ -19,25 +19,31 @@ struct ExistingScoreboardWizard: View {
     var scoreboardSelection: PassthroughSubject<Scoreboard?, Never>
     
     var body: some View {
-        VStack {
-            Text("Wähle ein existierendes Scoreboard aus, um es anzusehen oder weiterzuspielen.")
-            
-            ScrollView {
-                LazyVStack {
-                    ForEach(scoreboards) { scoreboard in
-                        ScoreboardRowView(scoreboard: scoreboard)
-                            .onTapGesture {
-                                scoreboardSelection.send(scoreboard)
-                            }
-                            .onLongPressGesture {
-                                print("start")
-                            }
+        ZStack {
+            Color.listBackground
+                .edgesIgnoringSafeArea(.all)
+
+            VStack {
+                Text("Wähle ein existierendes Scoreboard aus, um es anzusehen oder weiterzuspielen.")
+                    .padding(.horizontal)
+
+                ScrollView {
+                    LazyVStack {
+                        ForEach(scoreboards) { scoreboard in
+                            ScoreboardRowView(scoreboard: scoreboard)
+                                .padding(.horizontal)
+                                .onTapGesture {
+                                    scoreboardSelection.send(scoreboard)
+                                }
+                                .onLongPressGesture {
+                                    print("start")
+                                }
+                        }
                     }
                 }
             }
+            .padding(.top)
         }
-        .padding(.horizontal)
-        .padding(.top)
     }
 }
 
