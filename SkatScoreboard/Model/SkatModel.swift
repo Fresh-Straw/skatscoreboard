@@ -16,17 +16,17 @@ enum PointModel: String {
 }
 
 enum GameType: String, Identifiable, CaseIterable {
-    case suitsClubs, suitsSpades, suitsHearts, suitsDiamonds, grand, null
+    case suitClubs, suitSpades, suitHearts, suitDiamonds, grand, null
     
     var imageSystemName: String {
         switch self {
-        case .suitsClubs:
+        case .suitClubs:
             return "suit.club.fill"
-        case .suitsSpades:
+        case .suitSpades:
             return "suit.spade.fill"
-        case .suitsHearts:
+        case .suitHearts:
             return "suit.heart.fill"
-        case .suitsDiamonds:
+        case .suitDiamonds:
             return "suit.diamond.fill"
         case .grand:
             return "star.fill"
@@ -37,13 +37,13 @@ enum GameType: String, Identifiable, CaseIterable {
     
     var displayName: String {
         switch self {
-        case .suitsClubs:
+        case .suitClubs:
             return "Kreuz"
-        case .suitsSpades:
+        case .suitSpades:
             return "Pik"
-        case .suitsHearts:
+        case .suitHearts:
             return "Herz"
-        case .suitsDiamonds:
+        case .suitDiamonds:
             return "Caro"
         case .grand:
             return "Grand"
@@ -54,7 +54,7 @@ enum GameType: String, Identifiable, CaseIterable {
     
     var hasJacks: Bool {
         switch self {
-        case .suitsClubs, .suitsSpades, .suitsHearts, .suitsDiamonds, .grand:
+        case .suitClubs, .suitSpades, .suitHearts, .suitDiamonds, .grand:
             return true
         default:
             return false

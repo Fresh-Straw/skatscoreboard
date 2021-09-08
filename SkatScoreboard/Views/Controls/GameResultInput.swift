@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import Combine
 
 struct GameResultInput: View {
-    private static let row1GameTypes: [GameType] = [.suitsClubs, .suitsSpades, .suitsHearts, .suitsDiamonds]
+    private static let row1GameTypes: [GameType] = [.suitClubs, .suitSpades, .suitHearts, .suitDiamonds]
     private static let row2GameTypes: [GameType] = [.grand, .null]
     
     private static let spacing: CGFloat = 1
@@ -30,11 +31,15 @@ struct GameResultInput: View {
 
     var scoreboard: Scoreboard
     
-    var onGameConfigurationCompleted: () -> Void = {}
+    var gameConfigurationCompletion: PassthroughSubject<Game, Never>
+    
+    private var rowHeight: CGFloat {
+        70
+    }
     
     private var isStandardGame: Bool {
         switch gameType {
-        case .suitsClubs, .suitsSpades, .suitsHearts, .suitsDiamonds:
+        case .suitClubs, .suitSpades, .suitHearts, .suitDiamonds:
             return true
         default:
             return false
@@ -45,11 +50,11 @@ struct GameResultInput: View {
     
     private var isNullGame: Bool { gameType == .null }
     
-//    private var isJunkGame: Bool { gameType == .junk }
+    private var isJunkGame: Bool { /*gameType == .junk*/ false }
 
     private func checkGameConfiguration() {
         if false/*isComplete*/ {
-            onGameConfigurationCompleted()
+            // TODO onGameConfigurationCompleted()
         }
     }
 
@@ -61,8 +66,9 @@ struct GameResultInput: View {
                 handOuvertControls
                 VStack(spacing: GameResultInput.spacing) {
                     Text("Mit/ Ohne")
-                    mainJacksControls
-                    additionalJacksControls
+                    //mainJacksControls
+                    //additionalJacksControls
+                    extendedJacksControls
                 }
                 schneiderControls
                 schwarzControls
@@ -94,10 +100,10 @@ struct GameResultInput: View {
                 winLoseControls
             }
             
-//            if isJunkGame {
-//                Text("Who got the most points?")
-//                playersControls
-//            }
+            if isJunkGame {
+                Text("Who got the most points?")
+                playersControls
+            }
         }
     }
     
@@ -108,11 +114,13 @@ struct GameResultInput: View {
                     ToggleButton(title: LocalizedStringKey(type.rawValue), binding: $gameType, match: type, onAction: {checkGameConfiguration()})
                 }
             }
+            .frame(height: rowHeight)
             HStack(spacing: GameResultInput.spacing) {
                 ForEach(GameResultInput.row2GameTypes) { type in
                     ToggleButton(title: LocalizedStringKey(type.rawValue), binding: $gameType, match: type, onAction: {checkGameConfiguration()})
                 }
             }
+            .frame(height: rowHeight)
         }
     }
     
@@ -122,22 +130,35 @@ struct GameResultInput: View {
                 ToggleButton(title: LocalizedStringKey("j\(jacks)"), binding: $jacks, match: jacks, onAction: {checkGameConfiguration()})
             }
         }
+        .frame(height: rowHeight)
     }
     
-    private var additionalJacksControls: some View {
-        // https://www.skatblog.com/2013/06/22/mit-6-spiel-7/
+    private var extendedJacksControls: some View {
         HStack(spacing: GameResultInput.spacing) {
-            ForEach(5...11, id: \.self) { jacks in
+            ForEach(1...4, id: \.self) { jacks in
                 ToggleButton(title: LocalizedStringKey("j\(jacks)"), binding: $jacks, match: jacks, onAction: {checkGameConfiguration()})
             }
+            ToggleButton(title: LocalizedStringKey("..."), binding: $jacks, match: 5, onAction: {checkGameConfiguration()})
         }
+        .frame(height: rowHeight)
     }
+    
+//    private var additionalJacksControls: some View {
+//        // https://www.skatblog.com/2013/06/22/mit-6-spiel-7/
+//        HStack(spacing: GameResultInput.spacing) {
+//            ForEach(5...11, id: \.self) { jacks in
+//                ToggleButton(title: LocalizedStringKey("j\(jacks)"), binding: $jacks, match: jacks, onAction: {checkGameConfiguration()})
+//            }
+//        }
+//        .frame(height: rowHeight)
+//    }
     
     private var schneiderControls: some View {
         HStack(spacing: GameResultInput.spacing) {
             ToggleButton(title: "Schneider", binding: $schneider, onAction: {checkGameConfiguration()})
             ToggleButton(title: "Schneider Angesagt", binding: $schneiderAnnounced, onAction: {checkGameConfiguration()})
         }
+        .frame(height: rowHeight)
     }
     
     private var schwarzControls: some View {
@@ -145,6 +166,7 @@ struct GameResultInput: View {
             ToggleButton(title: "Schwarz", binding: $schwarz, onAction: {checkGameConfiguration()})
             ToggleButton(title: "Schwarz Angesagt", binding: $schwarzAnnounced, onAction: {checkGameConfiguration()})
         }
+        .frame(height: rowHeight)
     }
     
     private var handOuvertControls: some View {
@@ -152,6 +174,7 @@ struct GameResultInput: View {
             ToggleButton(title: "Hand", binding: $hand, onAction: {checkGameConfiguration()})
             ToggleButton(title: "Ouvert", binding: $ouvert, onAction: {checkGameConfiguration()})
         }
+        .frame(height: rowHeight)
     }
     
     private var contraControls: some View {
@@ -160,6 +183,7 @@ struct GameResultInput: View {
             ToggleButton(title: "Re", binding: $re, onAction: {checkGameConfiguration()})
             ToggleButton(title: "Bock", binding: $bock, onAction: {checkGameConfiguration()})
         }
+        .frame(height: rowHeight)
     }
     
     private var winLoseControls: some View {
@@ -167,6 +191,7 @@ struct GameResultInput: View {
             ToggleButton(title: "Won", binding: $win, match: true as Bool?, onAction: {checkGameConfiguration()})
             ToggleButton(title: "Lost", binding: $win, match: false as Bool?, onAction: {checkGameConfiguration()})
         }
+        .frame(height: rowHeight)
     }
     
     private var playersControls: some View {
@@ -175,12 +200,13 @@ struct GameResultInput: View {
                 ToggleButton(title: LocalizedStringKey(player.name!), binding: $player, match: player as Player?, onAction: {checkGameConfiguration()})
             }
         }
+        .frame(height: rowHeight)
     }
 }
 
 struct GameResultInput_Previews: PreviewProvider {
     static var previews: some View {
 //        GameResultInput(gameConfig: GameConfiguration(), players: AppState.preview.appData.scoreboards[0].players)
-        GameResultInput(scoreboard: PersistenceController.preview.getAScoreboard_preview())
+        GameResultInput(scoreboard: PersistenceController.preview.getAScoreboard_preview(), gameConfigurationCompletion: PassthroughSubject<Game, Never>())
     }
 }

@@ -24,6 +24,12 @@ struct ToggleButton: View {
         self.onAction = onAction
     }
     
+//    init<T: Equatable>(title: LocalizedStringKey, binding: Binding<T>, matching: @escaping () -> T, selection: @escaping () -> (),  onAction: @escaping () -> Void = {}) {
+//        self.title = title
+//        self.binding = Binding(get: {binding.wrappedValue == matching()}, set: { if $0 {binding.wrappedValue = matching()} })
+//        self.onAction = onAction
+//    }
+
     var body: some View {
         ZStack {
             let bgColor = binding.wrappedValue ? Color.toggleButtonPressed : Color.toggleButtonNormal
@@ -35,6 +41,7 @@ struct ToggleButton: View {
         }
         .contentShape(Rectangle())
         .onTapGesture {
+            
             binding.wrappedValue.toggle()
             onAction()
         }

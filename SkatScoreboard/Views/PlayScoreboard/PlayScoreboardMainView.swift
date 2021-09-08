@@ -86,7 +86,7 @@ struct PlayScoreboardMainView: View {
             let width4 = width / 4.0
             let width5 = width / 5.0
             let height = width / 4.5
-            let buttons4 = [GameType.suitsClubs, GameType.suitsSpades, GameType.suitsHearts, GameType.suitsDiamonds]
+            let buttons4 = [GameType.suitClubs, GameType.suitSpades, GameType.suitHearts, GameType.suitDiamonds]
             let buttons2 = [GameType.grand, GameType.null]
 
             HStack(spacing: 0) {
@@ -251,13 +251,13 @@ struct PlayScoreboardMainView: View {
     
     private func color(for game: GameType) -> Color {
         switch game {
-        case .suitsClubs:
+        case .suitClubs:
             return Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1))
-        case .suitsSpades:
+        case .suitSpades:
             return Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))
-        case .suitsHearts:
+        case .suitHearts:
             return Color(#colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1))
-        case .suitsDiamonds:
+        case .suitDiamonds:
             return Color(#colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1))
         case .grand:
             return Color(#colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1))
