@@ -92,3 +92,112 @@ extension Scoreboard {
     }
 }
 
+
+final class GameConfiguration: ObservableObject {
+    @Published var player: Player? = nil
+    @Published var win: Bool?
+    @Published var gameType: GameType? = nil {
+        didSet {
+            reset()
+        }
+    }
+    @Published var jacks: Int?
+    @Published var hand: Bool = false
+    @Published var schneider: Bool = false {
+        didSet {
+            let newSchneiderAnnounced = schneiderAnnounced && schneider
+            if newSchneiderAnnounced != schneiderAnnounced {
+                schneiderAnnounced = newSchneiderAnnounced
+            }
+        }
+    }
+    @Published var schneiderAnnounced: Bool = false {
+        didSet {
+            let newSchneider = schneider || schneiderAnnounced
+            if newSchneider != schneider {
+                schneider = newSchneider
+            }
+        }
+    }
+    @Published var schwarz: Bool = false {
+        didSet {
+            let newSchwarzAnnounced = schwarzAnnounced && schwarz
+            if newSchwarzAnnounced != schwarzAnnounced {
+                schwarzAnnounced = newSchwarzAnnounced
+            }
+        }
+    }
+    @Published var schwarzAnnounced: Bool = false {
+        didSet {
+            let newSchwarz = schwarz || schwarzAnnounced
+            if newSchwarz != schwarz {
+                schwarz = newSchwarz
+            }
+        }
+    }
+    @Published var ouvert: Bool = false
+    
+    @Published var contra: Bool = false {
+        didSet {
+            if !contra {
+                re = false
+                bock = false
+            }
+        }
+    }
+    @Published var re: Bool = false {
+        didSet {
+            if re {
+                contra = true
+            } else {
+                bock = false
+            }
+        }
+    }
+    @Published var bock: Bool = false {
+        didSet {
+            if bock {
+                contra = true
+                re = true
+            }
+        }
+    }
+    
+    init() {
+        // leave everything nil
+    }
+    
+//    init(fromGame game: Game) {
+//        self.player = game.player
+//        self.win = game.win
+//        self.gameType = game.type
+//        self.jacks = game.matadorsJackStraight ?? 1
+//        self.hand = game.hand
+//        self.schneider = game.schneider
+//        self.schneiderAnnounced = game.schneiderAnnounced
+//        self.schwarz = game.schwarz
+//        self.schwarzAnnounced = game.schwarzAnnounced
+//        self.ouvert = game.ouvert
+//        self.contra = game.announcedContra
+//        self.re = game.announcedRe
+//        self.bock = game.announcedBock
+//    }
+    
+    private func reset() {
+        hand = false
+        ouvert = false
+        jacks = nil
+        schneider = false
+        schwarz = false
+        contra = false
+    }
+    
+    var isComplete: Bool {
+        player != nil
+            && gameType != nil
+            && win != nil
+            && (gameType == .null || jacks != nil)
+//            && (gameType == .junk || win != nil)
+//            && (gameType == .null || gameType == .junk || jacks != nil)
+    }
+}

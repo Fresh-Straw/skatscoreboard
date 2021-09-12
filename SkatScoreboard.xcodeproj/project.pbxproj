@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,6 +33,7 @@
 		C547B65826DD8D4900BCE904 /* LinesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B65726DD8D4900BCE904 /* LinesList.swift */; };
 		C547B65A26DE255600BCE904 /* PlayerCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B65926DE255600BCE904 /* PlayerCreationView.swift */; };
 		C55E305326EB565800231A8A /* ButtonSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55E305226EB565800231A8A /* ButtonSection.swift */; };
+		C55E305626EE1F5A00231A8A /* SlideOverCard in Frameworks */ = {isa = PBXBuildFile; productRef = C55E305526EE1F5A00231A8A /* SlideOverCard */; };
 		C5887E6D26E4F26100AD13F9 /* PlayScoreboardMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5887E6C26E4F26100AD13F9 /* PlayScoreboardMainView.swift */; };
 		C5887E6F26E529A300AD13F9 /* ApplicationDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5887E6E26E529A300AD13F9 /* ApplicationDesign.swift */; };
 		C5887E7126E6B23500AD13F9 /* InnerShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5887E7026E6B23400AD13F9 /* InnerShadow.swift */; };
@@ -125,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C55E305626EE1F5A00231A8A /* SlideOverCard in Frameworks */,
 				C54181AC26DADF8500E69BE5 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,6 +332,7 @@
 			);
 			name = SkatScoreboard;
 			packageProductDependencies = (
+				C55E305526EE1F5A00231A8A /* SlideOverCard */,
 			);
 			productName = SkatScoreboard;
 			productReference = C541817626DADEA500E69BE5 /* SkatScoreboard.app */;
@@ -403,6 +406,7 @@
 			);
 			mainGroup = C541816D26DADEA500E69BE5;
 			packageReferences = (
+				C55E305426EE1F5A00231A8A /* XCRemoteSwiftPackageReference "SlideOverCard" */,
 			);
 			productRefGroup = C541817726DADEA500E69BE5 /* Products */;
 			projectDirPath = "";
@@ -806,6 +810,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C55E305426EE1F5A00231A8A /* XCRemoteSwiftPackageReference "SlideOverCard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/joogps/SlideOverCard.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C55E305526EE1F5A00231A8A /* SlideOverCard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C55E305426EE1F5A00231A8A /* XCRemoteSwiftPackageReference "SlideOverCard" */;
+			productName = SlideOverCard;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C541818426DADEA700E69BE5 /* SkatScoreboard.xcdatamodeld */ = {
