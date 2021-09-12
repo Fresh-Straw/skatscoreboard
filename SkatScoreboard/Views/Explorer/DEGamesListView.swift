@@ -22,7 +22,7 @@ struct DEGamesListView: View {
             ForEach(games) { game in
                 NavigationLink(
                     destination: DEGameDetailView(game: game)
-                        .navigationTitle(game.type ?? "Game")) {
+                        .navigationTitle(game.typeString ?? "Game")) {
                     DEGameRowView(game: game)
                 }
             }
@@ -128,7 +128,7 @@ private struct AddGameView: View {
                             let game = Game(context: viewContext)
                             game.playedBy = player
                             game.partOf = scoreboard
-                            game.type = type
+                            game.typeString = type
                             game.jacks = Int16(jacks)
                             game.won = won
                             game.hand = hand

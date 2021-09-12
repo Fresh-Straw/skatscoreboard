@@ -9,6 +9,15 @@ import Foundation
 import SwiftUI
 
 extension Player {
+    var scoreboards: [Scoreboard] {
+        let boards = tookPartIn as? Set<PlayerInScoreboard> ?? []
+        return boards
+            .map { $0.scoreboard }
+            .filter { $0 != nil }
+            .map { $0! }
+            .sorted { $0.lastChangedOn ?? Date() < $1.lastChangedOn ?? Date() }
+    }
+
     var iconColor: Color {
         get {
             return Color(hex: self.iconColorString ?? "") ?? Color.blue
@@ -20,12 +29,32 @@ extension Player {
 }
 
 extension Scoreboard {
+    var playersSorted: [Player] {
+        let set = playersRaw as? Set<PlayerInScoreboard> ?? []
+        return set.sorted {
+            $0.order < $1.order
+        }.map {
+            $0.player!
+        }
+    }
+    
     var pointModel: PointModel {
         get {
             return PointModel(rawValue: self.pointModelString ?? PointModel.leipzigerSkat.rawValue)!
         }
         set(newValue) {
             self.pointModelString = newValue.rawValue
+        }
+    }
+}
+
+extension Game {
+    var gameType: GameType {
+        get {
+            return GameType(rawValue: self.typeString ?? GameType.suitHearts.rawValue)!
+        }
+        set(newValue) {
+            self.typeString = newValue.rawValue
         }
     }
 }

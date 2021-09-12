@@ -31,7 +31,7 @@ extension PersistenceController {
     
     private func addGame(to scoreboard: Scoreboard, forOnOf players: [Player]) {
         let game = Game(context: container.viewContext)
-        game.type = "Grand"
+        game.gameType = GameType.grand
         game.createdOn = Date()
         game.partOf = scoreboard
         let jacks = Int.random(in: -5...4)
@@ -84,6 +84,24 @@ extension PersistenceController {
     
     func listPlayers_preview() -> [Player] {
         list(items: "Player")
+    }
+    
+    var gameConfig : GameConfiguration {
+        let config = GameConfiguration()
+        config.bock = Bool.random()
+        config.re = Bool.random()
+        config.contra = Bool.random()
+        config.win = Bool.random()
+        config.gameType = .suitHearts
+        config.schneider = Bool.random()
+        config.schneiderAnnounced = Bool.random()
+        config.schwarz = Bool.random()
+        config.schwarzAnnounced = Bool.random()
+        config.player = getAPlayer_preview()
+        config.jacks = Int.random(in: 1...4)
+        config.hand = Bool.random()
+        config.ouvert = Bool.random()
+        return config;
     }
     
     static var preview: PersistenceController = {

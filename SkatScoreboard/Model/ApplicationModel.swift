@@ -44,6 +44,29 @@ func createScoreboard(_ context: NSManagedObjectContext, pointModel: PointModel,
     return scoreboard
 }
 
+func createGame(_ context: NSManagedObjectContext, in scoreboard: Scoreboard, gameConfig: GameConfiguration) -> Game {
+    let game = Game(context: context)
+    game.partOf = scoreboard
+    game.playedBy = gameConfig.player
+    
+    game.gameType = gameConfig.type
+    game.jacks = Int16(gameConfig.jacks ?? 0)
+    game.hand = gameConfig.hand
+    game.ouvert = gameConfig.ouvert
+    game.schneider = gameConfig.schneider
+    game.schneiderAnnounced = gameConfig.schneiderAnnounced
+    game.schwarz = gameConfig.schwarz
+    game.schwarzAnnounced = gameConfig.schwarzAnnounced
+    
+    game.contra = gameConfig.contra
+    game.re = gameConfig.re
+    game.bock = gameConfig.bock
+    
+    game.won = gameConfig.won
+    
+    return game
+}
+
 private func add(_ context: NSManagedObjectContext, players: [Player], to scoreboard: Scoreboard) {
     players.forEach {
         let pis = PlayerInScoreboard(context: context)

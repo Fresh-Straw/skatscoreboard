@@ -57,7 +57,7 @@ struct DEScoreboardDetailView: View {
                     }
                     ForEach(games) { game in
                         NavigationLink(destination: DEGameDetailView(game: game)
-                                        .navigationTitle(game.type ?? "Game")) {
+                                        .navigationTitle(game.typeString ?? "Game")) {
                             DEGameRowView(game: game)
                         }
                     }

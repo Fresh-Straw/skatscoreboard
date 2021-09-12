@@ -45,7 +45,7 @@ struct DEPlayerDetailView: View {
                     if player == game.playedBy {
                         // TODO filter another way
                         NavigationLink(destination: DEGameDetailView(game: game)
-                                        .navigationTitle(game.type ?? "Game")) {
+                                        .navigationTitle(game.typeString ?? "Game")) {
                             DEGameRowView(game: game)
                         }
                     }

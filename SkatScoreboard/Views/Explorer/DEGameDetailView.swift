@@ -13,7 +13,7 @@ struct DEGameDetailView: View {
     var body: some View {
         Form {
             Section(header: Text("General")) {
-                if let type = game.type {
+                if let type = game.typeString {
                     Text(type)
                         .font(.title3)
                 } else {

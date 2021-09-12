@@ -25,6 +25,7 @@ struct ButtonSection<Content: View>: View {
             Text(title)
                 .font(.caption)
                 .textCase(.uppercase)
+                .opacity(0.8)
             content
                 .padding(.leading, indentation)
         }

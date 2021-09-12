@@ -68,24 +68,3 @@ extension NSManagedObjectContext {
     }
 }
 
-extension Scoreboard {
-    var playersSorted: [Player] {
-        let set = playersRaw as? Set<PlayerInScoreboard> ?? []
-        return set.sorted {
-            $0.order < $1.order
-        }.map {
-            $0.player!
-        }
-    }
-}
-
-extension Player {
-    var scoreboards: [Scoreboard] {
-        let boards = tookPartIn as? Set<PlayerInScoreboard> ?? []
-        return boards
-            .map { $0.scoreboard }
-            .filter { $0 != nil }
-            .map { $0! }
-            .sorted { $0.lastChangedOn ?? Date() < $1.lastChangedOn ?? Date() }
-    }
-}

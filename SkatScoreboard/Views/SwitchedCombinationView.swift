@@ -27,6 +27,7 @@ struct SwitchedCombinationView: View {
             case .PlayScoreboard(let scoreboard):
                 PlayScoreboardMainView(applicationState: applicationStateSubject, scoreboard: scoreboard)
                     .transition(.slide.animation(.easeInOut))
+                    .environment(\.managedObjectContext, viewContext)
             case .Settings:
                 VStack {
                     Button(action: {

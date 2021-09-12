@@ -12,7 +12,7 @@ struct DEGameRowView: View {
     
     var body: some View {
         HStack {
-            Text(game.type ?? "NOPE")
+            Text(game.typeString ?? "NOPE")
             Spacer()
             if let createdOn = game.createdOn {
                 Text(createdOn, formatter: itemFormatter)

@@ -13,6 +13,8 @@ enum PlayerRole: String {
 
 enum PointModel: String {
     case leipzigerSkat, seegerFabian, bierlachs
+    
+    var calculator: PointModelCalculator { PointModelCalculator.get(for: self) }
 }
 
 enum GameType: String, Identifiable, CaseIterable {
@@ -65,11 +67,27 @@ enum GameType: String, Identifiable, CaseIterable {
 }
 
 extension Scoreboard {
+//    func computePoints() -> [Player:Int] {
+//        PointModelCalculator.default.
+//        // TODO compute points
+//        return playersSorted.reduce(into: [Player:Int]()) {
+//            $0[$1] = Int.random(in: -32..<128)
+//        }
+//    }
+    
     func computePoints() -> [Player:Int] {
-        // TODO compute points
-        return playersSorted.reduce(into: [Player:Int]()) {
-            $0[$1] = Int.random(in: -32..<128)
+        let calculator = pointModel.calculator
+        let players = playersSorted
+        var playerPoints = map(players, to: 0)
+        if let games = games {
+            for case let game as Game in games {
+                let points = calculator.computePoints(for: game, players: players)
+                points.forEach { (player, points) in
+                    playerPoints[player]! += points
+                }
+            }
         }
+        return playerPoints
     }
     
     var numberOfGames: Int {
@@ -93,7 +111,12 @@ extension Scoreboard {
 }
 
 
-final class GameConfiguration: ObservableObject {
+final class GameConfiguration: ObservableObject, Gamish {
+    var playerOfGame: Player { player! }
+    var won: Bool { win! }
+    var type: GameType { gameType! }
+    var numberOfJacks: Int { jacks! }
+    
     @Published var player: Player? = nil
     @Published var win: Bool?
     @Published var gameType: GameType? = nil {

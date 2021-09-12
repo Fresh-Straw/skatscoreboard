@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C510E34B26DE4A4B004D4A53 /* PersistanceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C510E34A26DE4A4B004D4A53 /* PersistanceExtensions.swift */; };
+		C51717C326EE4CD000FC0ACB /* PointModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51717C226EE4CD000FC0ACB /* PointModel.swift */; };
+		C51717C526EE4F0500FC0ACB /* NameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51717C426EE4F0500FC0ACB /* NameModel.swift */; };
 		C541817A26DADEA500E69BE5 /* SkatScoreboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C541817926DADEA500E69BE5 /* SkatScoreboardApp.swift */; };
 		C541817E26DADEA700E69BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C541817D26DADEA700E69BE5 /* Assets.xcassets */; };
 		C541818126DADEA700E69BE5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C541818026DADEA700E69BE5 /* Preview Assets.xcassets */; };
@@ -34,6 +36,7 @@
 		C547B65A26DE255600BCE904 /* PlayerCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C547B65926DE255600BCE904 /* PlayerCreationView.swift */; };
 		C55E305326EB565800231A8A /* ButtonSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55E305226EB565800231A8A /* ButtonSection.swift */; };
 		C55E305626EE1F5A00231A8A /* SlideOverCard in Frameworks */ = {isa = PBXBuildFile; productRef = C55E305526EE1F5A00231A8A /* SlideOverCard */; };
+		C55E305826EE4A0000231A8A /* GameConfigOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55E305726EE4A0000231A8A /* GameConfigOverView.swift */; };
 		C5887E6D26E4F26100AD13F9 /* PlayScoreboardMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5887E6C26E4F26100AD13F9 /* PlayScoreboardMainView.swift */; };
 		C5887E6F26E529A300AD13F9 /* ApplicationDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5887E6E26E529A300AD13F9 /* ApplicationDesign.swift */; };
 		C5887E7126E6B23500AD13F9 /* InnerShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5887E7026E6B23400AD13F9 /* InnerShadow.swift */; };
@@ -48,6 +51,8 @@
 		C5A9FED226E25221006BBB69 /* ApplicationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A9FED126E25221006BBB69 /* ApplicationModel.swift */; };
 		C5A9FED526E26F29006BBB69 /* ExistingScoreboardWizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A9FED426E26F29006BBB69 /* ExistingScoreboardWizard.swift */; };
 		C5A9FED726E26F37006BBB69 /* ScoreboardRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A9FED626E26F37006BBB69 /* ScoreboardRowView.swift */; };
+		C5C0027026EE56FC00F23F7D /* PlayerPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0026F26EE56FC00F23F7D /* PlayerPointView.swift */; };
+		C5C0027226EE5BF200F23F7D /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0027126EE5BF200F23F7D /* Helper.swift */; };
 		C5EBCF8226DBC61E003B2630 /* DEScoreboardsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EBCF8126DBC61E003B2630 /* DEScoreboardsListView.swift */; };
 		C5EBCF8426DBD735003B2630 /* DEScoreboardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EBCF8326DBD735003B2630 /* DEScoreboardDetailView.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +76,8 @@
 
 /* Begin PBXFileReference section */
 		C510E34A26DE4A4B004D4A53 /* PersistanceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceExtensions.swift; sourceTree = "<group>"; };
+		C51717C226EE4CD000FC0ACB /* PointModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointModel.swift; sourceTree = "<group>"; };
+		C51717C426EE4F0500FC0ACB /* NameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameModel.swift; sourceTree = "<group>"; };
 		C541817626DADEA500E69BE5 /* SkatScoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkatScoreboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C541817926DADEA500E69BE5 /* SkatScoreboardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkatScoreboardApp.swift; sourceTree = "<group>"; };
 		C541817D26DADEA700E69BE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,6 +110,7 @@
 		C547B65726DD8D4900BCE904 /* LinesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesList.swift; sourceTree = "<group>"; };
 		C547B65926DE255600BCE904 /* PlayerCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCreationView.swift; sourceTree = "<group>"; };
 		C55E305226EB565800231A8A /* ButtonSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSection.swift; sourceTree = "<group>"; };
+		C55E305726EE4A0000231A8A /* GameConfigOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfigOverView.swift; sourceTree = "<group>"; };
 		C5887E6C26E4F26100AD13F9 /* PlayScoreboardMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayScoreboardMainView.swift; sourceTree = "<group>"; };
 		C5887E6E26E529A300AD13F9 /* ApplicationDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDesign.swift; sourceTree = "<group>"; };
 		C5887E7026E6B23400AD13F9 /* InnerShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerShadow.swift; sourceTree = "<group>"; };
@@ -117,6 +125,8 @@
 		C5A9FED126E25221006BBB69 /* ApplicationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModel.swift; sourceTree = "<group>"; };
 		C5A9FED426E26F29006BBB69 /* ExistingScoreboardWizard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistingScoreboardWizard.swift; sourceTree = "<group>"; };
 		C5A9FED626E26F37006BBB69 /* ScoreboardRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardRowView.swift; sourceTree = "<group>"; };
+		C5C0026F26EE56FC00F23F7D /* PlayerPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPointView.swift; sourceTree = "<group>"; };
+		C5C0027126EE5BF200F23F7D /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		C5EBCF8126DBC61E003B2630 /* DEScoreboardsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEScoreboardsListView.swift; sourceTree = "<group>"; };
 		C5EBCF8326DBD735003B2630 /* DEScoreboardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEScoreboardDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -260,6 +270,9 @@
 				C5A9FED126E25221006BBB69 /* ApplicationModel.swift */,
 				C5887E6E26E529A300AD13F9 /* ApplicationDesign.swift */,
 				C547B64026DCB25A00BCE904 /* SkatModel.swift */,
+				C51717C226EE4CD000FC0ACB /* PointModel.swift */,
+				C51717C426EE4F0500FC0ACB /* NameModel.swift */,
+				C5C0027126EE5BF200F23F7D /* Helper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,9 +284,10 @@
 				C547B64B26DD7CD700BCE904 /* ExitButtonView.swift */,
 				C547B65726DD8D4900BCE904 /* LinesList.swift */,
 				C5887E7026E6B23400AD13F9 /* InnerShadow.swift */,
-				C5887E7426E6B93200AD13F9 /* GameResultInput.swift */,
 				C5887E7626E6B98100AD13F9 /* ToggleButton.swift */,
 				C55E305226EB565800231A8A /* ButtonSection.swift */,
+				C5887E7426E6B93200AD13F9 /* GameResultInput.swift */,
+				C55E305726EE4A0000231A8A /* GameConfigOverView.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -294,6 +308,7 @@
 				C547B65926DE255600BCE904 /* PlayerCreationView.swift */,
 				C547B65326DD8BF300BCE904 /* PlayerIcon.swift */,
 				C547B65526DD8C3400BCE904 /* PlayerDisplay.swift */,
+				C5C0026F26EE56FC00F23F7D /* PlayerPointView.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -450,6 +465,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C55E305826EE4A0000231A8A /* GameConfigOverView.swift in Sources */,
 				C54181B426DBA32300E69BE5 /* DEPlayersListView.swift in Sources */,
 				C54181AF26DAEBB200E69BE5 /* PreviewContent.swift in Sources */,
 				C547B64F26DD88B400BCE904 /* NewScoreboardPointModelSelectionView.swift in Sources */,
@@ -465,6 +481,7 @@
 				C547B65126DD8B2800BCE904 /* NewScoreboardPlayerSelectionView.swift in Sources */,
 				C547B64726DD703400BCE904 /* SwitchedCombinationView.swift in Sources */,
 				C5887E7126E6B23500AD13F9 /* InnerShadow.swift in Sources */,
+				C5C0027026EE56FC00F23F7D /* PlayerPointView.swift in Sources */,
 				C5EBCF8426DBD735003B2630 /* DEScoreboardDetailView.swift in Sources */,
 				C5887E6F26E529A300AD13F9 /* ApplicationDesign.swift in Sources */,
 				C5A5D23126DBE697006D10B9 /* DEGameRowView.swift in Sources */,
@@ -474,8 +491,10 @@
 				C541818626DADEA700E69BE5 /* SkatScoreboard.xcdatamodeld in Sources */,
 				C5EBCF8226DBC61E003B2630 /* DEScoreboardsListView.swift in Sources */,
 				C547B64A26DD791B00BCE904 /* SkatButtonStyle.swift in Sources */,
+				C51717C326EE4CD000FC0ACB /* PointModel.swift in Sources */,
 				C5A5D23526DBE8B2006D10B9 /* DEGameDetailView.swift in Sources */,
 				C547B64326DD65CC00BCE904 /* MainMenuView.swift in Sources */,
+				C5C0027226EE5BF200F23F7D /* Helper.swift in Sources */,
 				C5A9FED226E25221006BBB69 /* ApplicationModel.swift in Sources */,
 				C547B65426DD8BF300BCE904 /* PlayerIcon.swift in Sources */,
 				C5A5D22B26DBE21F006D10B9 /* DEPlayerDetailView.swift in Sources */,
@@ -484,6 +503,7 @@
 				C547B65626DD8C3400BCE904 /* PlayerDisplay.swift in Sources */,
 				C5887E7726E6B98100AD13F9 /* ToggleButton.swift in Sources */,
 				C547B64126DCB25A00BCE904 /* SkatModel.swift in Sources */,
+				C51717C526EE4F0500FC0ACB /* NameModel.swift in Sources */,
 				C547B64C26DD7CD700BCE904 /* ExitButtonView.swift in Sources */,
 				C541817A26DADEA500E69BE5 /* SkatScoreboardApp.swift in Sources */,
 				C510E34B26DE4A4B004D4A53 /* PersistanceExtensions.swift in Sources */,
