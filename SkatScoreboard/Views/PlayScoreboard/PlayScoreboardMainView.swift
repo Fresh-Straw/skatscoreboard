@@ -62,7 +62,10 @@ struct PlayScoreboardMainView: View {
                 
                 Text("Gib das Ergebnis für das nächste Spiel an:")
                 
-                nextGameInput(width: region.size.width)
+                GeometryReader { geo in
+                    GameResultInput(overallHeight: geo.size.height, scoreboard: scoreboard, gameConfigurationCompletion: PassthroughSubject<Game, Never>())
+                }
+                //nextGameInput(width: region.size.width)
             }
         }
         

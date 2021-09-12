@@ -80,5 +80,15 @@ extension Scoreboard {
         let giverIndex = numberOfGames / (playersRaw?.count ?? 3)
         return playersSorted[giverIndex]
     }
+    
+    
+    var possiblePlayers: [Player] {
+        let players = playersSorted
+        if players.count == 3 {
+            return players
+        }
+        let giver = giver
+        return players.filter { $0 != giver }
+    }
 }
 

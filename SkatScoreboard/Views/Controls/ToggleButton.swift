@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ToggleButton: View {
     var title: LocalizedStringKey
-    var binding: Binding<Bool>
-    var onAction: () -> Void
+    private var binding: Binding<Bool>
+    private var onAction: () -> Void
         
     init(title: LocalizedStringKey, binding: Binding<Bool>, onAction: @escaping () -> Void = {}) {
         self.title = title
@@ -24,11 +24,11 @@ struct ToggleButton: View {
         self.onAction = onAction
     }
     
-//    init<T: Equatable>(title: LocalizedStringKey, binding: Binding<T>, matching: @escaping () -> T, selection: @escaping () -> (),  onAction: @escaping () -> Void = {}) {
-//        self.title = title
-//        self.binding = Binding(get: {binding.wrappedValue == matching()}, set: { if $0 {binding.wrappedValue = matching()} })
-//        self.onAction = onAction
-//    }
+    init<T: Equatable>(title: LocalizedStringKey, binding: Binding<T>, matching: @escaping () -> T, selection: @escaping (Bool) -> (),  onAction: @escaping () -> Void = {}) {
+        self.title = title
+        self.binding = Binding(get: {binding.wrappedValue == matching()}, set: selection)
+        self.onAction = onAction
+    }
 
     var body: some View {
         ZStack {
@@ -41,7 +41,6 @@ struct ToggleButton: View {
         }
         .contentShape(Rectangle())
         .onTapGesture {
-            
             binding.wrappedValue.toggle()
             onAction()
         }
