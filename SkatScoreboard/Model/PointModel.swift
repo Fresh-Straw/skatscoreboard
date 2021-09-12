@@ -21,7 +21,7 @@ class PointModelCalculator {
         }
     }
     
-    func computePoints(for game: Game, players: [Player]) -> [Player:Int] {
+    func computePoints(for game: Game, players: [Player]) -> ScoreboardPoints {
         fatalError("Sub class did not overwrite 'computePoints'.")
     }
     
@@ -54,18 +54,36 @@ class PointModelCalculator {
     }
 }
 
+struct ScoreboardPoints {
+    var points: [Player:Int]
+    
+    init(points: [Player:Int]) {
+        self.points = points
+    }
+    
+    init(players: [Player]) {
+        self.points = players.reduce(into: [Player:Int]()) {
+            $0[$1] = 0
+        }
+    }
+    
+    func add(_ other: ScoreboardPoints) {
+        _ = points.keys.reduce(into: points) {
+            $0[$1] = (points[$1] ?? 0) + (other.points[$1] ?? 0)
+        }
+    }
+}
+
 fileprivate class LeipzigerSkatPointModelCalculator: PointModelCalculator {
     override var type: PointModel { .leipzigerSkat }
     
-    private func fill(points playerPoints: Int, forPlayer gamePlayer: Player, andForTheOthers otherPoints: Int, players: [Player]) -> [Player:Int] {
-        return players.reduce([Player:Int](), { (dict,player) in
-            var dict  = dict
-            dict[player] = player == gamePlayer ? playerPoints : otherPoints
-            return dict
+    private func fill(points playerPoints: Int, forPlayer gamePlayer: Player, andForTheOthers otherPoints: Int, players: [Player]) -> ScoreboardPoints {
+        return ScoreboardPoints(points: players.reduce(into: [Player:Int]()) {
+            $0[$1] = $1 == gamePlayer ? playerPoints : otherPoints
         })
     }
     
-    override func computePoints(for game: Game, players: [Player]) -> [Player:Int] {
+    override func computePoints(for game: Game, players: [Player]) -> ScoreboardPoints {
         // TODO Null-Ouver-Hand nur 59 !!!
         // https://www.parlettgames.uk/skat/skatvary.html#top
         

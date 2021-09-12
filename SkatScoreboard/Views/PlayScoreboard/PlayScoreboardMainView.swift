@@ -19,9 +19,9 @@ struct PlayScoreboardMainView: View {
     @State private var showCloseScoreAlert = false
     @State private var showGameInputSlideOver = false
     
-    private let gameConfigurationCreation = PassthroughSubject<GameConfiguration, Never>()
-    @ObservedObject private var gameConfig = GameConfiguration()
-    @State private var latestGameConfig: GameConfiguration? = nil
+    private let gameConfigurationCreation = PassthroughSubject<GameConfig, Never>()
+    @State private var gameConfig = GameConfig()
+    @State private var latestGameConfig: GameConfig? = nil
     
     var body: some View {
         ZStack {
@@ -54,6 +54,7 @@ struct PlayScoreboardMainView: View {
                         Button(action: {
                             showGameInputSlideOver = false
                             let game = createGame(viewContext, in: scoreboard, gameConfig: gameConfig)
+                            PersistenceController.shared.save()
                         }, label: {
                             Text("Speichern")
                         })
@@ -110,7 +111,7 @@ struct PlayScoreboardMainView: View {
             let points = scoreboard.computePoints()
 
             ForEach(players) { player in
-                PlayerPointView(player: player, points: points[player] ?? 0, giver: player == giver)
+                PlayerPointView(player: player, points: points.points[player] ?? 0, giver: player == giver)
             }
         }
     }

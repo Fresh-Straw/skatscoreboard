@@ -14,7 +14,7 @@
         <attribute name="schwarzAnnounced" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="typeString" optional="YES" attributeType="String"/>
         <attribute name="won" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <relationship name="partOf" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Scoreboard" inverseName="games" inverseEntity="Scoreboard"/>
+        <relationship name="partOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Scoreboard" inverseName="games" inverseEntity="Scoreboard"/>
         <relationship name="playedBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="playedGames" inverseEntity="Player"/>
     </entity>
     <entity name="Player" representedClassName="Player" syncable="YES" codeGenerationType="class">

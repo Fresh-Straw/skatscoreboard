@@ -16,27 +16,14 @@ struct GameResultInput: View {
     
     var overallHeight: CGFloat = 70 * 8.5
     
-    @ObservedObject var gameConfig: GameConfiguration
-//    @State private var gameType: GameType?
-//    @State private var jacks: Int?
-//    @State private var hand: Bool = false
-//    @State private var ouvert: Bool = false
-//    @State private var schneider: Bool = false
-//    @State private var schneiderAnnounced: Bool = false
-//    @State private var schwarz: Bool = false
-//    @State private var schwarzAnnounced: Bool = false
-//    @State private var contra: Bool = false
-//    @State private var re: Bool = false
-//    @State private var bock: Bool = false
-//    @State private var win: Bool?
-//    @State private var player: Player?
+    @State var gameConfig: GameConfig
     
     @State private var customJacks: Int = 0
     @State private var showJacksSelection = false
 
     var scoreboard: Scoreboard
     
-    var gameConfigurationCompletion: PassthroughSubject<GameConfiguration, Never>
+    var gameConfigurationCompletion: PassthroughSubject<GameConfig, Never>
     
     private var rowHeight: CGFloat {
         overallHeight / 10
@@ -268,7 +255,7 @@ struct GameResultInput: View {
 
 struct GameResultInput_Previews: PreviewProvider {
     static var previews: some View {
-        GameResultInput(gameConfig: GameConfiguration(), scoreboard: PersistenceController.preview.getAScoreboard_preview(), gameConfigurationCompletion: PassthroughSubject<GameConfiguration, Never>())
+        GameResultInput(gameConfig: GameConfig(), scoreboard: PersistenceController.preview.getAScoreboard_preview(), gameConfigurationCompletion: PassthroughSubject<GameConfig, Never>())
 //        GameResultInput(scoreboard: PersistenceController.preview.getAScoreboard_preview(), gameConfigurationCompletion: PassthroughSubject<Game, Never>())
     }
 }

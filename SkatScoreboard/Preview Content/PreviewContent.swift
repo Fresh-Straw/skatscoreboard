@@ -86,8 +86,8 @@ extension PersistenceController {
         list(items: "Player")
     }
     
-    var gameConfig : GameConfiguration {
-        let config = GameConfiguration()
+    var gameConfig : GameConfig {
+        var config = GameConfig()
         config.bock = Bool.random()
         config.re = Bool.random()
         config.contra = Bool.random()

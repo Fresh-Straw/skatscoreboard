@@ -44,7 +44,7 @@ func createScoreboard(_ context: NSManagedObjectContext, pointModel: PointModel,
     return scoreboard
 }
 
-func createGame(_ context: NSManagedObjectContext, in scoreboard: Scoreboard, gameConfig: GameConfiguration) -> Game {
+func createGame(_ context: NSManagedObjectContext, in scoreboard: Scoreboard, gameConfig: GameConfig) -> Game {
     let game = Game(context: context)
     game.partOf = scoreboard
     game.playedBy = gameConfig.player

@@ -31,7 +31,7 @@ struct ScoreboardRowView: View {
             
             HStack {
                 let points = scoreboard.computePoints()
-                let pointsText = points
+                let pointsText = points.points
                     .values
                     .map { String($0) }
                     .joined(separator: ", ")

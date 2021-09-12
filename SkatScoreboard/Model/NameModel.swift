@@ -22,9 +22,9 @@ class NameModel {
     func getNameAsString(for game: Gamish) -> String {
         fatalError("Implement getNameAsString(for:)")
     }
-    func getNameAsString(for gameConfig: GameConfiguration) -> String {
-        fatalError("Implement getNameAsString(for:)")
-    }
+//    func getNameAsString(for gameConfig: GameConfiguration) -> String {
+//        fatalError("Implement getNameAsString(for:)")
+//    }
     
     func getName(for gameType: GameType) -> LocalizedStringKey {
         fatalError("Implement getName(for:)")
@@ -36,9 +36,9 @@ class GermanDefaultNameModel : NameModel {
         "\(getSimpleName(for: game.type)) \(getAddition(ouvert: game.ouvert, hand: game.hand))"
     }
     
-    override func getNameAsString(for gameConfig: GameConfiguration) -> String {
-        "\(getSimpleName(for: gameConfig.gameType ?? .null)) \(getAddition(ouvert: gameConfig.ouvert, hand: gameConfig.hand))"
-    }
+//    override func getNameAsString(for gameConfig: GameConfiguration) -> String {
+//        "\(getSimpleName(for: gameConfig.gameType ?? .null)) \(getAddition(ouvert: gameConfig.ouvert, hand: gameConfig.hand))"
+//    }
     
     override func getName(for gameType: GameType) -> LocalizedStringKey {
         LocalizedStringKey(getSimpleName(for: gameType))

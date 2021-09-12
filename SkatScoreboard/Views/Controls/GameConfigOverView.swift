@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct GameConfigOverView : View {
-    @ObservedObject var gameConfig: GameConfiguration
+    var gameConfig: Gamish
     
     var body : some View {
         VStack(alignment: .leading) {
@@ -21,14 +21,14 @@ struct GameConfigOverView : View {
                 
                 Text("Spieler:")
                     .padding(.top)
-                Text(gameConfig.player!.name ?? "Spielername")
+                Text(gameConfig.playerOfGame.name ?? "Spielername")
                     .bold()
                     .padding(.leading)
                 
                 Text("Spiel:")
                     .padding(.top)
                 HStack(spacing: 3) {
-                    Text(gameConfig.gameType!.displayName)
+                    Text(gameConfig.type.displayName)
                         .bold()
                     if gameConfig.hand {
                         Text("Hand")
@@ -55,7 +55,7 @@ struct GameConfigOverView : View {
             }
         }
         .frame(maxWidth: .infinity)
-        .padding()
+        .padding(2)
     }
 }
 
