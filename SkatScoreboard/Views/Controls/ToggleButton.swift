@@ -37,7 +37,7 @@ struct ToggleButton: View {
             bgColor
             
             Text(title)
-                .foregroundColor(bgColor.textColor)
+                .foregroundColor(Color.toggleButtonFont)
         }
         .contentShape(Rectangle())
         .onTapGesture {
@@ -55,7 +55,9 @@ struct ToggleButton_Previews: PreviewProvider {
             .previewLayout(.fixed(width: 100, height: 100))
         ToggleButton(title: "grand", binding: .constant(GameType.grand), match: .grand)
             .previewLayout(.fixed(width: 100, height: 100))
+            .preferredColorScheme(.dark)
         ToggleButton(title: "grand", binding: .constant(GameType.grand), match: .null)
             .previewLayout(.fixed(width: 100, height: 100))
+            .preferredColorScheme(.dark)
     }
 }
