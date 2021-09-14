@@ -68,7 +68,6 @@ struct ScoreboardPoints {
     }
     
     init(player: Player, points: Int) {
-        print(player, points)
         self.points = [player: points]
     }
     

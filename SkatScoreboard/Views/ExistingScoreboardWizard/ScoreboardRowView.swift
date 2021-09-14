@@ -23,8 +23,8 @@ struct ScoreboardRowView: View {
     
     private var foreground: some View {
         VStack(alignment: .leading, spacing: 10) {
-            let title = scoreboard
-                .playersSorted
+            let players = scoreboard.playersSorted
+            let title = players
                 .map { $0.name }
                 .filter { $0 != nil }
                 .map { $0! }
@@ -38,8 +38,8 @@ struct ScoreboardRowView: View {
             
             HStack {
                 let points = scoreboard.computePoints()
-                let pointsText = points.points
-                    .values
+                let pointsText = players
+                    .map { points.points[$0] ?? 0 }
                     .map { String($0) }
                     .joined(separator: ", ")
                 Text("Punkte: \(pointsText)")
