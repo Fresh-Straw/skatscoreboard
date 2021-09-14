@@ -14,6 +14,13 @@ struct ScoreboardRowView: View {
     
     private var darkMode: Bool { colorScheme == .dark }
     
+    var body: some View {
+        ZStack(alignment:.topLeading) {
+            background
+            foreground
+        }
+    }
+    
     private var foreground: some View {
         VStack(alignment: .leading, spacing: 10) {
             let title = scoreboard
@@ -96,13 +103,6 @@ struct ScoreboardRowView: View {
                 .background(Color.yellow)
         }
         .padding()
-    }
-    
-    var body: some View {
-        ZStack(alignment:.topLeading) {
-            background
-            foreground
-        }
     }
 }
 

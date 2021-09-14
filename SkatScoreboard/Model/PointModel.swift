@@ -67,9 +67,16 @@ struct ScoreboardPoints {
         }
     }
     
-    func add(_ other: ScoreboardPoints) {
-        _ = points.keys.reduce(into: points) {
-            $0[$1] = (points[$1] ?? 0) + (other.points[$1] ?? 0)
+    init(player: Player, points: Int) {
+        print(player, points)
+        self.points = [player: points]
+    }
+    
+    mutating func add(_ other: ScoreboardPoints) {
+        points = points.keys.reduce(into: points) { (dict, player) in
+            let thisPoints: Int = points[player] ?? 0
+            let thatPoints: Int = other.points[player] ?? 0
+            dict[player] = thisPoints + thatPoints
         }
     }
 }
@@ -114,7 +121,11 @@ fileprivate class LeipzigerSkatPointModelCalculator: PointModelCalculator {
             factor *= -2
         }
         let points: Int = (factor * base) * (2 ^^ numberOfAnnouncements(in: game))
-        return fill(points: points, forPlayer: game.playedBy!, andForTheOthers: 0, players: players)
+        
+        //return fill(points: points, forPlayer: game.playedBy!, andForTheOthers: 0, players: players)
+        var out = ScoreboardPoints.init(players: players)
+        out.add(ScoreboardPoints(player: game.playedBy!, points: points))
+        return out
     }
     
     override func generateComputationSteps(for game: Gamish) -> [PointComputationStep] {

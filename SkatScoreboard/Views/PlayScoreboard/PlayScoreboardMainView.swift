@@ -14,7 +14,7 @@ struct PlayScoreboardMainView: View {
     
     let applicationState: CurrentValueSubject<ApplicationState, Never>
     
-    let scoreboard: Scoreboard
+    @ObservedObject var scoreboard: Scoreboard
     
     @State private var showCloseScoreAlert = false
     @State private var showGameInputSlideOver = false

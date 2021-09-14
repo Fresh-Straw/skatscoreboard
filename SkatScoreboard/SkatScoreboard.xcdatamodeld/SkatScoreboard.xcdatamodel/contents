@@ -22,7 +22,7 @@
         <attribute name="iconColorString" optional="YES" attributeType="String"/>
         <attribute name="iconName" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="playedGames" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="playedBy" inverseEntity="Game"/>
+        <relationship name="playedGames" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Game" inverseName="playedBy" inverseEntity="Game"/>
         <relationship name="tookPartIn" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerInScoreboard" inverseName="player" inverseEntity="PlayerInScoreboard"/>
     </entity>
     <entity name="PlayerInScoreboard" representedClassName="PlayerInScoreboard" syncable="YES" codeGenerationType="class">
